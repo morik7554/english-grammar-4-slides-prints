@@ -63,6 +63,13 @@
     }
 
 
+    .print-help {
+      color: #4b5563;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
     h1,
     h2,
     h3 {
@@ -264,6 +271,7 @@
     }
 
     .answer-slide {
+      --answer-fit: 1;
       overflow: hidden;
       border: 1px solid #5d6670;
       background: #fff;
@@ -275,7 +283,7 @@
       gap: 5px;
       margin: 0;
       padding-left: 1.35em;
-      font-size: 13px;
+      font-size: calc(13px * var(--answer-fit));
     }
 
     .answer-list li {
@@ -287,10 +295,11 @@
       font-weight: 800;
     }
 
+    .answer-list li > span,
     .mini-explain {
       display: block;
       color: #4b5563;
-      font-size: 12px;
+      font-size: calc(12px * var(--answer-fit));
       line-height: 1.35;
       margin-top: 1px;
     }
@@ -300,16 +309,16 @@
       background: #f6f7f8;
       padding: 5px 6px;
       margin-bottom: 7px;
-      font-size: 12px;
+      font-size: calc(12px * var(--answer-fit));
       font-weight: 700;
     }
 
     .answer-slide .slide-title {
-      font-size: 21px;
+      font-size: calc(21px * var(--answer-fit));
     }
 
     .answer-slide .slide-no {
-      font-size: 13px;
+      font-size: calc(13px * var(--answer-fit));
     }
 
     .answer-slide .slide-header {
@@ -385,15 +394,34 @@
 
       body {
         background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body,
+      .screen {
+        width: 281mm;
+        height: 194mm;
+        min-height: 0 !important;
+        overflow: hidden;
       }
 
       .screen {
         padding: 0;
       }
 
+      .print-button,
+      .site-header,
+      .breadcrumb,
+      .nav,
+      .back-link,
+      .no-print,
       .topbar,
+      .answer-sheet,
+      .print-page-title,
       .layout-notes {
-        display: none;
+        display: none !important;
       }
 
       .sheet {
@@ -533,11 +561,11 @@
       }
 
       .answer-slide .slide-title {
-        font-size: 11.7pt;
+        font-size: calc(11.7pt * var(--answer-fit));
       }
 
       .answer-slide .slide-no {
-        font-size: 8.4pt;
+        font-size: calc(8.4pt * var(--answer-fit));
       }
 
       .answer-slide .slide-header {
@@ -548,53 +576,58 @@
       .answer-note {
         padding: 2px 3px;
         margin-bottom: 3px;
-        font-size: 7.6pt;
+        font-size: calc(7.6pt * var(--answer-fit));
       }
 
       .answer-list {
         gap: 1px;
-        font-size: 7.8pt;
+        font-size: calc(7.8pt * var(--answer-fit));
       }
 
       .answer-list li {
         padding-bottom: 2px;
       }
 
+      .answer-list li > span,
       .mini-explain {
-        font-size: 6.9pt;
+        font-size: calc(6.9pt * var(--answer-fit));
         line-height: 1.16;
       }
     }
-  </style></head><body><main class="screen"><section class="topbar"><div><h1>中3 英語 定期テスト前確認プリント：call / make + A + B</h1><div class="meta">対象学年：中3　文法事項：call / make + A + B</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button type="button" onclick="window.print()">A4横 4分割で印刷</button></div></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：call / make + A + B</div><div class="summary-grid"><div class="box"><strong>形</strong><br>call A B / make A B</div><div class="box"><strong>意味</strong><br>「AをBと呼ぶ」「AをBにする」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>call him Tom：彼をトムと呼ぶ</li><li>make me happy：私を幸せにする</li><li>make A 動詞の原形：Aに〜させる</li><li>A と B を続けて置く</li></ul><div class="label">注意点</div><div class="note">call も make も後ろの語順が大切。<br>× We call him to Tom.<br>○ We call him Tom.</div><div class="label">例文</div><ul class="examples"><li>We call him Tom.</li><li>This song makes me happy.</li><li>The story made me smile.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>We call him ___.<ul class="choices"><li>ア Tom</li><li>イ to Tom</li><li>ウ is Tom</li><li>エ as Tom</li></ul></li><li>This song makes me ___.<ul class="choices"><li>ア happy</li><li>イ happily</li><li>ウ to happy</li><li>エ am happy</li></ul></li><li>They call the dog ___.<ul class="choices"><li>ア Pochi</li><li>イ to Pochi</li><li>ウ as Pochi</li><li>エ is Pochi</li></ul></li><li>The news made us ___.<ul class="choices"><li>ア surprise</li><li>イ surprised</li><li>ウ to surprised</li><li>エ surprises</li></ul></li><li>Please call me ___.<ul class="choices"><li>ア Yuki</li><li>イ to Yuki</li><li>ウ as Yuki</li><li>エ am Yuki</li></ul></li><li>This story makes children ___.<ul class="choices"><li>ア smile</li><li>イ to smile</li><li>ウ smiling</li><li>エ smiled</li></ul></li><li>We call this flower ___.<ul class="choices"><li>ア sakura</li><li>イ to sakura</li><li>ウ as sakura</li><li>エ is sakura</li></ul></li><li>The game made him ___.<ul class="choices"><li>ア excited</li><li>イ exciting</li><li>ウ to excite</li><li>エ excite</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：call / make / made / me / him / us / happy / Tom / smile</div><ol class="questions"><li>私たちは彼をトムと呼びます。<br>We call ____ ____.</li><li>この歌は私を幸せにします。<br>This song makes ____ ____.</li><li>彼らはその犬をポチと呼びます。<br>They call the dog ____.</li><li>その知らせは私たちを驚かせました。<br>The news made ____ ____.</li><li>私をユキと呼んでください。<br>Please call ____ ____.</li><li>この物語は子どもたちを笑顔にします。<br>This story makes children ____.</li><li>私たちはこの花をサクラと呼びます。<br>We call this flower ____.</li><li>その試合は彼をわくわくさせました。<br>The game made ____ ____.</li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions"><li>【 call / we / him / Tom 】<span class="jp-translation">私たちは彼をトムと呼びます。</span><span class="answer-line"></span></li><li>【 this song / me / makes / happy 】<span class="jp-translation">この歌は私を幸せにします。</span><span class="answer-line"></span></li><li>【 call / they / the dog / Pochi 】<span class="jp-translation">彼らはその犬をポチと呼びます。</span><span class="answer-line"></span></li><li>【 made / the news / us / surprised 】<span class="jp-translation">その知らせは私たちを驚かせました。</span><span class="answer-line"></span></li></ol><div class="label">和文英訳</div><ol class="questions"><li>私たちは彼女をユミと呼びます。<span class="hint">ヒント：call / Yumi</span><span class="answer-line long-line"></span></li><li>その映画は私を悲しくしました。<span class="hint">ヒント：made / sad</span><span class="answer-line long-line"></span></li><li>このニュースは彼らを幸せにしました。<span class="hint">ヒント：news / happy</span><span class="answer-line long-line"></span></li></ol></article></section><h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚"><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Answer 1</span></div><div class="answer-note">ポイント：call A B と make A B の語順を選ぶ。</div><ol class="answer-list"><li><strong>ア Tom</strong><span class="mini-explain">call A B。</span></li><li><strong>ア happy</strong><span class="mini-explain">make A 形容詞。</span></li><li><strong>ア Pochi</strong><span class="mini-explain">call A B。</span></li><li><strong>イ surprised</strong><span class="mini-explain">make us surprised。</span></li><li><strong>ア Yuki</strong><span class="mini-explain">call me Yuki。</span></li><li><strong>ア smile</strong><span class="mini-explain">make A 動詞の原形。</span></li><li><strong>ア sakura</strong><span class="mini-explain">call A B。</span></li><li><strong>ア excited</strong><span class="mini-explain">make him excited。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Answer 2</span></div><div class="answer-note">ポイント：A に入る人、B に入る名前・形容詞・動詞を確認する。</div><ol class="answer-list"><li><strong>him Tom</strong><span class="mini-explain">call A B。</span></li><li><strong>me happy</strong><span class="mini-explain">make A B。</span></li><li><strong>Pochi</strong><span class="mini-explain">call the dog Pochi。</span></li><li><strong>us surprised</strong><span class="mini-explain">made us surprised。</span></li><li><strong>me Yuki</strong><span class="mini-explain">call me Yuki。</span></li><li><strong>smile</strong><span class="mini-explain">make A 動詞の原形。</span></li><li><strong>sakura</strong><span class="mini-explain">call this flower sakura。</span></li><li><strong>him excited</strong><span class="mini-explain">made him excited。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：日本語に引っぱられず、A と B を続ける。</div><ol class="answer-list"><li><strong>We call him Tom.</strong><span class="mini-explain">call him Tom。</span></li><li><strong>This song makes me happy.</strong><span class="mini-explain">makes me happy。</span></li><li><strong>They call the dog Pochi.</strong><span class="mini-explain">call the dog Pochi。</span></li><li><strong>The news made us surprised.</strong><span class="mini-explain">made us surprised。</span></li><li><strong>We call her Yumi.</strong><span class="mini-explain">call her Yumi。</span></li><li><strong>The movie made me sad.</strong><span class="mini-explain">made me sad。</span></li><li><strong>This news made them happy.</strong><span class="mini-explain">made them happy。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">人の呼び方や気持ちを表すときに使える表現。</div><ol class="answer-list"><li><strong>Call me Ken.</strong><span class="mini-explain">ケンと呼んでください。</span></li><li><strong>This song makes me happy.</strong><span class="mini-explain">この歌は私を幸せにします。</span></li><li><strong>We call it sakura.</strong><span class="mini-explain">私たちはそれをサクラと呼びます。</span></li><li><strong>The story made me sad.</strong><span class="mini-explain">その物語は私を悲しくしました。</span></li><li><strong>His words made us excited.</strong><span class="mini-explain">彼の言葉は私たちをわくわくさせました。</span></li><li><strong>They call their dog Pochi.</strong><span class="mini-explain">彼らは犬をポチと呼びます。</span></li><li><strong>The game made him tired.</strong><span class="mini-explain">その試合は彼を疲れさせました。</span></li><li><strong>Please call her Yumi.</strong><span class="mini-explain">彼女をユミと呼んでください。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>call A B / make A B を中心にしています。</li></ul></section></main><script>
+  </style></head><body><main class="screen"><section class="topbar no-print"><div><h1>中3 英語 定期テスト前確認プリント：call / make + A + B</h1><div class="meta">対象学年：中3　文法事項：call / make + A + B</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">印刷画面で「PDFに保存」または「印刷」を選んでください。</span></div></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：call / make + A + B</div><div class="summary-grid"><div class="box"><strong>形</strong><br>call A B / make A B</div><div class="box"><strong>意味</strong><br>「AをBと呼ぶ」「AをBにする」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>call him Tom：彼をトムと呼ぶ</li><li>make me happy：私を幸せにする</li><li>make A 動詞の原形：Aに〜させる</li><li>A と B を続けて置く</li></ul><div class="label">注意点</div><div class="note">call も make も後ろの語順が大切。<br>× We call him to Tom.<br>○ We call him Tom.</div><div class="label">例文</div><ul class="examples"><li>We call him Tom.</li><li>This song makes me happy.</li><li>The story made me smile.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>We call him ___.<ul class="choices"><li>ア Tom</li><li>イ to Tom</li><li>ウ is Tom</li><li>エ as Tom</li></ul></li><li>This song makes me ___.<ul class="choices"><li>ア happy</li><li>イ happily</li><li>ウ to happy</li><li>エ am happy</li></ul></li><li>They call the dog ___.<ul class="choices"><li>ア Pochi</li><li>イ to Pochi</li><li>ウ as Pochi</li><li>エ is Pochi</li></ul></li><li>The news made us ___.<ul class="choices"><li>ア surprise</li><li>イ surprised</li><li>ウ to surprised</li><li>エ surprises</li></ul></li><li>Please call me ___.<ul class="choices"><li>ア Yuki</li><li>イ to Yuki</li><li>ウ as Yuki</li><li>エ am Yuki</li></ul></li><li>This story makes children ___.<ul class="choices"><li>ア smile</li><li>イ to smile</li><li>ウ smiling</li><li>エ smiled</li></ul></li><li>We call this flower ___.<ul class="choices"><li>ア sakura</li><li>イ to sakura</li><li>ウ as sakura</li><li>エ is sakura</li></ul></li><li>The game made him ___.<ul class="choices"><li>ア excited</li><li>イ exciting</li><li>ウ to excite</li><li>エ excite</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：call / make / made / me / him / us / happy / Tom / smile</div><ol class="questions"><li>私たちは彼をトムと呼びます。<br>We call ____ ____.</li><li>この歌は私を幸せにします。<br>This song makes ____ ____.</li><li>彼らはその犬をポチと呼びます。<br>They call the dog ____.</li><li>その知らせは私たちを驚かせました。<br>The news made ____ ____.</li><li>私をユキと呼んでください。<br>Please call ____ ____.</li><li>この物語は子どもたちを笑顔にします。<br>This story makes children ____.</li><li>私たちはこの花をサクラと呼びます。<br>We call this flower ____.</li><li>その試合は彼をわくわくさせました。<br>The game made ____ ____.</li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions"><li>【 call / we / him / Tom 】<span class="jp-translation">私たちは彼をトムと呼びます。</span><span class="answer-line"></span></li><li>【 this song / me / makes / happy 】<span class="jp-translation">この歌は私を幸せにします。</span><span class="answer-line"></span></li><li>【 call / they / the dog / Pochi 】<span class="jp-translation">彼らはその犬をポチと呼びます。</span><span class="answer-line"></span></li><li>【 made / the news / us / surprised 】<span class="jp-translation">その知らせは私たちを驚かせました。</span><span class="answer-line"></span></li></ol><div class="label">和文英訳</div><ol class="questions"><li>私たちは彼女をユミと呼びます。<span class="hint">ヒント：call / Yumi</span><span class="answer-line long-line"></span></li><li>その映画は私を悲しくしました。<span class="hint">ヒント：made / sad</span><span class="answer-line long-line"></span></li><li>このニュースは彼らを幸せにしました。<span class="hint">ヒント：news / happy</span><span class="answer-line long-line"></span></li></ol></article></section><h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚"><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Answer 1</span></div><div class="answer-note">ポイント：call A B と make A B の語順を選ぶ。</div><ol class="answer-list"><li><strong>ア Tom</strong><span class="mini-explain">call A B。</span></li><li><strong>ア happy</strong><span class="mini-explain">make A 形容詞。</span></li><li><strong>ア Pochi</strong><span class="mini-explain">call A B。</span></li><li><strong>イ surprised</strong><span class="mini-explain">make us surprised。</span></li><li><strong>ア Yuki</strong><span class="mini-explain">call me Yuki。</span></li><li><strong>ア smile</strong><span class="mini-explain">make A 動詞の原形。</span></li><li><strong>ア sakura</strong><span class="mini-explain">call A B。</span></li><li><strong>ア excited</strong><span class="mini-explain">make him excited。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Answer 2</span></div><div class="answer-note">ポイント：A に入る人、B に入る名前・形容詞・動詞を確認する。</div><ol class="answer-list"><li><strong>him Tom</strong><span class="mini-explain">call A B。</span></li><li><strong>me happy</strong><span class="mini-explain">make A B。</span></li><li><strong>Pochi</strong><span class="mini-explain">call the dog Pochi。</span></li><li><strong>us surprised</strong><span class="mini-explain">made us surprised。</span></li><li><strong>me Yuki</strong><span class="mini-explain">call me Yuki。</span></li><li><strong>smile</strong><span class="mini-explain">make A 動詞の原形。</span></li><li><strong>sakura</strong><span class="mini-explain">call this flower sakura。</span></li><li><strong>him excited</strong><span class="mini-explain">made him excited。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：日本語に引っぱられず、A と B を続ける。</div><ol class="answer-list"><li><strong>We call him Tom.</strong><span class="mini-explain">call him Tom。</span></li><li><strong>This song makes me happy.</strong><span class="mini-explain">makes me happy。</span></li><li><strong>They call the dog Pochi.</strong><span class="mini-explain">call the dog Pochi。</span></li><li><strong>The news made us surprised.</strong><span class="mini-explain">made us surprised。</span></li><li><strong>We call her Yumi.</strong><span class="mini-explain">call her Yumi。</span></li><li><strong>The movie made me sad.</strong><span class="mini-explain">made me sad。</span></li><li><strong>This news made them happy.</strong><span class="mini-explain">made them happy。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">人の呼び方や気持ちを表すときに使える表現。</div><ol class="answer-list"><li><strong>Call me Ken.</strong><span class="mini-explain">ケンと呼んでください。</span></li><li><strong>This song makes me happy.</strong><span class="mini-explain">この歌は私を幸せにします。</span></li><li><strong>We call it sakura.</strong><span class="mini-explain">私たちはそれをサクラと呼びます。</span></li><li><strong>The story made me sad.</strong><span class="mini-explain">その物語は私を悲しくしました。</span></li><li><strong>His words made us excited.</strong><span class="mini-explain">彼の言葉は私たちをわくわくさせました。</span></li><li><strong>They call their dog Pochi.</strong><span class="mini-explain">彼らは犬をポチと呼びます。</span></li><li><strong>The game made him tired.</strong><span class="mini-explain">その試合は彼を疲れさせました。</span></li><li><strong>Please call her Yumi.</strong><span class="mini-explain">彼女をユミと呼んでください。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>call A B / make A B を中心にしています。</li></ul></section></main><script>
     function slideOverflows(slide) {
       return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
     }
 
-    function fitSlideText(options = {}) {
-      const isPrintFit = options.print || window.matchMedia("print").matches;
-      const slides = document.querySelectorAll(".slide");
-      slides.forEach((slide) => {
-        let low = 0.56;
-        let high = isPrintFit ? 2.05 : 1.55;
-        let best = low;
+    function fitOneSlide(slide, propertyName, low, high) {
+      let best = low;
 
-        slide.style.setProperty("--fit", high.toFixed(3));
-        if (!slideOverflows(slide)) {
-          best = high;
-        } else {
-          for (let i = 0; i < 12; i += 1) {
-            const mid = (low + high) / 2;
-            slide.style.setProperty("--fit", mid.toFixed(3));
-            if (slideOverflows(slide)) {
-              high = mid;
-            } else {
-              best = mid;
-              low = mid;
-            }
+      slide.style.setProperty(propertyName, high.toFixed(3));
+      if (!slideOverflows(slide)) {
+        best = high;
+      } else {
+        for (let i = 0; i < 12; i += 1) {
+          const mid = (low + high) / 2;
+          slide.style.setProperty(propertyName, mid.toFixed(3));
+          if (slideOverflows(slide)) {
+            high = mid;
+          } else {
+            best = mid;
+            low = mid;
           }
         }
+      }
 
-        slide.style.setProperty("--fit", best.toFixed(3));
+      slide.style.setProperty(propertyName, best.toFixed(3));
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      document.querySelectorAll(".slide").forEach((slide) => {
+        fitOneSlide(slide, "--fit", 0.56, isPrintFit ? 2.05 : 1.55);
+      });
+      document.querySelectorAll(".answer-slide").forEach((slide) => {
+        fitOneSlide(slide, "--answer-fit", 0.46, 1);
       });
     }
 
@@ -605,9 +638,11 @@
     }
 
     function fitForPrint() {
-      document.querySelectorAll(".slide").forEach((slide) => {
+      document.querySelectorAll(".slide, .answer-slide").forEach((slide) => {
         slide.style.removeProperty("--fit");
+        slide.style.removeProperty("--answer-fit");
       });
+      fitSlideText({ print: true });
     }
 
     window.addEventListener("load", fitSlideText);

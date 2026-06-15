@@ -63,6 +63,13 @@
     }
 
 
+    .print-help {
+      color: #4b5563;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
     h1,
     h2,
     h3 {
@@ -264,6 +271,7 @@
     }
 
     .answer-slide {
+      --answer-fit: 1;
       overflow: hidden;
       border: 1px solid #5d6670;
       background: #fff;
@@ -275,7 +283,7 @@
       gap: 5px;
       margin: 0;
       padding-left: 1.35em;
-      font-size: 13px;
+      font-size: calc(13px * var(--answer-fit));
     }
 
     .answer-list li {
@@ -287,10 +295,11 @@
       font-weight: 800;
     }
 
+    .answer-list li > span,
     .mini-explain {
       display: block;
       color: #4b5563;
-      font-size: 12px;
+      font-size: calc(12px * var(--answer-fit));
       line-height: 1.35;
       margin-top: 1px;
     }
@@ -300,16 +309,16 @@
       background: #f6f7f8;
       padding: 5px 6px;
       margin-bottom: 7px;
-      font-size: 12px;
+      font-size: calc(12px * var(--answer-fit));
       font-weight: 700;
     }
 
     .answer-slide .slide-title {
-      font-size: 21px;
+      font-size: calc(21px * var(--answer-fit));
     }
 
     .answer-slide .slide-no {
-      font-size: 13px;
+      font-size: calc(13px * var(--answer-fit));
     }
 
     .answer-slide .slide-header {
@@ -385,15 +394,34 @@
 
       body {
         background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body,
+      .screen {
+        width: 281mm;
+        height: 194mm;
+        min-height: 0 !important;
+        overflow: hidden;
       }
 
       .screen {
         padding: 0;
       }
 
+      .print-button,
+      .site-header,
+      .breadcrumb,
+      .nav,
+      .back-link,
+      .no-print,
       .topbar,
+      .answer-sheet,
+      .print-page-title,
       .layout-notes {
-        display: none;
+        display: none !important;
       }
 
       .sheet {
@@ -533,11 +561,11 @@
       }
 
       .answer-slide .slide-title {
-        font-size: 11.7pt;
+        font-size: calc(11.7pt * var(--answer-fit));
       }
 
       .answer-slide .slide-no {
-        font-size: 8.4pt;
+        font-size: calc(8.4pt * var(--answer-fit));
       }
 
       .answer-slide .slide-header {
@@ -548,53 +576,58 @@
       .answer-note {
         padding: 2px 3px;
         margin-bottom: 3px;
-        font-size: 7.6pt;
+        font-size: calc(7.6pt * var(--answer-fit));
       }
 
       .answer-list {
         gap: 1px;
-        font-size: 7.8pt;
+        font-size: calc(7.8pt * var(--answer-fit));
       }
 
       .answer-list li {
         padding-bottom: 2px;
       }
 
+      .answer-list li > span,
       .mini-explain {
-        font-size: 6.9pt;
+        font-size: calc(6.9pt * var(--answer-fit));
         line-height: 1.16;
       }
     }
-  </style></head><body><main class="screen"><section class="topbar"><div><h1>中3 英語 定期テスト前確認プリント：後置修飾：過去分詞</h1><div class="meta">対象学年：中3　文法事項：後置修飾：過去分詞</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button type="button" onclick="window.print()">A4横 4分割で印刷</button></div></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：後置修飾：過去分詞</div><div class="summary-grid"><div class="box"><strong>形</strong><br>名詞 + 過去分詞</div><div class="box"><strong>意味</strong><br>「〜された名詞」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>made by：〜によって作られた</li><li>written in：〜で書かれた</li><li>taken by：〜によって撮られた</li><li>名詞の後ろから説明する</li></ul><div class="label">注意点</div><div class="note">受け身の意味で名詞を後ろから説明する。<br>× The made cake by my mother<br>○ The cake made by my mother</div><div class="label">例文</div><ul class="examples"><li>The cake made by my mother is delicious.</li><li>The book written in English is difficult.</li><li>The picture taken by Ken is nice.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>The cake ___ by my mother is good.<ul class="choices"><li>ア make</li><li>イ makes</li><li>ウ made</li><li>エ making</li></ul></li><li>The book ___ in English is difficult.<ul class="choices"><li>ア write</li><li>イ wrote</li><li>ウ written</li><li>エ writing</li></ul></li><li>The window ___ by Ken was big.<ul class="choices"><li>ア break</li><li>イ broke</li><li>ウ broken</li><li>エ breaking</li></ul></li><li>The picture ___ by my father is nice.<ul class="choices"><li>ア take</li><li>イ took</li><li>ウ taken</li><li>エ taking</li></ul></li><li>The song ___ by everyone is famous.<ul class="choices"><li>ア love</li><li>イ loves</li><li>ウ loved</li><li>エ loving</li></ul></li><li>The letter ___ in Japanese is short.<ul class="choices"><li>ア write</li><li>イ wrote</li><li>ウ written</li><li>エ writing</li></ul></li><li>The car ___ in Japan is popular.<ul class="choices"><li>ア make</li><li>イ made</li><li>ウ making</li><li>エ makes</li></ul></li><li>The room ___ yesterday is clean.<ul class="choices"><li>ア clean</li><li>イ cleaned</li><li>ウ cleaning</li><li>エ cleans</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：made / written / broken / taken / loved / cleaned / by / in</div><ol class="questions"><li>母によって作られたケーキはおいしいです。<br>The cake ____ by my mother is good.</li><li>英語で書かれた本は難しいです。<br>The book ____ in English is difficult.</li><li>ケンによって壊された窓は大きかった。<br>The window ____ by Ken was big.</li><li>父によって撮られた写真はすてきです。<br>The picture ____ by my father is nice.</li><li>みんなに愛されている歌は有名です。<br>The song ____ by everyone is famous.</li><li>日本語で書かれた手紙は短いです。<br>The letter ____ in Japanese is short.</li><li>日本で作られた車は人気があります。<br>The car ____ in Japan is popular.</li><li>昨日掃除された部屋はきれいです。<br>The room ____ yesterday is clean.</li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions"><li>【 the cake / made by my mother / is / good 】<span class="jp-translation">母によって作られたケーキはおいしいです。</span><span class="answer-line"></span></li><li>【 written in English / the book / is / difficult 】<span class="jp-translation">英語で書かれた本は難しいです。</span><span class="answer-line"></span></li><li>【 the window / broken by Ken / was / big 】<span class="jp-translation">ケンによって壊された窓は大きかった。</span><span class="answer-line"></span></li><li>【 taken by my father / the picture / is / nice 】<span class="jp-translation">父によって撮られた写真はすてきです。</span><span class="answer-line"></span></li></ol><div class="label">和文英訳</div><ol class="questions"><li>英語で書かれた手紙は長いです。<span class="hint">ヒント：letter / written</span><span class="answer-line long-line"></span></li><li>母によって作られた昼食はおいしかった。<span class="hint">ヒント：lunch / made</span><span class="answer-line long-line"></span></li><li>ケンによって撮られた写真はきれいです。<span class="hint">ヒント：picture / taken</span><span class="answer-line long-line"></span></li></ol></article></section><h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚"><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Answer 1</span></div><div class="answer-note">ポイント：名詞の後ろに過去分詞を置いて説明する。</div><ol class="answer-list"><li><strong>ウ made</strong><span class="mini-explain">cake を made が説明。</span></li><li><strong>ウ written</strong><span class="mini-explain">book を written が説明。</span></li><li><strong>ウ broken</strong><span class="mini-explain">window を broken が説明。</span></li><li><strong>ウ taken</strong><span class="mini-explain">picture を taken が説明。</span></li><li><strong>ウ loved</strong><span class="mini-explain">song を loved が説明。</span></li><li><strong>ウ written</strong><span class="mini-explain">letter を説明。</span></li><li><strong>イ made</strong><span class="mini-explain">car を made が説明。</span></li><li><strong>イ cleaned</strong><span class="mini-explain">room を cleaned が説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Answer 2</span></div><div class="answer-note">ポイント：空所には名詞を後ろから説明する過去分詞を入れる。</div><ol class="answer-list"><li><strong>made</strong><span class="mini-explain">cake を made が説明。</span></li><li><strong>written</strong><span class="mini-explain">book を written が説明。</span></li><li><strong>broken</strong><span class="mini-explain">window を broken が説明。</span></li><li><strong>taken</strong><span class="mini-explain">picture を taken が説明。</span></li><li><strong>loved</strong><span class="mini-explain">song を loved が説明。</span></li><li><strong>written</strong><span class="mini-explain">letter を説明。</span></li><li><strong>made</strong><span class="mini-explain">car を説明。</span></li><li><strong>cleaned</strong><span class="mini-explain">room を説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：名詞 + 過去分詞のまとまりを作る。</div><ol class="answer-list"><li><strong>The cake made by my mother is good.</strong><span class="mini-explain">cake を made が説明。</span></li><li><strong>The book written in English is difficult.</strong><span class="mini-explain">book を written が説明。</span></li><li><strong>The window broken by Ken was big.</strong><span class="mini-explain">window を broken が説明。</span></li><li><strong>The picture taken by my father is nice.</strong><span class="mini-explain">picture を taken が説明。</span></li><li><strong>The letter written in English is long.</strong><span class="mini-explain">letter を written が説明。</span></li><li><strong>The lunch made by my mother was good.</strong><span class="mini-explain">lunch を made が説明。</span></li><li><strong>The picture taken by Ken is beautiful.</strong><span class="mini-explain">picture を taken が説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">ものの説明でよく使う後置修飾の表現。</div><ol class="answer-list"><li><strong>The cake made by my mother is good.</strong><span class="mini-explain">母が作ったケーキはおいしいです。</span></li><li><strong>The book written in English is hard.</strong><span class="mini-explain">英語で書かれた本は難しいです。</span></li><li><strong>The picture taken by Ken is nice.</strong><span class="mini-explain">ケンが撮った写真はすてきです。</span></li><li><strong>The car made in Japan is popular.</strong><span class="mini-explain">日本製の車は人気です。</span></li><li><strong>The room cleaned yesterday is bright.</strong><span class="mini-explain">昨日掃除された部屋は明るいです。</span></li><li><strong>The song loved by everyone is old.</strong><span class="mini-explain">みんなに愛されている歌は古いです。</span></li><li><strong>The window broken by him was small.</strong><span class="mini-explain">彼に壊された窓は小さかった。</span></li><li><strong>The letter written by her is short.</strong><span class="mini-explain">彼女が書いた手紙は短いです。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>名詞 + 過去分詞の後置修飾を中心にしています。</li></ul></section></main><script>
+  </style></head><body><main class="screen"><section class="topbar no-print"><div><h1>中3 英語 定期テスト前確認プリント：後置修飾：過去分詞</h1><div class="meta">対象学年：中3　文法事項：後置修飾：過去分詞</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">印刷画面で「PDFに保存」または「印刷」を選んでください。</span></div></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：後置修飾：過去分詞</div><div class="summary-grid"><div class="box"><strong>形</strong><br>名詞 + 過去分詞</div><div class="box"><strong>意味</strong><br>「〜された名詞」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>made by：〜によって作られた</li><li>written in：〜で書かれた</li><li>taken by：〜によって撮られた</li><li>名詞の後ろから説明する</li></ul><div class="label">注意点</div><div class="note">受け身の意味で名詞を後ろから説明する。<br>× The made cake by my mother<br>○ The cake made by my mother</div><div class="label">例文</div><ul class="examples"><li>The cake made by my mother is delicious.</li><li>The book written in English is difficult.</li><li>The picture taken by Ken is nice.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>The cake ___ by my mother is good.<ul class="choices"><li>ア make</li><li>イ makes</li><li>ウ made</li><li>エ making</li></ul></li><li>The book ___ in English is difficult.<ul class="choices"><li>ア write</li><li>イ wrote</li><li>ウ written</li><li>エ writing</li></ul></li><li>The window ___ by Ken was big.<ul class="choices"><li>ア break</li><li>イ broke</li><li>ウ broken</li><li>エ breaking</li></ul></li><li>The picture ___ by my father is nice.<ul class="choices"><li>ア take</li><li>イ took</li><li>ウ taken</li><li>エ taking</li></ul></li><li>The song ___ by everyone is famous.<ul class="choices"><li>ア love</li><li>イ loves</li><li>ウ loved</li><li>エ loving</li></ul></li><li>The letter ___ in Japanese is short.<ul class="choices"><li>ア write</li><li>イ wrote</li><li>ウ written</li><li>エ writing</li></ul></li><li>The car ___ in Japan is popular.<ul class="choices"><li>ア make</li><li>イ made</li><li>ウ making</li><li>エ makes</li></ul></li><li>The room ___ yesterday is clean.<ul class="choices"><li>ア clean</li><li>イ cleaned</li><li>ウ cleaning</li><li>エ cleans</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：made / written / broken / taken / loved / cleaned / by / in</div><ol class="questions"><li>母によって作られたケーキはおいしいです。<br>The cake ____ by my mother is good.</li><li>英語で書かれた本は難しいです。<br>The book ____ in English is difficult.</li><li>ケンによって壊された窓は大きかった。<br>The window ____ by Ken was big.</li><li>父によって撮られた写真はすてきです。<br>The picture ____ by my father is nice.</li><li>みんなに愛されている歌は有名です。<br>The song ____ by everyone is famous.</li><li>日本語で書かれた手紙は短いです。<br>The letter ____ in Japanese is short.</li><li>日本で作られた車は人気があります。<br>The car ____ in Japan is popular.</li><li>昨日掃除された部屋はきれいです。<br>The room ____ yesterday is clean.</li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions"><li>【 the cake / made by my mother / is / good 】<span class="jp-translation">母によって作られたケーキはおいしいです。</span><span class="answer-line"></span></li><li>【 written in English / the book / is / difficult 】<span class="jp-translation">英語で書かれた本は難しいです。</span><span class="answer-line"></span></li><li>【 the window / broken by Ken / was / big 】<span class="jp-translation">ケンによって壊された窓は大きかった。</span><span class="answer-line"></span></li><li>【 taken by my father / the picture / is / nice 】<span class="jp-translation">父によって撮られた写真はすてきです。</span><span class="answer-line"></span></li></ol><div class="label">和文英訳</div><ol class="questions"><li>英語で書かれた手紙は長いです。<span class="hint">ヒント：letter / written</span><span class="answer-line long-line"></span></li><li>母によって作られた昼食はおいしかった。<span class="hint">ヒント：lunch / made</span><span class="answer-line long-line"></span></li><li>ケンによって撮られた写真はきれいです。<span class="hint">ヒント：picture / taken</span><span class="answer-line long-line"></span></li></ol></article></section><h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚"><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Answer 1</span></div><div class="answer-note">ポイント：名詞の後ろに過去分詞を置いて説明する。</div><ol class="answer-list"><li><strong>ウ made</strong><span class="mini-explain">cake を made が説明。</span></li><li><strong>ウ written</strong><span class="mini-explain">book を written が説明。</span></li><li><strong>ウ broken</strong><span class="mini-explain">window を broken が説明。</span></li><li><strong>ウ taken</strong><span class="mini-explain">picture を taken が説明。</span></li><li><strong>ウ loved</strong><span class="mini-explain">song を loved が説明。</span></li><li><strong>ウ written</strong><span class="mini-explain">letter を説明。</span></li><li><strong>イ made</strong><span class="mini-explain">car を made が説明。</span></li><li><strong>イ cleaned</strong><span class="mini-explain">room を cleaned が説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Answer 2</span></div><div class="answer-note">ポイント：空所には名詞を後ろから説明する過去分詞を入れる。</div><ol class="answer-list"><li><strong>made</strong><span class="mini-explain">cake を made が説明。</span></li><li><strong>written</strong><span class="mini-explain">book を written が説明。</span></li><li><strong>broken</strong><span class="mini-explain">window を broken が説明。</span></li><li><strong>taken</strong><span class="mini-explain">picture を taken が説明。</span></li><li><strong>loved</strong><span class="mini-explain">song を loved が説明。</span></li><li><strong>written</strong><span class="mini-explain">letter を説明。</span></li><li><strong>made</strong><span class="mini-explain">car を説明。</span></li><li><strong>cleaned</strong><span class="mini-explain">room を説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：名詞 + 過去分詞のまとまりを作る。</div><ol class="answer-list"><li><strong>The cake made by my mother is good.</strong><span class="mini-explain">cake を made が説明。</span></li><li><strong>The book written in English is difficult.</strong><span class="mini-explain">book を written が説明。</span></li><li><strong>The window broken by Ken was big.</strong><span class="mini-explain">window を broken が説明。</span></li><li><strong>The picture taken by my father is nice.</strong><span class="mini-explain">picture を taken が説明。</span></li><li><strong>The letter written in English is long.</strong><span class="mini-explain">letter を written が説明。</span></li><li><strong>The lunch made by my mother was good.</strong><span class="mini-explain">lunch を made が説明。</span></li><li><strong>The picture taken by Ken is beautiful.</strong><span class="mini-explain">picture を taken が説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">ものの説明でよく使う後置修飾の表現。</div><ol class="answer-list"><li><strong>The cake made by my mother is good.</strong><span class="mini-explain">母が作ったケーキはおいしいです。</span></li><li><strong>The book written in English is hard.</strong><span class="mini-explain">英語で書かれた本は難しいです。</span></li><li><strong>The picture taken by Ken is nice.</strong><span class="mini-explain">ケンが撮った写真はすてきです。</span></li><li><strong>The car made in Japan is popular.</strong><span class="mini-explain">日本製の車は人気です。</span></li><li><strong>The room cleaned yesterday is bright.</strong><span class="mini-explain">昨日掃除された部屋は明るいです。</span></li><li><strong>The song loved by everyone is old.</strong><span class="mini-explain">みんなに愛されている歌は古いです。</span></li><li><strong>The window broken by him was small.</strong><span class="mini-explain">彼に壊された窓は小さかった。</span></li><li><strong>The letter written by her is short.</strong><span class="mini-explain">彼女が書いた手紙は短いです。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>名詞 + 過去分詞の後置修飾を中心にしています。</li></ul></section></main><script>
     function slideOverflows(slide) {
       return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
     }
 
-    function fitSlideText(options = {}) {
-      const isPrintFit = options.print || window.matchMedia("print").matches;
-      const slides = document.querySelectorAll(".slide");
-      slides.forEach((slide) => {
-        let low = 0.56;
-        let high = isPrintFit ? 2.05 : 1.55;
-        let best = low;
+    function fitOneSlide(slide, propertyName, low, high) {
+      let best = low;
 
-        slide.style.setProperty("--fit", high.toFixed(3));
-        if (!slideOverflows(slide)) {
-          best = high;
-        } else {
-          for (let i = 0; i < 12; i += 1) {
-            const mid = (low + high) / 2;
-            slide.style.setProperty("--fit", mid.toFixed(3));
-            if (slideOverflows(slide)) {
-              high = mid;
-            } else {
-              best = mid;
-              low = mid;
-            }
+      slide.style.setProperty(propertyName, high.toFixed(3));
+      if (!slideOverflows(slide)) {
+        best = high;
+      } else {
+        for (let i = 0; i < 12; i += 1) {
+          const mid = (low + high) / 2;
+          slide.style.setProperty(propertyName, mid.toFixed(3));
+          if (slideOverflows(slide)) {
+            high = mid;
+          } else {
+            best = mid;
+            low = mid;
           }
         }
+      }
 
-        slide.style.setProperty("--fit", best.toFixed(3));
+      slide.style.setProperty(propertyName, best.toFixed(3));
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      document.querySelectorAll(".slide").forEach((slide) => {
+        fitOneSlide(slide, "--fit", 0.56, isPrintFit ? 2.05 : 1.55);
+      });
+      document.querySelectorAll(".answer-slide").forEach((slide) => {
+        fitOneSlide(slide, "--answer-fit", 0.46, 1);
       });
     }
 
@@ -605,9 +638,11 @@
     }
 
     function fitForPrint() {
-      document.querySelectorAll(".slide").forEach((slide) => {
+      document.querySelectorAll(".slide, .answer-slide").forEach((slide) => {
         slide.style.removeProperty("--fit");
+        slide.style.removeProperty("--answer-fit");
       });
+      fitSlideText({ print: true });
     }
 
     window.addEventListener("load", fitSlideText);

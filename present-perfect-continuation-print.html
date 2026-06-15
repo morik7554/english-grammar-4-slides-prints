@@ -69,6 +69,13 @@
     }
 
 
+    .print-help {
+      color: #4b5563;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
     h1,
     h2,
     h3 {
@@ -270,6 +277,7 @@
     }
 
     .answer-slide {
+      --answer-fit: 1;
       overflow: hidden;
       border: 1px solid #5d6670;
       background: #fff;
@@ -281,7 +289,7 @@
       gap: 5px;
       margin: 0;
       padding-left: 1.35em;
-      font-size: 14px;
+      font-size: calc(14px * var(--answer-fit));
     }
 
     .answer-list li {
@@ -293,10 +301,11 @@
       font-weight: 800;
     }
 
+    .answer-list li > span,
     .mini-explain {
       display: block;
       color: #4b5563;
-      font-size: 13px;
+      font-size: calc(13px * var(--answer-fit));
       line-height: 1.35;
       margin-top: 1px;
     }
@@ -306,16 +315,16 @@
       background: #f6f7f8;
       padding: 5px 6px;
       margin-bottom: 7px;
-      font-size: 12px;
+      font-size: calc(12px * var(--answer-fit));
       font-weight: 700;
     }
 
     .answer-slide .slide-title {
-      font-size: 21px;
+      font-size: calc(21px * var(--answer-fit));
     }
 
     .answer-slide .slide-no {
-      font-size: 13px;
+      font-size: calc(13px * var(--answer-fit));
     }
 
     .answer-slide .slide-header {
@@ -391,15 +400,34 @@
 
       body {
         background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body,
+      .screen {
+        width: 281mm;
+        height: 194mm;
+        min-height: 0 !important;
+        overflow: hidden;
       }
 
       .screen {
         padding: 0;
       }
 
+      .print-button,
+      .site-header,
+      .breadcrumb,
+      .nav,
+      .back-link,
+      .no-print,
       .topbar,
+      .answer-sheet,
+      .print-page-title,
       .layout-notes {
-        display: none;
+        display: none !important;
       }
 
       .sheet {
@@ -539,11 +567,11 @@
       }
 
       .answer-slide .slide-title {
-        font-size: 11.7pt;
+        font-size: calc(11.7pt * var(--answer-fit));
       }
 
       .answer-slide .slide-no {
-        font-size: 8.4pt;
+        font-size: calc(8.4pt * var(--answer-fit));
       }
 
       .answer-slide .slide-header {
@@ -554,20 +582,21 @@
       .answer-note {
         padding: 2px 3px;
         margin-bottom: 3px;
-        font-size: 7.6pt;
+        font-size: calc(7.6pt * var(--answer-fit));
       }
 
       .answer-list {
         gap: 1px;
-        font-size: 8.3pt;
+        font-size: calc(8.3pt * var(--answer-fit));
       }
 
       .answer-list li {
         padding-bottom: 2px;
       }
 
+      .answer-list li > span,
       .mini-explain {
-        font-size: 7.3pt;
+        font-size: calc(7.3pt * var(--answer-fit));
         line-height: 1.16;
       }
     }
@@ -575,14 +604,14 @@
 </head>
 <body>
   <main class="screen">
-    <section class="topbar">
+    <section class="topbar no-print">
       <div>
         <h1>中3 英語 定期テスト前確認プリント：現在完了（継続用法）</h1>
         <div class="meta">対象学年：中3　文法事項：現在完了（継続用法）</div>
       </div>
       <div class="top-actions">
         <a class="top-link" href="index.html">トップ画面</a>
-        <button type="button" onclick="window.print()">A4横 4分割で印刷</button>
+        <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">印刷画面で「PDFに保存」または「印刷」を選んでください。</span>
       </div>
     </section>
 
@@ -770,31 +799,35 @@
       return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
     }
 
-    function fitSlideText(options = {}) {
-      const isPrintFit = options.print || window.matchMedia("print").matches;
-      const slides = document.querySelectorAll(".slide");
-      slides.forEach((slide) => {
-        let low = 0.56;
-        let high = isPrintFit ? 2.05 : 1.55;
-        let best = low;
+    function fitOneSlide(slide, propertyName, low, high) {
+      let best = low;
 
-        slide.style.setProperty("--fit", high.toFixed(3));
-        if (!slideOverflows(slide)) {
-          best = high;
-        } else {
-          for (let i = 0; i < 12; i += 1) {
-            const mid = (low + high) / 2;
-            slide.style.setProperty("--fit", mid.toFixed(3));
-            if (slideOverflows(slide)) {
-              high = mid;
-            } else {
-              best = mid;
-              low = mid;
-            }
+      slide.style.setProperty(propertyName, high.toFixed(3));
+      if (!slideOverflows(slide)) {
+        best = high;
+      } else {
+        for (let i = 0; i < 12; i += 1) {
+          const mid = (low + high) / 2;
+          slide.style.setProperty(propertyName, mid.toFixed(3));
+          if (slideOverflows(slide)) {
+            high = mid;
+          } else {
+            best = mid;
+            low = mid;
           }
         }
+      }
 
-        slide.style.setProperty("--fit", best.toFixed(3));
+      slide.style.setProperty(propertyName, best.toFixed(3));
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      document.querySelectorAll(".slide").forEach((slide) => {
+        fitOneSlide(slide, "--fit", 0.56, isPrintFit ? 2.05 : 1.55);
+      });
+      document.querySelectorAll(".answer-slide").forEach((slide) => {
+        fitOneSlide(slide, "--answer-fit", 0.46, 1);
       });
     }
 
@@ -805,9 +838,11 @@
     }
 
     function fitForPrint() {
-      document.querySelectorAll(".slide").forEach((slide) => {
+      document.querySelectorAll(".slide, .answer-slide").forEach((slide) => {
         slide.style.removeProperty("--fit");
+        slide.style.removeProperty("--answer-fit");
       });
+      fitSlideText({ print: true });
     }
 
     window.addEventListener("load", fitSlideText);
