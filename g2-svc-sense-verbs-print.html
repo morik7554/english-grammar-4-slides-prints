@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中2 感覚を表す動詞 SVC 4分割プリント</title><style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.45;
+    }
+
+    .screen {
+      padding: 14px;
+    }
+
+    .topbar,
+    .layout-notes {
+      max-width: 1440px;
+      margin: 0 auto 16px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #fff;
+      background: #263238;
+      padding: 8px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .slide {
+      --fit: 1;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: calc(23px * var(--fit));
+    }
+
+    .slide-no {
+      color: #4b5563;
+      font-size: calc(14px * var(--fit));
+      white-space: nowrap;
+    }
+
+    .label {
+      margin: 8px 0 4px;
+      border-left: 4px solid #111827;
+      padding-left: 6px;
+      font-size: calc(16px * var(--fit));
+      font-weight: 800;
+    }
+
+    .box,
+    .note,
+    .word-bank {
+      border: 1px solid #9aa3ad;
+      padding: 7px 8px;
+      background: #fff;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .note,
+    .word-bank {
+      background: #f6f7f8;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.45em;
+    }
+
+    .compact-list,
+    .examples {
+      font-size: calc(15px * var(--fit));
+    }
+
+    .compact-list li,
+    .examples li {
+      margin: 1px 0;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: calc(14.5px * var(--fit));
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 130px;
+      height: 1.1em;
+      border-bottom: 1px solid #111827;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 7px;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: calc(14px * var(--fit));
+    }
+
+    .answer-line {
+      display: block;
+      min-height: calc(22px * var(--fit));
+      border-bottom: 1px solid #111827;
+    }
+
+    .hint {
+      display: block;
+      color: #4b5563;
+      font-size: calc(13.5px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .jp-translation {
+      display: block;
+      color: #374151;
+      font-size: calc(13px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .long-line {
+      min-height: calc(26px * var(--fit));
+    }
+
+    .answer-key h2,
+    .layout-notes h2 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .layout-notes ul {
+      font-size: 13px;
+    }
+
+    .answer-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .answer-slide {
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 1.35em;
+      font-size: 14px;
+    }
+
+    .answer-list li {
+      padding-bottom: 4px;
+      border-bottom: 1px solid #d4dae0;
+    }
+
+    .answer-list strong {
+      font-weight: 800;
+    }
+
+    .mini-explain {
+      display: block;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 1px;
+    }
+
+    .answer-note {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 5px 6px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .answer-slide .slide-title {
+      font-size: 21px;
+    }
+
+    .answer-slide .slide-no {
+      font-size: 13px;
+    }
+
+    .answer-slide .slide-header {
+      margin-bottom: 7px;
+    }
+
+    .print-page-title {
+      max-width: 1440px;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .explanation-slide {
+      overflow: hidden;
+    }
+
+    .explanation-slide .slide-header {
+      margin-bottom: 8px;
+    }
+
+    .explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 13px;
+    }
+
+    .explanation-box {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 7px 8px;
+    }
+
+    .explanation-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .explanation-box ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .answer-sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .slide,
+      .answer-slide {
+        height: 540px;
+      }
+
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
+      .topbar,
+      .layout-notes {
+        display: none;
+      }
+
+      .sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .answer-sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .slide {
+        --fit: 1.06;
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.2mm;
+        line-height: 1.18;
+      }
+
+      .slide:nth-child(1) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(2) {
+        --fit: 1.34 !important;
+      }
+
+      .slide:nth-child(3) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(4) {
+        --fit: 0.98 !important;
+      }
+
+      .slide-title {
+        font-size: calc(12pt * var(--fit));
+      }
+
+      .slide-header {
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .label {
+        margin: 4px 0 2px;
+        border-left-width: 3px;
+        padding-left: 4px;
+        font-size: calc(8.2pt * var(--fit));
+      }
+
+      .summary-grid {
+        gap: 3px;
+      }
+
+      .box,
+      .note,
+      .word-bank {
+        padding: 3px 4px;
+      }
+
+      .box,
+      .note,
+      .word-bank,
+        .compact-list,
+        .examples,
+        .questions {
+        font-size: calc(7.6pt * var(--fit));
+      }
+
+      .questions {
+        gap: calc(2px * var(--fit));
+      }
+
+      .choices {
+        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
+        margin-top: calc(1px * var(--fit));
+      }
+
+      .choices,
+      .hint,
+      .jp-translation,
+      .write-grid {
+        font-size: calc(7.1pt * var(--fit));
+      }
+
+      .write-grid {
+        gap: calc(3px * var(--fit));
+        margin-top: calc(3px * var(--fit));
+      }
+
+      .line {
+        min-width: 80px;
+      }
+
+      .answer-line {
+        min-height: calc(14px * var(--fit));
+      }
+
+      .long-line {
+        min-height: calc(17px * var(--fit));
+      }
+
+      .print-page-title {
+        display: none;
+      }
+
+      .answer-slide {
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.5mm;
+        line-height: 1.22;
+      }
+
+      .answer-slide .slide-title {
+        font-size: 11.7pt;
+      }
+
+      .answer-slide .slide-no {
+        font-size: 8.4pt;
+      }
+
+      .answer-slide .slide-header {
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+
+      .answer-note {
+        padding: 2px 3px;
+        margin-bottom: 3px;
+        font-size: 7.6pt;
+      }
+
+      .answer-list {
+        gap: 1px;
+        font-size: 8.3pt;
+      }
+
+      .answer-list li {
+        padding-bottom: 2px;
+      }
+
+      .mini-explain {
+        font-size: 7.3pt;
+        line-height: 1.16;
+      }
+    }
+  </style></head>
+<body><main class="screen"><section class="topbar"><div><h1>中2 英語 定期テスト前確認プリント：感覚を表す動詞 SVC</h1><div class="meta">対象学年：中2　文法事項：感覚を表す動詞 SVC</div></div><button type="button" onclick="window.print()">A4横 4分割で印刷</button></section>
+<section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中2　文法事項：感覚を表す動詞 SVC</div><div class="summary-grid"><div class="box"><strong>形</strong><br>主語 + look / sound / feel + 形容詞</div><div class="box"><strong>意味</strong><br>「〜に見える」「〜に聞こえる」「〜に感じる」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>look happy</li><li>sound good</li><li>feel tired</li><li>taste sweet</li></ul><div class="label">注意点</div><div class="note">look / sound / feel などの後ろは形容詞を置く。<br>× You look happily.<br>○ You look happy.</div><div class="label">例文</div><ul class="examples"><li>You look happy.</li><li>That sounds good.</li><li>I feel tired.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article>
+<article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions">
+          <li>This soup ___ good.
+            <ul class="choices"><li>ア tastes</li><li>イ tastes like</li><li>ウ is taste</li><li>エ tasting</li></ul>
+          </li>
+          <li>She looks ___.
+            <ul class="choices"><li>ア happily</li><li>イ happy</li><li>ウ happiness</li><li>エ to happy</li></ul>
+          </li>
+          <li>That sounds ___.
+            <ul class="choices"><li>ア interest</li><li>イ interests</li><li>ウ interesting</li><li>エ interested</li></ul>
+          </li>
+          <li>This flower ___ sweet.
+            <ul class="choices"><li>ア is smell</li><li>イ smelling</li><li>ウ smell</li><li>エ smells</li></ul>
+          </li>
+          <li>He looks ___ a teacher.
+            <ul class="choices"><li>ア like</li><li>イ happy</li><li>ウ well</li><li>エ kindly</li></ul>
+          </li>
+          <li>This music sounds ___.
+            <ul class="choices"><li>ア beautifully</li><li>イ beautiful</li><li>ウ beauty</li><li>エ beautify</li></ul>
+          </li>
+          <li>日本語「彼女は悲しそうです」に合う英文はどれですか。
+            <ul class="choices"><li>ア She looks sadly.</li><li>イ She is look sad.</li><li>ウ She looks sad.</li><li>エ She looks like sad.</li></ul>
+          </li>
+          <li>誤りのない文はどれですか。
+            <ul class="choices"><li>ア It tastes good.</li><li>イ It tastes well.</li><li>ウ It is tastes good.</li><li>エ It tastes like good.</li></ul>
+          </li>
+        </ol></article>
+<article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：look / sounds / feel / tastes / happy / good / tired / sweet</div><ol class="questions">
+          <li>あなたはうれしそうに見えます。<br>You ____ happy.</li>
+          <li>それはよさそうに聞こえます。<br>That ____ good.</li>
+          <li>私は疲れています。<br>I ____ tired.</li>
+          <li>このケーキは甘い味がします。<br>This cake ____ sweet.</li>
+          <li>彼女は悲しそうに見えます。<br>She ____ sad.</li>
+          <li>その考えは面白そうです。<br>The idea ____ interesting.</li>
+          <li>私は眠く感じます。<br>I ____ sleepy.</li>
+          <li>このスープはおいしい味がします。<br>This soup ____ good.</li>
+        </ol></article>
+<article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions">
+          <li>【 look / happy / You 】<span class="jp-translation">あなたはうれしそうに見えます。</span><span class="answer-line"></span></li>
+          <li>【 sounds / good / That 】<span class="jp-translation">それはよさそうに聞こえます。</span><span class="answer-line"></span></li>
+          <li>【 feel / tired / I 】<span class="jp-translation">私は疲れています。</span><span class="answer-line"></span></li>
+          <li>【 tastes / sweet / This cake 】<span class="jp-translation">このケーキは甘い味がします。</span><span class="answer-line"></span></li>
+        </ol><div class="label">和文英訳</div><ol class="questions">
+          <li>彼女は悲しそうに見えます。<span class="hint">ヒント：looks / sad</span><span class="answer-line long-line"></span></li>
+          <li>その考えは面白そうです。<span class="hint">ヒント：sounds / interesting</span><span class="answer-line long-line"></span></li>
+          <li>私は眠く感じます。<span class="hint">ヒント：feel / sleepy</span><span class="answer-line long-line"></span></li>
+        </ol></article></section>
+<h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚">
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Slide 5</span></div><div class="answer-note">この文法でよく使う表現。短い文で形を覚える。</div><ol class="answer-list">
+          <li><strong>You look happy.</strong><span class="mini-explain">あなたはうれしそうに見えます。</span></li>
+          <li><strong>That sounds good.</strong><span class="mini-explain">それはよさそうに聞こえます。</span></li>
+          <li><strong>I feel tired.</strong><span class="mini-explain">私は疲れています。</span></li>
+          <li><strong>This cake tastes sweet.</strong><span class="mini-explain">このケーキは甘い味がします。</span></li>
+          <li><strong>She looks sad.</strong><span class="mini-explain">彼女は悲しそうに見えます。</span></li>
+          <li><strong>The idea sounds interesting.</strong><span class="mini-explain">その考えは面白そうです。</span></li>
+          <li><strong>I feel sleepy.</strong><span class="mini-explain">私は眠く感じます。</span></li>
+          <li><strong>This soup tastes good.</strong><span class="mini-explain">このスープはおいしい味がします。</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Slide 6</span></div><div class="answer-note">ポイント：この単元の範囲内で、形・語順・後続語・否定文・疑問文・意味を確認する。</div><ol class="answer-list">
+          <li><strong>ア tastes</strong><span class="mini-explain">感覚動詞 + 形容詞。</span></li>
+          <li><strong>イ happy</strong><span class="mini-explain">look + 形容詞。</span></li>
+          <li><strong>ウ interesting</strong><span class="mini-explain">sound + 形容詞。</span></li>
+          <li><strong>エ smells</strong><span class="mini-explain">smell + 形容詞。</span></li>
+          <li><strong>ア like</strong><span class="mini-explain">名詞の前は like。</span></li>
+          <li><strong>イ beautiful</strong><span class="mini-explain">sound + 形容詞。</span></li>
+          <li><strong>ウ She looks sad.</strong><span class="mini-explain">look + 形容詞。</span></li>
+          <li><strong>ア It tastes good.</strong><span class="mini-explain">taste + 形容詞。</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Slide 7</span></div><div class="answer-note">ポイント：感覚動詞の後ろは形容詞。</div><ol class="answer-list">
+          <li><strong>look</strong><span class="mini-explain">You は look。</span></li>
+          <li><strong>sounds</strong><span class="mini-explain">That は三単現。</span></li>
+          <li><strong>feel</strong><span class="mini-explain">I は feel。</span></li>
+          <li><strong>tastes</strong><span class="mini-explain">cake は三単現。</span></li>
+          <li><strong>looks</strong><span class="mini-explain">She は三単現。</span></li>
+          <li><strong>sounds</strong><span class="mini-explain">idea は三単現。</span></li>
+          <li><strong>feel</strong><span class="mini-explain">I feel。</span></li>
+          <li><strong>tastes</strong><span class="mini-explain">soup は三単現。</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Slide 8</span></div><div class="answer-note">ポイント：感覚動詞の後ろは形容詞。</div><ol class="answer-list">
+          <li><strong>You look happy.</strong><span class="mini-explain">You は look。</span></li>
+          <li><strong>That sounds good.</strong><span class="mini-explain">That は三単現。</span></li>
+          <li><strong>I feel tired.</strong><span class="mini-explain">I は feel。</span></li>
+          <li><strong>This cake tastes sweet.</strong><span class="mini-explain">cake は三単現。</span></li>
+          <li><strong>She looks sad.</strong><span class="mini-explain">She は三単現。</span></li>
+          <li><strong>The idea sounds interesting.</strong><span class="mini-explain">idea は三単現。</span></li>
+          <li><strong>I feel sleepy.</strong><span class="mini-explain">I feel。</span></li>
+        </ol></article></section>
+<section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>感覚を表す動詞 SVC の基本形を中心に、定期テストで出やすい形を確認します。</li></ul></section></main><script>
+    function slideOverflows(slide) {
+      return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        let low = 0.56;
+        let high = isPrintFit ? 2.05 : 1.55;
+        let best = low;
+
+        slide.style.setProperty("--fit", high.toFixed(3));
+        if (!slideOverflows(slide)) {
+          best = high;
+        } else {
+          for (let i = 0; i < 12; i += 1) {
+            const mid = (low + high) / 2;
+            slide.style.setProperty("--fit", mid.toFixed(3));
+            if (slideOverflows(slide)) {
+              high = mid;
+            } else {
+              best = mid;
+              low = mid;
+            }
+          }
+        }
+
+        slide.style.setProperty("--fit", best.toFixed(3));
+      });
+    }
+
+    let fitTimer = 0;
+    function queueFitSlideText() {
+      window.clearTimeout(fitTimer);
+      fitTimer = window.setTimeout(fitSlideText, 60);
+    }
+
+    function fitForPrint() {
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.removeProperty("--fit");
+      });
+    }
+
+    window.addEventListener("load", fitSlideText);
+    window.addEventListener("resize", queueFitSlideText);
+    window.addEventListener("beforeprint", fitForPrint);
+    window.addEventListener("afterprint", queueFitSlideText);
+    window.fitSlideText = fitSlideText;
+  </script></body></html>

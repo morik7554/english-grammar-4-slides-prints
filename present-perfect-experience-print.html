@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中3 現在完了（経験用法）4分割プリント</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.45;
+    }
+
+    .screen {
+      padding: 14px;
+    }
+
+    .topbar,
+    .layout-notes {
+      max-width: 1440px;
+      margin: 0 auto 16px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #fff;
+      background: #263238;
+      padding: 8px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .slide {
+      --fit: 1;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: calc(23px * var(--fit));
+    }
+
+    .slide-no {
+      color: #4b5563;
+      font-size: calc(14px * var(--fit));
+      white-space: nowrap;
+    }
+
+    .label {
+      margin: 8px 0 4px;
+      border-left: 4px solid #111827;
+      padding-left: 6px;
+      font-size: calc(16px * var(--fit));
+      font-weight: 800;
+    }
+
+    .box,
+    .note,
+    .word-bank {
+      border: 1px solid #9aa3ad;
+      padding: 7px 8px;
+      background: #fff;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .note,
+    .word-bank {
+      background: #f6f7f8;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.45em;
+    }
+
+    .compact-list,
+    .examples {
+      font-size: calc(15px * var(--fit));
+    }
+
+    .compact-list li,
+    .examples li {
+      margin: 1px 0;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: calc(14.5px * var(--fit));
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 130px;
+      height: 1.1em;
+      border-bottom: 1px solid #111827;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 7px;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: calc(14px * var(--fit));
+    }
+
+    .answer-line {
+      display: block;
+      min-height: calc(22px * var(--fit));
+      border-bottom: 1px solid #111827;
+    }
+
+    .hint {
+      display: block;
+      color: #4b5563;
+      font-size: calc(13.5px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .jp-translation {
+      display: block;
+      color: #374151;
+      font-size: calc(13px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .long-line {
+      min-height: calc(26px * var(--fit));
+    }
+
+    .answer-key h2,
+    .layout-notes h2 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .layout-notes ul {
+      font-size: 13px;
+    }
+
+    .answer-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .answer-slide {
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 1.35em;
+      font-size: 14px;
+    }
+
+    .answer-list li {
+      padding-bottom: 4px;
+      border-bottom: 1px solid #d4dae0;
+    }
+
+    .answer-list strong {
+      font-weight: 800;
+    }
+
+    .mini-explain {
+      display: block;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 1px;
+    }
+
+    .answer-note {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 5px 6px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .answer-slide .slide-title {
+      font-size: 21px;
+    }
+
+    .answer-slide .slide-no {
+      font-size: 13px;
+    }
+
+    .answer-slide .slide-header {
+      margin-bottom: 7px;
+    }
+
+    .print-page-title {
+      max-width: 1440px;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .explanation-slide {
+      overflow: hidden;
+    }
+
+    .explanation-slide .slide-header {
+      margin-bottom: 8px;
+    }
+
+    .explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 13px;
+    }
+
+    .explanation-box {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 7px 8px;
+    }
+
+    .explanation-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .explanation-box ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .answer-sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .slide,
+      .answer-slide {
+        height: 540px;
+      }
+
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
+      .topbar,
+      .layout-notes {
+        display: none;
+      }
+
+      .sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .answer-sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .slide {
+        --fit: 1.06;
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.2mm;
+        line-height: 1.18;
+      }
+
+      .slide:nth-child(1) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(2) {
+        --fit: 1.34 !important;
+      }
+
+      .slide:nth-child(3) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(4) {
+        --fit: 0.98 !important;
+      }
+
+      .slide-title {
+        font-size: calc(12pt * var(--fit));
+      }
+
+      .slide-header {
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .label {
+        margin: 4px 0 2px;
+        border-left-width: 3px;
+        padding-left: 4px;
+        font-size: calc(8.2pt * var(--fit));
+      }
+
+      .summary-grid {
+        gap: 3px;
+      }
+
+      .box,
+      .note,
+      .word-bank {
+        padding: 3px 4px;
+      }
+
+      .box,
+      .note,
+      .word-bank,
+        .compact-list,
+        .examples,
+        .questions {
+        font-size: calc(7.6pt * var(--fit));
+      }
+
+      .questions {
+        gap: calc(2px * var(--fit));
+      }
+
+      .choices {
+        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
+        margin-top: calc(1px * var(--fit));
+      }
+
+      .choices,
+      .hint,
+      .jp-translation,
+      .write-grid {
+        font-size: calc(7.1pt * var(--fit));
+      }
+
+      .write-grid {
+        gap: calc(3px * var(--fit));
+        margin-top: calc(3px * var(--fit));
+      }
+
+      .line {
+        min-width: 80px;
+      }
+
+      .answer-line {
+        min-height: calc(14px * var(--fit));
+      }
+
+      .long-line {
+        min-height: calc(17px * var(--fit));
+      }
+
+      .print-page-title {
+        display: none;
+      }
+
+      .answer-slide {
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.5mm;
+        line-height: 1.22;
+      }
+
+      .answer-slide .slide-title {
+        font-size: 11.7pt;
+      }
+
+      .answer-slide .slide-no {
+        font-size: 8.4pt;
+      }
+
+      .answer-slide .slide-header {
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+
+      .answer-note {
+        padding: 2px 3px;
+        margin-bottom: 3px;
+        font-size: 7.6pt;
+      }
+
+      .answer-list {
+        gap: 1px;
+        font-size: 8.3pt;
+      }
+
+      .answer-list li {
+        padding-bottom: 2px;
+      }
+
+      .mini-explain {
+        font-size: 7.3pt;
+        line-height: 1.16;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="screen">
+    <section class="topbar">
+      <div>
+        <h1>中3 英語 定期テスト前確認プリント：現在完了（経験用法）</h1>
+        <div class="meta">対象学年：中3　文法事項：現在完了（経験用法）</div>
+      </div>
+      <button type="button" onclick="window.print()">A4横 4分割で印刷</button>
+    </section>
+
+    <section class="sheet" aria-label="4分割プリント">
+      <article class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">文法まとめ</h2>
+          <span class="slide-no">Slide 1</span>
+        </div>
+        <div class="note">対象学年：中3　文法事項：現在完了（経験用法）</div>
+        <div class="summary-grid">
+          <div class="box"><strong>形</strong><br>have / has + 過去分詞</div>
+          <div class="box"><strong>意味</strong><br>「〜したことがある」</div>
+        </div>
+
+        <div class="label">よく使う語句</div>
+        <ul class="compact-list">
+          <li>ever：今までに</li>
+          <li>never：一度も〜ない</li>
+          <li>once / twice：1回 / 2回</li>
+          <li>many times：何度も</li>
+        </ul>
+
+        <div class="label">注意点</div>
+        <div class="note">have / has の後ろは過去形ではなく過去分詞。場所に行った経験は been to をよく使う。<br>× I have went to Kyoto.<br>○ I have been to Kyoto.</div>
+
+        <div class="label">例文</div>
+        <ul class="examples">
+          <li>I have visited Nara once.</li>
+          <li>She has never seen snow.</li>
+          <li>Have you ever eaten sushi?</li>
+        </ul>
+
+        <div class="label">メモ欄</div>
+        <div class="write-grid">
+          <div>メモ：<span class="line"></span></div>
+          <div>メモ：<span class="line"></span></div>
+        </div>
+      </article>
+
+      <article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions">
+          <li>Have you ___ been to Kyoto?
+            <ul class="choices"><li>ア ever</li><li>イ yet</li><li>ウ just</li><li>エ already</li></ul>
+          </li>
+          <li>I have ___ seen snow.
+            <ul class="choices"><li>ア ever</li><li>イ never</li><li>ウ yet</li><li>エ already</li></ul>
+          </li>
+          <li>She has been to Nara ___.
+            <ul class="choices"><li>ア just</li><li>イ yet</li><li>ウ once</li><li>エ for</li></ul>
+          </li>
+          <li>How many times have you ___ Tokyo?
+            <ul class="choices"><li>ア visit</li><li>イ visits</li><li>ウ visiting</li><li>エ visited</li></ul>
+          </li>
+          <li>I have ___ to Canada twice.
+            <ul class="choices"><li>ア been</li><li>イ went</li><li>ウ go</li><li>エ going</li></ul>
+          </li>
+          <li>Have you ever ___ sushi?
+            <ul class="choices"><li>ア eat</li><li>イ eaten</li><li>ウ ate</li><li>エ eating</li></ul>
+          </li>
+          <li>日本語「私は一度も富士山を見たことがありません」に合う英文はどれですか。
+            <ul class="choices"><li>ア I did not see Mt. Fuji.</li><li>イ I have ever seen Mt. Fuji.</li><li>ウ I have never seen Mt. Fuji.</li><li>エ I have just seen Mt. Fuji.</li></ul>
+          </li>
+          <li>誤りのない文はどれですか。
+            <ul class="choices"><li>ア Have you ever been to Kyoto?</li><li>イ Have you ever went to Kyoto?</li><li>ウ Did you ever been to Kyoto?</li><li>エ Have you ever go to Kyoto?</li></ul>
+          </li>
+        </ol></article>
+
+      <article class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">穴埋め問題</h2>
+          <span class="slide-no">Slide 3</span>
+        </div>
+        <div class="word-bank">語群：have / has / ever / never / been / seen / eaten / written / many</div>
+        <ol class="questions">
+          <li>私は奈良へ一度行ったことがあります。<br>I ____ ____ to Nara once.</li>
+          <li>彼女は雪を見たことがありません。<br>She ____ ____ seen snow.</li>
+          <li>あなたは寿司を食べたことがありますか。<br>____ you ____ eaten sushi?</li>
+          <li>ケンは英語で手紙を書いたことがあります。<br>Ken ____ ____ a letter in English.</li>
+          <li>私たちはその歌を何度も聞いたことがあります。<br>We ____ heard the song ____ times.</li>
+          <li>私の弟は富士山を見たことがあります。<br>My brother ____ ____ Mt. Fuji.</li>
+          <li>彼らは一度もテニスをしたことがありません。<br>They ____ ____ played tennis.</li>
+          <li>あなたのお母さんは北海道へ行ったことがありますか。<br>____ your mother ____ to Hokkaido?</li>
+        </ol>
+      </article>
+
+      <article class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">並び替え＋和文英訳</h2>
+          <span class="slide-no">Slide 4</span>
+        </div>
+
+        <div class="label">並び替え</div>
+        <ol class="questions">
+          <li>【 have / I / Kyoto / been / to 】<span class="jp-translation">私は京都へ行ったことがあります。</span><span class="answer-line"></span></li>
+          <li>【 has / never / she / snow / seen 】<span class="jp-translation">彼女は一度も雪を見たことがありません。</span><span class="answer-line"></span></li>
+          <li>【 you / ever / have / sushi / eaten 】<span class="jp-translation">あなたは寿司を食べたことがありますか。</span><span class="answer-line"></span></li>
+          <li>【 twice / this / read / book / he / has 】<span class="jp-translation">彼はこの本を二度読んだことがあります。</span><span class="answer-line"></span></li>
+        </ol>
+
+        <div class="label">和文英訳</div>
+        <ol class="questions">
+          <li>私は沖縄へ一度行ったことがあります。<span class="hint">ヒント：been / once</span><span class="answer-line long-line"></span></li>
+          <li>彼女は一度も野球をしたことがありません。<span class="hint">ヒント：never / played</span><span class="answer-line long-line"></span></li>
+          <li>あなたは何回東京を訪れたことがありますか。<span class="hint">ヒント：times / ever / visited（8語）</span><span class="answer-line long-line"></span></li>
+        </ol>
+      </article>
+    </section>
+
+    <h2 class="print-page-title">生徒配布用 解答スライド</h2>
+    <section class="answer-sheet" aria-label="解答スライド4枚">
+      <article class="answer-slide">
+        <div class="slide-header">
+          <h2 class="slide-title">覚えておきたい表現</h2>
+          <span class="slide-no">Slide 5</span>
+        </div>
+        <div class="answer-note">日常会話でよく使う現在完了の経験用法。短い形で覚える。</div>
+        <ol class="answer-list">
+          <li><strong>Have you ever been to Tokyo?</strong><span class="mini-explain">東京へ行ったことがありますか。旅行の話で使いやすい。</span></li>
+          <li><strong>I've never tried it.</strong><span class="mini-explain">それを試したことがありません。食べ物や活動に使える。</span></li>
+          <li><strong>I've seen it before.</strong><span class="mini-explain">前にそれを見たことがあります。映画や写真の話で便利。</span></li>
+          <li><strong>Have you ever heard this song?</strong><span class="mini-explain">この歌を聞いたことがありますか。</span></li>
+          <li><strong>I've been there once.</strong><span class="mini-explain">そこへ一度行ったことがあります。</span></li>
+          <li><strong>She has met him twice.</strong><span class="mini-explain">彼女は彼に二度会ったことがあります。</span></li>
+          <li><strong>We've talked about it before.</strong><span class="mini-explain">私たちは前にそのことを話したことがあります。</span></li>
+          <li><strong>I've never heard that.</strong><span class="mini-explain">それは聞いたことがありません。初めて聞いた話に使える。</span></li>
+        </ol>
+      </article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Slide 6</span></div><div class="answer-note">ポイント：この単元の範囲内で、形・語順・後続語・否定文・疑問文・意味を確認する。</div><ol class="answer-list">
+          <li><strong>ア ever</strong><span class="mini-explain">経験の疑問は ever。</span></li>
+          <li><strong>イ never</strong><span class="mini-explain">一度もないは never。</span></li>
+          <li><strong>ウ once</strong><span class="mini-explain">回数は once。</span></li>
+          <li><strong>エ visited</strong><span class="mini-explain">have + 過去分詞。</span></li>
+          <li><strong>ア been</strong><span class="mini-explain">行ったことがあるは been to。</span></li>
+          <li><strong>イ eaten</strong><span class="mini-explain">eat の過去分詞は eaten。</span></li>
+          <li><strong>ウ I have never seen Mt. Fuji.</strong><span class="mini-explain">経験の否定は never。</span></li>
+          <li><strong>ア Have you ever been to Kyoto?</strong><span class="mini-explain">Have you ever been to。</span></li>
+        </ol></article>
+<article class="answer-slide">
+        <div class="slide-header">
+          <h2 class="slide-title">解答 Slide3：穴埋め問題</h2>
+          <span class="slide-no">Slide 7</span>
+        </div>
+        <div class="answer-note">ポイント：ever / never / once / many times を手がかりに、have / has と過去分詞をそろえる。</div>
+        <ol class="answer-list">
+          <li><strong>have been</strong><span class="mini-explain">Nara へ行った経験なので have been to。</span></li>
+          <li><strong>has never</strong><span class="mini-explain">She は has。「見たことがない」は never seen。</span></li>
+          <li><strong>Have / ever</strong><span class="mini-explain">疑問文は Have you ... ?、「今までに」は ever。</span></li>
+          <li><strong>has written</strong><span class="mini-explain">Ken は has。write の過去分詞は written。</span></li>
+          <li><strong>have / many</strong><span class="mini-explain">We は have。「何度も」は many times。</span></li>
+          <li><strong>has seen</strong><span class="mini-explain">My brother は has。see の過去分詞は seen。</span></li>
+          <li><strong>have never</strong><span class="mini-explain">They は have。「一度も〜ない」は never。</span></li>
+          <li><strong>Has / been</strong><span class="mini-explain">your mother は has。場所への経験は been to。</span></li>
+        </ol>
+      </article>
+<article class="answer-slide">
+        <div class="slide-header">
+          <h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2>
+          <span class="slide-no">Slide 8</span>
+        </div>
+        <div class="answer-note">ポイント：語順は「主語 + have / has + 過去分詞」。疑問文は Have / Has を前へ出す。</div>
+        <ol class="answer-list">
+          <li><strong>I have been to Kyoto.</strong><span class="mini-explain">場所への経験は been to。go の過去分詞 gone はここでは使わない。</span></li>
+          <li><strong>She has never seen snow.</strong><span class="mini-explain">「一度も〜ない」は has never + 過去分詞。</span></li>
+          <li><strong>Have you ever eaten sushi?</strong><span class="mini-explain">疑問文は Have you ... ?。ever は have の後ろ。</span></li>
+          <li><strong>He has read this book twice.</strong><span class="mini-explain">read の過去分詞は read。twice は文末に置ける。</span></li>
+          <li><strong>I have been to Okinawa once.</strong><span class="mini-explain">「一度」は once。場所への経験は been to。</span></li>
+          <li><strong>She has never played baseball.</strong><span class="mini-explain">never の後ろは過去分詞 played。</span></li>
+          <li><strong>How many times have you ever visited Tokyo?</strong><span class="mini-explain">「何回」は How many times。ever を入れて「今までに」の意味を強める。</span></li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="layout-notes">
+      <h2>レイアウト上の工夫</h2>
+      <ul>
+        <li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li>
+        <li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li>
+        <li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li>
+        <li>基本問題を中心に、過去分詞・ever / never・経験回数・been to など定期テスト頻出の形を入れています。</li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    function slideOverflows(slide) {
+      return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        let low = 0.56;
+        let high = isPrintFit ? 2.05 : 1.55;
+        let best = low;
+
+        slide.style.setProperty("--fit", high.toFixed(3));
+        if (!slideOverflows(slide)) {
+          best = high;
+        } else {
+          for (let i = 0; i < 12; i += 1) {
+            const mid = (low + high) / 2;
+            slide.style.setProperty("--fit", mid.toFixed(3));
+            if (slideOverflows(slide)) {
+              high = mid;
+            } else {
+              best = mid;
+              low = mid;
+            }
+          }
+        }
+
+        slide.style.setProperty("--fit", best.toFixed(3));
+      });
+    }
+
+    let fitTimer = 0;
+    function queueFitSlideText() {
+      window.clearTimeout(fitTimer);
+      fitTimer = window.setTimeout(fitSlideText, 60);
+    }
+
+    function fitForPrint() {
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.removeProperty("--fit");
+      });
+    }
+
+    window.addEventListener("load", fitSlideText);
+    window.addEventListener("resize", queueFitSlideText);
+    window.addEventListener("beforeprint", fitForPrint);
+    window.addEventListener("afterprint", queueFitSlideText);
+    window.fitSlideText = fitSlideText;
+  </script>
+</body>
+</html>

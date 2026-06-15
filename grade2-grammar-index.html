@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中2英語 文法プリント一覧</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      border-bottom: 1px solid #c5ccd3;
+      background: #fff;
+      padding: 22px 24px;
+    }
+
+    .header-inner,
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .lead {
+      margin: 0;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    main {
+      padding: 22px 24px 40px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #aeb7c0;
+      border-radius: 8px;
+      background: #fff;
+      padding: 9px 12px;
+      font: inherit;
+    }
+
+    .count {
+      color: #4b5563;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      margin: 22px 0 10px;
+      border-left: 5px solid #111827;
+      padding-left: 9px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      min-height: 84px;
+      border: 1px solid #b8c0c8;
+      border-radius: 8px;
+      color: inherit;
+      background: #fff;
+      padding: 12px;
+      text-decoration: none;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: #111827;
+      outline: 2px solid #111827;
+      outline-offset: 1px;
+    }
+
+    .no {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #111827;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 13px;
+      background: #f6f7f8;
+    }
+
+    .title {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .file {
+      display: block;
+      color: #4b5563;
+      font-size: 12px;
+      word-break: break-all;
+    }
+
+    .empty {
+      display: none;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 16px;
+      color: #4b5563;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 28px;
+      color: #4b5563;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      header,
+      main,
+      footer {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .count {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>中2英語 文法プリント一覧</h1>
+      <p class="lead">文法名をクリックすると、印刷用プリントを開けます。A4横・4分割・問題4枚＋解答4枚の形式です。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="文法名で検索 例：不定詞、動名詞、will、比較、受動態">
+      <div id="count" class="count">37件</div>
+    </div>
+
+    <h2 class="section-title">過去・未来・基本文型</h2>
+    <section class="grid">
+      <a class="card" href="g2-past-ed-print.html" data-title="一般動詞の過去形 ed形 過去 規則動詞"><span class="no">2-01</span><span><span class="title">一般動詞の過去形 ed形</span><span class="file">g2-past-ed-print.html</span></span></a>
+      <a class="card" href="g2-past-progressive-print.html" data-title="過去進行形 was were ing"><span class="no">2-02</span><span><span class="title">過去進行形</span><span class="file">g2-past-progressive-print.html</span></span></a>
+      <a class="card" href="g2-svc-sense-verbs-print.html" data-title="感覚を表す動詞 SVC look sound taste feel smell"><span class="no">2-03</span><span><span class="title">感覚を表す動詞 SVC</span><span class="file">g2-svc-sense-verbs-print.html</span></span></a>
+      <a class="card" href="g2-be-going-to-print.html" data-title="be going to 未来 予定"><span class="no">2-04</span><span><span class="title">be going to 未来の文</span><span class="file">g2-be-going-to-print.html</span></span></a>
+      <a class="card" href="g2-will-print.html" data-title="未来形 will"><span class="no">2-15</span><span><span class="title">未来形 will</span><span class="file">g2-will-print.html</span></span></a>
+      <a class="card" href="g2-will-negative-question-print.html" data-title="will 否定文 疑問文 won't Will"><span class="no">2-16</span><span><span class="title">will の否定文・疑問文</span><span class="file">g2-will-negative-question-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">SVOO・不定詞・動名詞</h2>
+    <section class="grid">
+      <a class="card" href="g2-svoo-give-show-print.html" data-title="give show SVOO 人 物"><span class="no">2-05</span><span><span class="title">give / show など SVOO</span><span class="file">g2-svoo-give-show-print.html</span></span></a>
+      <a class="card" href="g2-svoo-rewrite-to-print.html" data-title="SVOO 書き換え to give show send teach"><span class="no">2-06</span><span><span class="title">SVOO書き換え to</span><span class="file">g2-svoo-rewrite-to-print.html</span></span></a>
+      <a class="card" href="g2-svoo-rewrite-for-print.html" data-title="SVOO 書き換え for make buy cook get"><span class="no">2-07</span><span><span class="title">SVOO書き換え for</span><span class="file">g2-svoo-rewrite-for-print.html</span></span></a>
+      <a class="card" href="g2-infinitive-noun-print.html" data-title="不定詞 名詞的用法 to do すること"><span class="no">2-08</span><span><span class="title">不定詞 名詞的用法</span><span class="file">g2-infinitive-noun-print.html</span></span></a>
+      <a class="card" href="g2-gerund-print.html" data-title="動名詞 ing すること"><span class="no">2-09</span><span><span class="title">動名詞 〜すること</span><span class="file">g2-gerund-print.html</span></span></a>
+      <a class="card" href="g2-gerund-only-verbs-print.html" data-title="動名詞しか使えない動詞 MEGAFEPS enjoy finish stop practice"><span class="no">2-10</span><span><span class="title">動名詞しか使えない動詞</span><span class="file">g2-gerund-only-verbs-print.html</span></span></a>
+      <a class="card" href="g2-infinitive-only-verbs-print.html" data-title="to不定詞しか使えない動詞 want hope decide plan"><span class="no">2-11</span><span><span class="title">to不定詞しか使えない動詞</span><span class="file">g2-infinitive-only-verbs-print.html</span></span></a>
+      <a class="card" href="g2-infinitive-adjective-print.html" data-title="不定詞 形容詞的用法 something to drink homework to do"><span class="no">2-12</span><span><span class="title">不定詞 形容詞的用法</span><span class="file">g2-infinitive-adjective-print.html</span></span></a>
+      <a class="card" href="g2-infinitive-adverb-purpose-print.html" data-title="不定詞 副詞的用法 目的 to study to buy"><span class="no">2-13</span><span><span class="title">不定詞 副詞的用法 目的</span><span class="file">g2-infinitive-adverb-purpose-print.html</span></span></a>
+      <a class="card" href="g2-infinitive-adverb-emotion-print.html" data-title="不定詞 副詞的用法 感情の原因 happy to glad to surprised to"><span class="no">2-14</span><span><span class="title">不定詞 副詞的用法 感情の原因</span><span class="file">g2-infinitive-adverb-emotion-print.html</span></span></a>
+      <a class="card" href="infinitive-want-object-to-print.html" data-title="want ask tell 人 to do 不定詞 発展"><span class="no">2-33</span><span><span class="title">want / ask / tell 人 to do</span><span class="file">infinitive-want-object-to-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">助動詞・義務</h2>
+    <section class="grid">
+      <a class="card" href="g2-have-to-print.html" data-title="have to 義務 しなければならない"><span class="no">2-17</span><span><span class="title">have to 義務</span><span class="file">g2-have-to-print.html</span></span></a>
+      <a class="card" href="g2-have-to-negative-question-print.html" data-title="have to 否定文 疑問文 don't have to Do have to"><span class="no">2-18</span><span><span class="title">have to の否定文・疑問文</span><span class="file">g2-have-to-negative-question-print.html</span></span></a>
+      <a class="card" href="g2-must-print.html" data-title="助動詞 must 義務 しなければならない"><span class="no">2-19</span><span><span class="title">助動詞 must 義務</span><span class="file">g2-must-print.html</span></span></a>
+      <a class="card" href="g2-must-negative-question-print.html" data-title="must 否定文 疑問文 must not Must"><span class="no">2-20</span><span><span class="title">must の否定文・疑問文</span><span class="file">g2-must-negative-question-print.html</span></span></a>
+      <a class="card" href="g2-may-print.html" data-title="助動詞 may してもよい かもしれない"><span class="no">2-21</span><span><span class="title">助動詞 may</span><span class="file">g2-may-print.html</span></span></a>
+      <a class="card" href="g2-should-print.html" data-title="助動詞 should すべき"><span class="no">2-22</span><span><span class="title">助動詞 should</span><span class="file">g2-should-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">接続詞・比較</h2>
+    <section class="grid">
+      <a class="card" href="g2-conjunction-when-print.html" data-title="接続詞 when いつ とき"><span class="no">2-23</span><span><span class="title">接続詞 when</span><span class="file">g2-conjunction-when-print.html</span></span></a>
+      <a class="card" href="g2-there-is-are-print.html" data-title="There is There are 存在 あります います"><span class="no">2-24</span><span><span class="title">There is / are</span><span class="file">g2-there-is-are-print.html</span></span></a>
+      <a class="card" href="g2-conjunction-because-print.html" data-title="接続詞 because なぜなら 理由"><span class="no">2-25</span><span><span class="title">接続詞 because</span><span class="file">g2-conjunction-because-print.html</span></span></a>
+      <a class="card" href="g2-conjunction-if-print.html" data-title="接続詞 if もし 条件"><span class="no">2-26</span><span><span class="title">接続詞 if</span><span class="file">g2-conjunction-if-print.html</span></span></a>
+      <a class="card" href="g2-i-think-that-print.html" data-title="I think that 文 接続詞 that"><span class="no">2-27</span><span><span class="title">I think that の文</span><span class="file">g2-i-think-that-print.html</span></span></a>
+      <a class="card" href="g2-comparative-print.html" data-title="比較級 than taller more interesting"><span class="no">2-28</span><span><span class="title">比較級</span><span class="file">g2-comparative-print.html</span></span></a>
+      <a class="card" href="g2-comparative-rules-print.html" data-title="比較級 変化ルール er more bigger easier"><span class="no">2-29</span><span><span class="title">比較級の変化ルール</span><span class="file">g2-comparative-rules-print.html</span></span></a>
+      <a class="card" href="g2-superlative-print.html" data-title="最上級 the est most tallest"><span class="no">2-30</span><span><span class="title">最上級</span><span class="file">g2-superlative-print.html</span></span></a>
+      <a class="card" href="g2-superlative-rules-print.html" data-title="最上級 変化ルール est most biggest easiest"><span class="no">2-31</span><span><span class="title">最上級の変化ルール</span><span class="file">g2-superlative-rules-print.html</span></span></a>
+      <a class="card" href="g2-as-as-print.html" data-title="as as 同等比較 同じくらい"><span class="no">2-32</span><span><span class="title">as 〜 as 同等比較</span><span class="file">g2-as-as-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">使役・SVOC・受動態</h2>
+    <section class="grid">
+      <a class="card" href="g2-help-let-make-print.html" data-title="help let make 人 動詞の原形 使役"><span class="no">2-34</span><span><span class="title">help / let / make + 人 + 動詞の原形</span><span class="file">g2-help-let-make-print.html</span></span></a>
+      <a class="card" href="g2-svoc-make-call-name-keep-print.html" data-title="SVOC make call name keep A B"><span class="no">2-35</span><span><span class="title">SVOC make / call / name / keep</span><span class="file">g2-svoc-make-call-name-keep-print.html</span></span></a>
+      <a class="card" href="passive-voice-print.html" data-title="受動態 受け身 be 過去分詞 by"><span class="no">2-36</span><span><span class="title">受動態</span><span class="file">passive-voice-print.html</span></span></a>
+      <a class="card" href="g2-passive-verb-forms-print.html" data-title="受動態 動詞変化 過去分詞 made written used"><span class="no">2-37</span><span><span class="title">受動態の動詞変化</span><span class="file">g2-passive-verb-forms-print.html</span></span></a>
+    </section>
+
+    <p id="empty" class="empty">該当するプリントがありません。</p>
+  </main>
+
+  <footer>
+    プリントを開いた後、ブラウザの印刷からA4横で印刷できます。
+  </footer>
+
+  <script>
+    const search = document.querySelector("#search");
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const sections = Array.from(document.querySelectorAll(".section-title"));
+    const count = document.querySelector("#count");
+    const empty = document.querySelector("#empty");
+
+    function normalize(text) {
+      return text.toLowerCase().replace(/\s+/g, "");
+    }
+
+    function updateList() {
+      const value = normalize(search.value);
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const haystack = normalize(`${card.textContent} ${card.dataset.title || ""}`);
+        const show = haystack.includes(value);
+        card.style.display = show ? "" : "none";
+        if (show) visible += 1;
+      });
+
+      sections.forEach((title) => {
+        const grid = title.nextElementSibling;
+        const hasVisibleCard = Array.from(grid.querySelectorAll(".card")).some((card) => card.style.display !== "none");
+        title.style.display = hasVisibleCard ? "" : "none";
+        grid.style.display = hasVisibleCard ? "" : "none";
+      });
+
+      count.textContent = `${visible}件`;
+      empty.style.display = visible === 0 ? "block" : "none";
+    }
+
+    search.addEventListener("input", updateList);
+    updateList();
+  </script>
+</body>
+</html>
