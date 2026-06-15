@@ -393,7 +393,7 @@
     @media print {
       @page {
         size: A4 landscape;
-        margin: 8mm;
+        margin: 0;
       }
 
       body {
@@ -405,7 +405,7 @@
       html,
       body,
       .screen {
-        width: 281mm;
+        width: 297mm;
         min-height: 0 !important;
         overflow: visible;
       }
@@ -427,8 +427,8 @@
       }
 
       .sheet {
-        display: block;
-        width: 281mm;
+        display: contents;
+        width: auto;
         height: auto;
         max-width: none;
         margin: 0;
@@ -439,8 +439,8 @@
       }
 
       .answer-sheet {
-        display: block;
-        width: 281mm;
+        display: contents;
+        width: auto;
         height: auto;
         max-width: none;
         margin: 0;
@@ -452,13 +452,16 @@
 
       .slide {
         --fit: 1;
-        width: 281mm;
-        height: 194mm;
+        width: 297mm;
+        height: 210mm;
         min-height: auto;
-        border: 1px solid #111;
-        padding: 6mm;
+        border: 0;
+        box-shadow: inset 0 0 0 1px #111;
+        padding: 8mm;
         line-height: 1.2;
         overflow: hidden;
+        break-inside: avoid;
+        page-break-inside: avoid;
         break-after: page;
         page-break-after: always;
       }
@@ -536,12 +539,15 @@
       }
 
       .answer-slide {
-        width: 281mm;
-        height: 194mm;
-        border: 1px solid #111;
-        padding: 6mm;
+        width: 297mm;
+        height: 210mm;
+        border: 0;
+        box-shadow: inset 0 0 0 1px #111;
+        padding: 8mm;
         line-height: 1.22;
         overflow: hidden;
+        break-inside: avoid;
+        page-break-inside: avoid;
         break-after: page;
         page-break-after: always;
       }
