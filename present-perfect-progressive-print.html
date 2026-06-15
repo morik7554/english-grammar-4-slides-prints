@@ -37,6 +37,38 @@
       gap: 16px;
     }
 
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #263238;
+      background: #fff;
+      padding: 7px 13px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .top-link:hover,
+    .top-link:focus-visible {
+      color: #fff;
+      background: #263238;
+      outline: 2px solid #263238;
+      outline-offset: 1px;
+    }
+
+
     h1,
     h2,
     h3 {
@@ -548,7 +580,10 @@
         <h1>中3 英語 定期テスト前確認プリント：現在完了進行形</h1>
         <div class="meta">対象学年：中3　文法事項：現在完了進行形</div>
       </div>
-      <button type="button" onclick="window.print()">A4横 4分割で印刷</button>
+      <div class="top-actions">
+        <a class="top-link" href="index.html">トップ画面</a>
+        <button type="button" onclick="window.print()">A4横 4分割で印刷</button>
+      </div>
     </section>
 
     <section class="sheet" aria-label="4分割プリント">
