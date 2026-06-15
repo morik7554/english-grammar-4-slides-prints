@@ -110,9 +110,9 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 1120px;
+      max-width: 1123px;
       margin: 0 auto 18px;
-      padding: 10px;
+      padding: 0;
       background: #d4dae0;
     }
 
@@ -120,9 +120,11 @@
       --fit: 1;
       min-height: 0;
       overflow: hidden;
-      border: 1px solid #5d6670;
+      border: 0;
+      box-shadow: inset 0 0 0 1px #5d6670;
       background: #fff;
-      padding: 18px;
+      padding: 8mm;
+      line-height: 1.2;
       aspect-ratio: 297 / 210;
     }
 
@@ -267,18 +269,20 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 1120px;
+      max-width: 1123px;
       margin: 0 auto 18px;
-      padding: 10px;
+      padding: 0;
       background: #d4dae0;
     }
 
     .answer-slide {
       --answer-fit: 1;
       overflow: hidden;
-      border: 1px solid #5d6670;
+      border: 0;
+      box-shadow: inset 0 0 0 1px #5d6670;
       background: #fff;
-      padding: 18px;
+      padding: 8mm;
+      line-height: 1.22;
       aspect-ratio: 297 / 210;
     }
 
@@ -466,74 +470,6 @@
         page-break-after: always;
       }
 
-      .slide-title {
-        font-size: calc(12pt * var(--fit));
-      }
-
-      .slide-header {
-        padding-bottom: 3px;
-        margin-bottom: 4px;
-      }
-
-      .label {
-        margin: 4px 0 2px;
-        border-left-width: 3px;
-        padding-left: 4px;
-        font-size: calc(8.2pt * var(--fit));
-      }
-
-      .summary-grid {
-        gap: 3px;
-      }
-
-      .box,
-      .note,
-      .word-bank {
-        padding: 3px 4px;
-      }
-
-      .box,
-      .note,
-      .word-bank,
-        .compact-list,
-        .examples,
-        .questions {
-        font-size: calc(7.6pt * var(--fit));
-      }
-
-      .questions {
-        gap: calc(2px * var(--fit));
-      }
-
-      .choices {
-        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
-        margin-top: calc(1px * var(--fit));
-      }
-
-      .choices,
-      .hint,
-      .jp-translation,
-      .write-grid {
-        font-size: calc(7.1pt * var(--fit));
-      }
-
-      .write-grid {
-        gap: calc(3px * var(--fit));
-        margin-top: calc(3px * var(--fit));
-      }
-
-      .line {
-        min-width: 80px;
-      }
-
-      .answer-line {
-        min-height: calc(14px * var(--fit));
-      }
-
-      .long-line {
-        min-height: calc(17px * var(--fit));
-      }
-
       .print-page-title {
         display: none;
       }
@@ -556,46 +492,12 @@
         break-after: auto;
         page-break-after: auto;
       }
-
-      .answer-slide .slide-title {
-        font-size: calc(11.7pt * var(--answer-fit));
-      }
-
-      .answer-slide .slide-no {
-        font-size: calc(8.4pt * var(--answer-fit));
-      }
-
-      .answer-slide .slide-header {
-        padding-bottom: 2px;
-        margin-bottom: 3px;
-      }
-
-      .answer-note {
-        padding: 2px 3px;
-        margin-bottom: 3px;
-        font-size: calc(7.6pt * var(--answer-fit));
-      }
-
-      .answer-list {
-        gap: 1px;
-        font-size: calc(8.3pt * var(--answer-fit));
-      }
-
-      .answer-list li {
-        padding-bottom: 2px;
-      }
-
-      .answer-list li > span,
-      .mini-explain {
-        font-size: calc(7.3pt * var(--answer-fit));
-        line-height: 1.16;
-      }
     }
   </style>
 </head>
 <body>
   <main class="screen">
-    <section class="topbar no-print"><div><h1>中1 英語 定期テスト前確認プリント：This is ～ / That is ～</h1><div class="meta">対象学年：中1　文法事項：This is ～ / That is ～</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">PDF保存後や印刷画面で、1枚あたりのページ数を選べます。</span></div></section>
+    <section class="topbar no-print"><div><h1>中1 英語 定期テスト前確認プリント：This is ～ / That is ～</h1><div class="meta">対象学年：中1　文法事項：This is ～ / That is ～</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button class="print-button" type="button" onclick="printWorksheet()">PDF出力・印刷</button><span class="print-help">PDF保存後や印刷画面で、1枚あたりのページ数を選べます。</span></div></section>
     <section class="sheet" aria-label="問題スライド">
       <article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中1　文法事項：This is ～ / That is ～</div><div class="summary-grid"><div class="box"><strong>形</strong><br>This is + 名詞<br>That is + 名詞</div><div class="box"><strong>意味</strong><br>「これは〜です」「あれは〜です」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>This is：これは〜です</li><li>That is：あれは〜です</li><li>a pen / a book：ペン / 本</li><li>my bag：私のカバン</li></ul><div class="label">注意点</div><div class="note">近くのものは this、遠くのものは that。どちらも後ろは is。<br>× This are a pen.<br>○ This is a pen.</div><div class="label">例文</div><ul class="examples"><li>This is a pen.</li><li>That is my bag.</li><li>This is an apple.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article>
       <article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions">
@@ -716,13 +618,12 @@
       slide.style.setProperty(propertyName, best.toFixed(3));
     }
 
-    function fitSlideText(options = {}) {
-      const isPrintFit = options.print || window.matchMedia("print").matches;
+    function fitSlideText() {
       document.querySelectorAll(".slide").forEach((slide) => {
-        fitOneSlide(slide, "--fit", 0.56, isPrintFit ? 2.05 : 1.55);
+        fitOneSlide(slide, "--fit", 0.56, 1.55);
       });
       document.querySelectorAll(".answer-slide").forEach((slide) => {
-        fitOneSlide(slide, "--answer-fit", 0.46, isPrintFit ? 1.9 : 1.35);
+        fitOneSlide(slide, "--answer-fit", 0.46, 1.35);
       });
     }
 
@@ -737,7 +638,12 @@
         slide.style.removeProperty("--fit");
         slide.style.removeProperty("--answer-fit");
       });
-      fitSlideText({ print: true });
+      fitSlideText();
+    }
+
+    function printWorksheet() {
+      fitForPrint();
+      window.setTimeout(() => window.print(), 30);
     }
 
     window.addEventListener("load", fitSlideText);

@@ -110,9 +110,9 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 1120px;
+      max-width: 1123px;
       margin: 0 auto 18px;
-      padding: 10px;
+      padding: 0;
       background: #d4dae0;
     }
 
@@ -120,9 +120,11 @@
       --fit: 1;
       min-height: 0;
       overflow: hidden;
-      border: 1px solid #5d6670;
+      border: 0;
+      box-shadow: inset 0 0 0 1px #5d6670;
       background: #fff;
-      padding: 18px;
+      padding: 8mm;
+      line-height: 1.2;
       aspect-ratio: 297 / 210;
     }
 
@@ -267,18 +269,20 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 1120px;
+      max-width: 1123px;
       margin: 0 auto 18px;
-      padding: 10px;
+      padding: 0;
       background: #d4dae0;
     }
 
     .answer-slide {
       --answer-fit: 1;
       overflow: hidden;
-      border: 1px solid #5d6670;
+      border: 0;
+      box-shadow: inset 0 0 0 1px #5d6670;
       background: #fff;
-      padding: 18px;
+      padding: 8mm;
+      line-height: 1.22;
       aspect-ratio: 297 / 210;
     }
 
@@ -466,74 +470,6 @@
         page-break-after: always;
       }
 
-      .slide-title {
-        font-size: calc(12pt * var(--fit));
-      }
-
-      .slide-header {
-        padding-bottom: 3px;
-        margin-bottom: 4px;
-      }
-
-      .label {
-        margin: 4px 0 2px;
-        border-left-width: 3px;
-        padding-left: 4px;
-        font-size: calc(8.2pt * var(--fit));
-      }
-
-      .summary-grid {
-        gap: 3px;
-      }
-
-      .box,
-      .note,
-      .word-bank {
-        padding: 3px 4px;
-      }
-
-      .box,
-      .note,
-      .word-bank,
-        .compact-list,
-        .examples,
-        .questions {
-        font-size: calc(7.6pt * var(--fit));
-      }
-
-      .questions {
-        gap: calc(2px * var(--fit));
-      }
-
-      .choices {
-        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
-        margin-top: calc(1px * var(--fit));
-      }
-
-      .choices,
-      .hint,
-      .jp-translation,
-      .write-grid {
-        font-size: calc(7.1pt * var(--fit));
-      }
-
-      .write-grid {
-        gap: calc(3px * var(--fit));
-        margin-top: calc(3px * var(--fit));
-      }
-
-      .line {
-        min-width: 80px;
-      }
-
-      .answer-line {
-        min-height: calc(14px * var(--fit));
-      }
-
-      .long-line {
-        min-height: calc(17px * var(--fit));
-      }
-
       .print-page-title {
         display: none;
       }
@@ -602,7 +538,7 @@
       </div>
       <div class="top-actions">
         <a class="top-link" href="index.html">トップ画面</a>
-        <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">PDF保存後や印刷画面で、1枚あたりのページ数を選べます。</span>
+        <button class="print-button" type="button" onclick="printWorksheet()">PDF出力・印刷</button><span class="print-help">PDF保存後や印刷画面で、1枚あたりのページ数を選べます。</span>
       </div>
     </section>
 
@@ -828,13 +764,12 @@
       slide.style.setProperty(propertyName, best.toFixed(3));
     }
 
-    function fitSlideText(options = {}) {
-      const isPrintFit = options.print || window.matchMedia("print").matches;
+    function fitSlideText() {
       document.querySelectorAll(".slide").forEach((slide) => {
-        fitOneSlide(slide, "--fit", 0.56, isPrintFit ? 2.05 : 1.55);
+        fitOneSlide(slide, "--fit", 0.56, 1.55);
       });
       document.querySelectorAll(".answer-slide").forEach((slide) => {
-        fitOneSlide(slide, "--answer-fit", 0.46, isPrintFit ? 1.9 : 1.35);
+        fitOneSlide(slide, "--answer-fit", 0.46, 1.35);
       });
     }
 
@@ -849,7 +784,12 @@
         slide.style.removeProperty("--fit");
         slide.style.removeProperty("--answer-fit");
       });
-      fitSlideText({ print: true });
+      fitSlideText();
+    }
+
+    function printWorksheet() {
+      fitForPrint();
+      window.setTimeout(() => window.print(), 30);
     }
 
     window.addEventListener("load", fitSlideText);
