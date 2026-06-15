@@ -52,6 +52,34 @@
       padding-left: 9px;
       font-size: 18px;
     }
+    .search-panel {
+      margin-bottom: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #aeb7c0;
+      border-radius: 8px;
+      background: #fff;
+      padding: 9px 12px;
+      font: inherit;
+    }
+
+    .search-count {
+      margin-top: 8px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .empty {
+      display: none;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 16px;
+      color: #4b5563;
+    }
+
 
     .grade-grid {
       display: grid;
@@ -165,6 +193,10 @@
 
   <main>
     <h2 class="section-title">学年を選択</h2>
+    <div class="search-panel">
+      <input id="search" class="search-input" type="search" placeholder="文法名で検索 例：現在完了、受動態、不定詞、can">
+      <div id="count" class="search-count">3件</div>
+    </div>
     <section class="grade-grid" aria-label="学年選択">
       <a class="grade-card" href="grade1-grammar-index.html">
         <span class="grade-label">中1</span>
@@ -193,6 +225,7 @@
         <span class="count">17文法</span>
       </a>
     </section>
+    <p id="empty" class="empty">該当する学年がありません。</p>
 
     <section class="usage">
       <h2>使い方</h2>
@@ -207,5 +240,32 @@
   <footer>
     各プリントはA4横・4分割・問題4枚＋解答4枚の形式です。
   </footer>
+  <script>
+    const searchInput = document.getElementById('search');
+    const cards = Array.from(document.querySelectorAll('.grade-card'));
+    const count = document.getElementById('count');
+    const empty = document.getElementById('empty');
+
+    function normalizeText(value) {
+      return value.toLowerCase().replace(/\s+/g, '');
+    }
+
+    function filterCards() {
+      const query = normalizeText(searchInput.value);
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const text = normalizeText(card.textContent);
+        const visible = !query || text.includes(query);
+        card.style.display = visible ? '' : 'none';
+        if (visible) visibleCount += 1;
+      });
+
+      count.textContent = visibleCount + '件';
+      empty.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterCards);
+  </script>
 </body>
 </html>
