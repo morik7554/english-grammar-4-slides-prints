@@ -162,6 +162,13 @@
       color: #4b5563;
     }
 
+    .search-result-title {
+      margin: 18px 0 10px;
+      border-left: 5px solid #111827;
+      padding-left: 9px;
+      font-size: 18px;
+    }
+
     footer {
       max-width: 1180px;
       margin: 0 auto;
@@ -203,9 +210,13 @@
 
   <main>
     <div class="toolbar">
-      <input id="search" class="search" type="search" placeholder="文法名で検索 例：不定詞、動名詞、will、比較、受動態">
+      <input id="search" class="search" type="search" placeholder="全学年から検索 例：現在完了、受動態、不定詞、can">
       <div id="count" class="count">37件</div>
     </div>
+    <section id="global-results-section" style="display: none;">
+      <h2 class="search-result-title">全学年の検索結果</h2>
+      <div id="global-results-grid" class="grid"></div>
+    </section>
 
     <h2 class="section-title">過去・未来・基本文型</h2>
     <section class="grid">
@@ -272,39 +283,740 @@
   </footer>
 
   <script>
-    const search = document.querySelector("#search");
-    const cards = Array.from(document.querySelectorAll(".card"));
-    const sections = Array.from(document.querySelectorAll(".section-title"));
-    const count = document.querySelector("#count");
-    const empty = document.querySelector("#empty");
+    const search = document.querySelector('#search');
+    const cards = Array.from(document.querySelectorAll('main > section.grid .card'));
+    const sections = Array.from(document.querySelectorAll('main > .section-title'));
+    const count = document.querySelector('#count');
+    const empty = document.querySelector('#empty');
+    const resultsSection = document.getElementById('global-results-section');
+    const resultsGrid = document.getElementById('global-results-grid');
+    const localTotal = cards.length;
 
-    function normalize(text) {
-      return text.toLowerCase().replace(/\s+/g, "");
+
+    const allGrammarItems = [
+      {
+            "no": "1-01",
+            "grade": "中1",
+            "title": "I am ～",
+            "file": "g1-i-am-print.html",
+            "href": "g1-i-am-print.html",
+            "keywords": "I am ～ I am 私はです be動詞 g1-i-am-print.html 中1"
+      },
+      {
+            "no": "1-02",
+            "grade": "中1",
+            "title": "You are ～",
+            "file": "g1-you-are-print.html",
+            "href": "g1-you-are-print.html",
+            "keywords": "You are ～ You are あなたはです be動詞 g1-you-are-print.html 中1"
+      },
+      {
+            "no": "1-03",
+            "grade": "中1",
+            "title": "He / She is ～",
+            "file": "g1-he-she-is-print.html",
+            "href": "g1-he-she-is-print.html",
+            "keywords": "He / She is ～ He She is 彼 彼女 be動詞 g1-he-she-is-print.html 中1"
+      },
+      {
+            "no": "1-04",
+            "grade": "中1",
+            "title": "This is ～ / That is ～",
+            "file": "g1-this-that-is-print.html",
+            "href": "g1-this-that-is-print.html",
+            "keywords": "This is ～ / That is ～ This is That is これ あれ be動詞 g1-this-that-is-print.html 中1"
+      },
+      {
+            "no": "1-05",
+            "grade": "中1",
+            "title": "be動詞の使い分け",
+            "file": "g1-be-verb-choice-print.html",
+            "href": "g1-be-verb-choice-print.html",
+            "keywords": "be動詞の使い分け be動詞 使い分け am are is g1-be-verb-choice-print.html 中1"
+      },
+      {
+            "no": "1-06",
+            "grade": "中1",
+            "title": "be動詞の否定文",
+            "file": "g1-be-verb-negative-print.html",
+            "href": "g1-be-verb-negative-print.html",
+            "keywords": "be動詞の否定文 be動詞 否定文 not g1-be-verb-negative-print.html 中1"
+      },
+      {
+            "no": "1-07",
+            "grade": "中1",
+            "title": "be動詞の疑問文",
+            "file": "g1-be-verb-question-print.html",
+            "href": "g1-be-verb-question-print.html",
+            "keywords": "be動詞の疑問文 be動詞 疑問文 g1-be-verb-question-print.html 中1"
+      },
+      {
+            "no": "1-08",
+            "grade": "中1",
+            "title": "be動詞のまとめ",
+            "file": "g1-be-verb-review-print.html",
+            "href": "g1-be-verb-review-print.html",
+            "keywords": "be動詞のまとめ be動詞 まとめ 肯定 否定 疑問 g1-be-verb-review-print.html 中1"
+      },
+      {
+            "no": "1-09",
+            "grade": "中1",
+            "title": "一般動詞とは？ 肯定文",
+            "file": "g1-action-verbs-affirmative-print.html",
+            "href": "g1-action-verbs-affirmative-print.html",
+            "keywords": "一般動詞とは？ 肯定文 一般動詞 肯定文 play like have study g1-action-verbs-affirmative-print.html 中1"
+      },
+      {
+            "no": "1-10",
+            "grade": "中1",
+            "title": "一般動詞の否定文",
+            "file": "g1-action-verbs-negative-print.html",
+            "href": "g1-action-verbs-negative-print.html",
+            "keywords": "一般動詞の否定文 一般動詞 否定文 do not don't g1-action-verbs-negative-print.html 中1"
+      },
+      {
+            "no": "1-11",
+            "grade": "中1",
+            "title": "一般動詞の疑問文",
+            "file": "g1-action-verbs-question-print.html",
+            "href": "g1-action-verbs-question-print.html",
+            "keywords": "一般動詞の疑問文 一般動詞 疑問文 Do g1-action-verbs-question-print.html 中1"
+      },
+      {
+            "no": "1-12",
+            "grade": "中1",
+            "title": "一般動詞のまとめ",
+            "file": "g1-action-verbs-review-print.html",
+            "href": "g1-action-verbs-review-print.html",
+            "keywords": "一般動詞のまとめ 一般動詞 まとめ 肯定 否定 疑問 g1-action-verbs-review-print.html 中1"
+      },
+      {
+            "no": "1-13",
+            "grade": "中1",
+            "title": "疑問詞 what の文",
+            "file": "g1-question-word-what-print.html",
+            "href": "g1-question-word-what-print.html",
+            "keywords": "疑問詞 what の文 疑問詞 what 何 g1-question-word-what-print.html 中1"
+      },
+      {
+            "no": "1-14",
+            "grade": "中1",
+            "title": "疑問詞 who の文",
+            "file": "g1-question-word-who-print.html",
+            "href": "g1-question-word-who-print.html",
+            "keywords": "疑問詞 who の文 疑問詞 who だれ g1-question-word-who-print.html 中1"
+      },
+      {
+            "no": "1-15",
+            "grade": "中1",
+            "title": "疑問詞 when の文",
+            "file": "g1-question-word-when-print.html",
+            "href": "g1-question-word-when-print.html",
+            "keywords": "疑問詞 when の文 疑問詞 when いつ g1-question-word-when-print.html 中1"
+      },
+      {
+            "no": "1-16",
+            "grade": "中1",
+            "title": "疑問詞 where の文",
+            "file": "g1-question-word-where-print.html",
+            "href": "g1-question-word-where-print.html",
+            "keywords": "疑問詞 where の文 疑問詞 where どこ g1-question-word-where-print.html 中1"
+      },
+      {
+            "no": "1-17",
+            "grade": "中1",
+            "title": "名詞の複数形 s / es",
+            "file": "g1-plural-nouns-print.html",
+            "href": "g1-plural-nouns-print.html",
+            "keywords": "名詞の複数形 s / es 名詞 複数形 s es g1-plural-nouns-print.html 中1"
+      },
+      {
+            "no": "1-18",
+            "grade": "中1",
+            "title": "命令文の作り方",
+            "file": "g1-imperative-print.html",
+            "href": "g1-imperative-print.html",
+            "keywords": "命令文の作り方 命令文 作り方 Open Don't Please g1-imperative-print.html 中1"
+      },
+      {
+            "no": "1-19",
+            "grade": "中1",
+            "title": "代名詞の変化表",
+            "file": "g1-pronouns-i-my-me-mine-print.html",
+            "href": "g1-pronouns-i-my-me-mine-print.html",
+            "keywords": "代名詞の変化表 代名詞 I my me mine g1-pronouns-i-my-me-mine-print.html 中1"
+      },
+      {
+            "no": "1-20",
+            "grade": "中1",
+            "title": "現在進行形 be + ing",
+            "file": "g1-present-progressive-print.html",
+            "href": "g1-present-progressive-print.html",
+            "keywords": "現在進行形 be + ing 現在進行形 be ing g1-present-progressive-print.html 中1"
+      },
+      {
+            "no": "1-21",
+            "grade": "中1",
+            "title": "動詞のing形の作り方",
+            "file": "g1-ing-form-rules-print.html",
+            "href": "g1-ing-form-rules-print.html",
+            "keywords": "動詞のing形の作り方 動詞 ing形 作り方 g1-ing-form-rules-print.html 中1"
+      },
+      {
+            "no": "1-22",
+            "grade": "中1",
+            "title": "助動詞 can 肯定文",
+            "file": "g1-can-affirmative-print.html",
+            "href": "g1-can-affirmative-print.html",
+            "keywords": "助動詞 can 肯定文 助動詞 can 肯定文 g1-can-affirmative-print.html 中1"
+      },
+      {
+            "no": "1-23",
+            "grade": "中1",
+            "title": "can の否定文・疑問文",
+            "file": "g1-can-negative-question-print.html",
+            "href": "g1-can-negative-question-print.html",
+            "keywords": "can の否定文・疑問文 can 否定文 疑問文 can't Can g1-can-negative-question-print.html 中1"
+      },
+      {
+            "no": "1-24",
+            "grade": "中1",
+            "title": "一般動詞の過去形",
+            "file": "g1-past-tense-sentences-print.html",
+            "href": "g1-past-tense-sentences-print.html",
+            "keywords": "一般動詞の過去形 一般動詞 過去形 文の作り方 g1-past-tense-sentences-print.html 中1"
+      },
+      {
+            "no": "1-25",
+            "grade": "中1",
+            "title": "過去形の動詞",
+            "file": "g1-past-verb-rules-print.html",
+            "href": "g1-past-verb-rules-print.html",
+            "keywords": "過去形の動詞 過去形 動詞 ed 不規則 g1-past-verb-rules-print.html 中1"
+      },
+      {
+            "no": "1-26",
+            "grade": "中1",
+            "title": "三単現のS 肯定文",
+            "file": "g1-third-person-s-affirmative-print.html",
+            "href": "g1-third-person-s-affirmative-print.html",
+            "keywords": "三単現のS 肯定文 三単現 s 肯定文 g1-third-person-s-affirmative-print.html 中1"
+      },
+      {
+            "no": "1-27",
+            "grade": "中1",
+            "title": "三単現の否定文・疑問文",
+            "file": "g1-third-person-s-negative-question-print.html",
+            "href": "g1-third-person-s-negative-question-print.html",
+            "keywords": "三単現の否定文・疑問文 三単現 否定文 疑問文 does g1-third-person-s-negative-question-print.html 中1"
+      },
+      {
+            "no": "1-28",
+            "grade": "中1",
+            "title": "三人称単数の見分け方",
+            "file": "g1-third-person-singular-print.html",
+            "href": "g1-third-person-singular-print.html",
+            "keywords": "三人称単数の見分け方 三人称単数 見分け方 he she it g1-third-person-singular-print.html 中1"
+      },
+      {
+            "no": "2-01",
+            "grade": "中2",
+            "title": "一般動詞の過去形 ed形",
+            "file": "g2-past-ed-print.html",
+            "href": "g2-past-ed-print.html",
+            "keywords": "一般動詞の過去形 ed形 一般動詞の過去形 ed形 過去 規則動詞 g2-past-ed-print.html 中2"
+      },
+      {
+            "no": "2-02",
+            "grade": "中2",
+            "title": "過去進行形",
+            "file": "g2-past-progressive-print.html",
+            "href": "g2-past-progressive-print.html",
+            "keywords": "過去進行形 過去進行形 was were ing g2-past-progressive-print.html 中2"
+      },
+      {
+            "no": "2-03",
+            "grade": "中2",
+            "title": "感覚を表す動詞 SVC",
+            "file": "g2-svc-sense-verbs-print.html",
+            "href": "g2-svc-sense-verbs-print.html",
+            "keywords": "感覚を表す動詞 SVC 感覚を表す動詞 SVC look sound taste feel smell g2-svc-sense-verbs-print.html 中2"
+      },
+      {
+            "no": "2-04",
+            "grade": "中2",
+            "title": "be going to 未来の文",
+            "file": "g2-be-going-to-print.html",
+            "href": "g2-be-going-to-print.html",
+            "keywords": "be going to 未来の文 be going to 未来 予定 g2-be-going-to-print.html 中2"
+      },
+      {
+            "no": "2-15",
+            "grade": "中2",
+            "title": "未来形 will",
+            "file": "g2-will-print.html",
+            "href": "g2-will-print.html",
+            "keywords": "未来形 will 未来形 will g2-will-print.html 中2"
+      },
+      {
+            "no": "2-16",
+            "grade": "中2",
+            "title": "will の否定文・疑問文",
+            "file": "g2-will-negative-question-print.html",
+            "href": "g2-will-negative-question-print.html",
+            "keywords": "will の否定文・疑問文 will 否定文 疑問文 won't Will g2-will-negative-question-print.html 中2"
+      },
+      {
+            "no": "2-05",
+            "grade": "中2",
+            "title": "give / show など SVOO",
+            "file": "g2-svoo-give-show-print.html",
+            "href": "g2-svoo-give-show-print.html",
+            "keywords": "give / show など SVOO give show SVOO 人 物 g2-svoo-give-show-print.html 中2"
+      },
+      {
+            "no": "2-06",
+            "grade": "中2",
+            "title": "SVOO書き換え to",
+            "file": "g2-svoo-rewrite-to-print.html",
+            "href": "g2-svoo-rewrite-to-print.html",
+            "keywords": "SVOO書き換え to SVOO 書き換え to give show send teach g2-svoo-rewrite-to-print.html 中2"
+      },
+      {
+            "no": "2-07",
+            "grade": "中2",
+            "title": "SVOO書き換え for",
+            "file": "g2-svoo-rewrite-for-print.html",
+            "href": "g2-svoo-rewrite-for-print.html",
+            "keywords": "SVOO書き換え for SVOO 書き換え for make buy cook get g2-svoo-rewrite-for-print.html 中2"
+      },
+      {
+            "no": "2-08",
+            "grade": "中2",
+            "title": "不定詞 名詞的用法",
+            "file": "g2-infinitive-noun-print.html",
+            "href": "g2-infinitive-noun-print.html",
+            "keywords": "不定詞 名詞的用法 不定詞 名詞的用法 to do すること g2-infinitive-noun-print.html 中2"
+      },
+      {
+            "no": "2-09",
+            "grade": "中2",
+            "title": "動名詞 〜すること",
+            "file": "g2-gerund-print.html",
+            "href": "g2-gerund-print.html",
+            "keywords": "動名詞 〜すること 動名詞 ing すること g2-gerund-print.html 中2"
+      },
+      {
+            "no": "2-10",
+            "grade": "中2",
+            "title": "動名詞しか使えない動詞",
+            "file": "g2-gerund-only-verbs-print.html",
+            "href": "g2-gerund-only-verbs-print.html",
+            "keywords": "動名詞しか使えない動詞 動名詞しか使えない動詞 MEGAFEPS enjoy finish stop practice g2-gerund-only-verbs-print.html 中2"
+      },
+      {
+            "no": "2-11",
+            "grade": "中2",
+            "title": "to不定詞しか使えない動詞",
+            "file": "g2-infinitive-only-verbs-print.html",
+            "href": "g2-infinitive-only-verbs-print.html",
+            "keywords": "to不定詞しか使えない動詞 to不定詞しか使えない動詞 want hope decide plan g2-infinitive-only-verbs-print.html 中2"
+      },
+      {
+            "no": "2-12",
+            "grade": "中2",
+            "title": "不定詞 形容詞的用法",
+            "file": "g2-infinitive-adjective-print.html",
+            "href": "g2-infinitive-adjective-print.html",
+            "keywords": "不定詞 形容詞的用法 不定詞 形容詞的用法 something to drink homework to do g2-infinitive-adjective-print.html 中2"
+      },
+      {
+            "no": "2-13",
+            "grade": "中2",
+            "title": "不定詞 副詞的用法 目的",
+            "file": "g2-infinitive-adverb-purpose-print.html",
+            "href": "g2-infinitive-adverb-purpose-print.html",
+            "keywords": "不定詞 副詞的用法 目的 不定詞 副詞的用法 目的 to study to buy g2-infinitive-adverb-purpose-print.html 中2"
+      },
+      {
+            "no": "2-14",
+            "grade": "中2",
+            "title": "不定詞 副詞的用法 感情の原因",
+            "file": "g2-infinitive-adverb-emotion-print.html",
+            "href": "g2-infinitive-adverb-emotion-print.html",
+            "keywords": "不定詞 副詞的用法 感情の原因 不定詞 副詞的用法 感情の原因 happy to glad to surprised to g2-infinitive-adverb-emotion-print.html 中2"
+      },
+      {
+            "no": "2-33",
+            "grade": "中2",
+            "title": "want / ask / tell 人 to do",
+            "file": "infinitive-want-object-to-print.html",
+            "href": "infinitive-want-object-to-print.html",
+            "keywords": "want / ask / tell 人 to do want ask tell 人 to do 不定詞 発展 infinitive-want-object-to-print.html 中2"
+      },
+      {
+            "no": "2-17",
+            "grade": "中2",
+            "title": "have to 義務",
+            "file": "g2-have-to-print.html",
+            "href": "g2-have-to-print.html",
+            "keywords": "have to 義務 have to 義務 しなければならない g2-have-to-print.html 中2"
+      },
+      {
+            "no": "2-18",
+            "grade": "中2",
+            "title": "have to の否定文・疑問文",
+            "file": "g2-have-to-negative-question-print.html",
+            "href": "g2-have-to-negative-question-print.html",
+            "keywords": "have to の否定文・疑問文 have to 否定文 疑問文 don't have to Do have to g2-have-to-negative-question-print.html 中2"
+      },
+      {
+            "no": "2-19",
+            "grade": "中2",
+            "title": "助動詞 must 義務",
+            "file": "g2-must-print.html",
+            "href": "g2-must-print.html",
+            "keywords": "助動詞 must 義務 助動詞 must 義務 しなければならない g2-must-print.html 中2"
+      },
+      {
+            "no": "2-20",
+            "grade": "中2",
+            "title": "must の否定文・疑問文",
+            "file": "g2-must-negative-question-print.html",
+            "href": "g2-must-negative-question-print.html",
+            "keywords": "must の否定文・疑問文 must 否定文 疑問文 must not Must g2-must-negative-question-print.html 中2"
+      },
+      {
+            "no": "2-21",
+            "grade": "中2",
+            "title": "助動詞 may",
+            "file": "g2-may-print.html",
+            "href": "g2-may-print.html",
+            "keywords": "助動詞 may 助動詞 may してもよい かもしれない g2-may-print.html 中2"
+      },
+      {
+            "no": "2-22",
+            "grade": "中2",
+            "title": "助動詞 should",
+            "file": "g2-should-print.html",
+            "href": "g2-should-print.html",
+            "keywords": "助動詞 should 助動詞 should すべき g2-should-print.html 中2"
+      },
+      {
+            "no": "2-23",
+            "grade": "中2",
+            "title": "接続詞 when",
+            "file": "g2-conjunction-when-print.html",
+            "href": "g2-conjunction-when-print.html",
+            "keywords": "接続詞 when 接続詞 when いつ とき g2-conjunction-when-print.html 中2"
+      },
+      {
+            "no": "2-24",
+            "grade": "中2",
+            "title": "There is / are",
+            "file": "g2-there-is-are-print.html",
+            "href": "g2-there-is-are-print.html",
+            "keywords": "There is / are There is There are 存在 あります います g2-there-is-are-print.html 中2"
+      },
+      {
+            "no": "2-25",
+            "grade": "中2",
+            "title": "接続詞 because",
+            "file": "g2-conjunction-because-print.html",
+            "href": "g2-conjunction-because-print.html",
+            "keywords": "接続詞 because 接続詞 because なぜなら 理由 g2-conjunction-because-print.html 中2"
+      },
+      {
+            "no": "2-26",
+            "grade": "中2",
+            "title": "接続詞 if",
+            "file": "g2-conjunction-if-print.html",
+            "href": "g2-conjunction-if-print.html",
+            "keywords": "接続詞 if 接続詞 if もし 条件 g2-conjunction-if-print.html 中2"
+      },
+      {
+            "no": "2-27",
+            "grade": "中2",
+            "title": "I think that の文",
+            "file": "g2-i-think-that-print.html",
+            "href": "g2-i-think-that-print.html",
+            "keywords": "I think that の文 I think that 文 接続詞 that g2-i-think-that-print.html 中2"
+      },
+      {
+            "no": "2-28",
+            "grade": "中2",
+            "title": "比較級",
+            "file": "g2-comparative-print.html",
+            "href": "g2-comparative-print.html",
+            "keywords": "比較級 比較級 than taller more interesting g2-comparative-print.html 中2"
+      },
+      {
+            "no": "2-29",
+            "grade": "中2",
+            "title": "比較級の変化ルール",
+            "file": "g2-comparative-rules-print.html",
+            "href": "g2-comparative-rules-print.html",
+            "keywords": "比較級の変化ルール 比較級 変化ルール er more bigger easier g2-comparative-rules-print.html 中2"
+      },
+      {
+            "no": "2-30",
+            "grade": "中2",
+            "title": "最上級",
+            "file": "g2-superlative-print.html",
+            "href": "g2-superlative-print.html",
+            "keywords": "最上級 最上級 the est most tallest g2-superlative-print.html 中2"
+      },
+      {
+            "no": "2-31",
+            "grade": "中2",
+            "title": "最上級の変化ルール",
+            "file": "g2-superlative-rules-print.html",
+            "href": "g2-superlative-rules-print.html",
+            "keywords": "最上級の変化ルール 最上級 変化ルール est most biggest easiest g2-superlative-rules-print.html 中2"
+      },
+      {
+            "no": "2-32",
+            "grade": "中2",
+            "title": "as 〜 as 同等比較",
+            "file": "g2-as-as-print.html",
+            "href": "g2-as-as-print.html",
+            "keywords": "as 〜 as 同等比較 as as 同等比較 同じくらい g2-as-as-print.html 中2"
+      },
+      {
+            "no": "2-34",
+            "grade": "中2",
+            "title": "help / let / make + 人 + 動詞の原形",
+            "file": "g2-help-let-make-print.html",
+            "href": "g2-help-let-make-print.html",
+            "keywords": "help / let / make + 人 + 動詞の原形 help let make 人 動詞の原形 使役 g2-help-let-make-print.html 中2"
+      },
+      {
+            "no": "2-35",
+            "grade": "中2",
+            "title": "SVOC make / call / name / keep",
+            "file": "g2-svoc-make-call-name-keep-print.html",
+            "href": "g2-svoc-make-call-name-keep-print.html",
+            "keywords": "SVOC make / call / name / keep SVOC make call name keep A B g2-svoc-make-call-name-keep-print.html 中2"
+      },
+      {
+            "no": "2-36",
+            "grade": "中2",
+            "title": "受動態",
+            "file": "passive-voice-print.html",
+            "href": "passive-voice-print.html",
+            "keywords": "受動態 受動態 受け身 be 過去分詞 by passive-voice-print.html 中2"
+      },
+      {
+            "no": "2-37",
+            "grade": "中2",
+            "title": "受動態の動詞変化",
+            "file": "g2-passive-verb-forms-print.html",
+            "href": "g2-passive-verb-forms-print.html",
+            "keywords": "受動態の動詞変化 受動態 動詞変化 過去分詞 made written used g2-passive-verb-forms-print.html 中2"
+      },
+      {
+            "no": "3-01",
+            "grade": "中3",
+            "title": "受け身 受動態の文",
+            "file": "passive-voice-print.html",
+            "href": "passive-voice-print.html",
+            "keywords": "受け身 受動態の文 受け身 受動態 be 過去分詞 by passive-voice-print.html 中3"
+      },
+      {
+            "no": "3-02",
+            "grade": "中3",
+            "title": "受け身の否定文・疑問文",
+            "file": "g3-passive-negative-question-print.html",
+            "href": "g3-passive-negative-question-print.html",
+            "keywords": "受け身の否定文・疑問文 受け身 否定文 疑問文 is not Are Was Were g3-passive-negative-question-print.html 中3"
+      },
+      {
+            "no": "3-03",
+            "grade": "中3",
+            "title": "受動態で by を使わないパターン",
+            "file": "g3-passive-without-by-print.html",
+            "href": "g3-passive-without-by-print.html",
+            "keywords": "受動態で by を使わないパターン 受動態 by を使わない made in written in covered with g3-passive-without-by-print.html 中3"
+      },
+      {
+            "no": "3-04",
+            "grade": "中3",
+            "title": "call / make / keep SVOCの文",
+            "file": "g3-svoc-call-make-keep-print.html",
+            "href": "g3-svoc-call-make-keep-print.html",
+            "keywords": "call / make / keep SVOCの文 call make keep SVOC A B g3-svoc-call-make-keep-print.html 中3"
+      },
+      {
+            "no": "3-05",
+            "grade": "中3",
+            "title": "現在完了形 継続",
+            "file": "present-perfect-continuation-print.html",
+            "href": "present-perfect-continuation-print.html",
+            "keywords": "現在完了形 継続 現在完了 継続 have has 過去分詞 for since present-perfect-continuation-print.html 中3"
+      },
+      {
+            "no": "3-06",
+            "grade": "中3",
+            "title": "現在完了形 経験",
+            "file": "present-perfect-experience-print.html",
+            "href": "present-perfect-experience-print.html",
+            "keywords": "現在完了形 経験 現在完了 経験 ever never once been visited present-perfect-experience-print.html 中3"
+      },
+      {
+            "no": "3-07",
+            "grade": "中3",
+            "title": "現在完了形 完了",
+            "file": "present-perfect-completion-print.html",
+            "href": "present-perfect-completion-print.html",
+            "keywords": "現在完了形 完了 現在完了 完了 just already yet finished present-perfect-completion-print.html 中3"
+      },
+      {
+            "no": "3-08",
+            "grade": "中3",
+            "title": "現在完了形まとめ",
+            "file": "g3-present-perfect-review-print.html",
+            "href": "g3-present-perfect-review-print.html",
+            "keywords": "現在完了形まとめ 現在完了 まとめ 継続 経験 完了 have has 過去分詞 g3-present-perfect-review-print.html 中3"
+      },
+      {
+            "no": "3-09",
+            "grade": "中3",
+            "title": "疑問詞 + to + 動詞の原形",
+            "file": "question-word-to-infinitive-print.html",
+            "href": "question-word-to-infinitive-print.html",
+            "keywords": "疑問詞 + to + 動詞の原形 疑問詞 to 動詞の原形 what to how to where to question-word-to-infinitive-print.html 中3"
+      },
+      {
+            "no": "3-10",
+            "grade": "中3",
+            "title": "It is ... for ... to ... 構文",
+            "file": "it-is-for-to-print.html",
+            "href": "it-is-for-to-print.html",
+            "keywords": "It is ... for ... to ... 構文 It is for 人 to do 構文 important easy difficult it-is-for-to-print.html 中3"
+      },
+      {
+            "no": "3-11",
+            "grade": "中3",
+            "title": "間接疑問文",
+            "file": "indirect-question-print.html",
+            "href": "indirect-question-print.html",
+            "keywords": "間接疑問文 間接疑問文 where he lives what she likes do you know indirect-question-print.html 中3"
+      },
+      {
+            "no": "3-12",
+            "grade": "中3",
+            "title": "後置修飾 現在分詞・過去分詞",
+            "file": "g3-postmodifier-review-print.html",
+            "href": "g3-postmodifier-review-print.html",
+            "keywords": "後置修飾 現在分詞・過去分詞 後置修飾 現在分詞 過去分詞 playing made written g3-postmodifier-review-print.html 中3"
+      },
+      {
+            "no": "3-13",
+            "grade": "中3",
+            "title": "後置修飾 名詞 + 主語 + 動詞",
+            "file": "g3-postmodifier-subject-verb-print.html",
+            "href": "g3-postmodifier-subject-verb-print.html",
+            "keywords": "後置修飾 名詞 + 主語 + 動詞 後置修飾 名詞 主語 動詞 the book I bought g3-postmodifier-subject-verb-print.html 中3"
+      },
+      {
+            "no": "3-14",
+            "grade": "中3",
+            "title": "関係代名詞 who 人",
+            "file": "relative-pronoun-subject-print.html",
+            "href": "relative-pronoun-subject-print.html",
+            "keywords": "関係代名詞 who 人 関係代名詞 who 人 a friend who lives relative-pronoun-subject-print.html 中3"
+      },
+      {
+            "no": "3-15",
+            "grade": "中3",
+            "title": "関係代名詞 which 物・動物",
+            "file": "g3-relative-pronoun-which-print.html",
+            "href": "g3-relative-pronoun-which-print.html",
+            "keywords": "関係代名詞 which 物・動物 関係代名詞 which 物 動物 book dog movie g3-relative-pronoun-which-print.html 中3"
+      },
+      {
+            "no": "3-16",
+            "grade": "中3",
+            "title": "関係代名詞まとめ who / which",
+            "file": "g3-relative-pronoun-review-print.html",
+            "href": "g3-relative-pronoun-review-print.html",
+            "keywords": "関係代名詞まとめ who / which 関係代名詞 まとめ who which 人 物 動物 g3-relative-pronoun-review-print.html 中3"
+      },
+      {
+            "no": "3-17",
+            "grade": "中3",
+            "title": "前置詞の使い方 まとめ",
+            "file": "g3-prepositions-review-print.html",
+            "href": "g3-prepositions-review-print.html",
+            "keywords": "前置詞の使い方 まとめ 前置詞 使い方 まとめ at on in by under from g3-prepositions-review-print.html 中3"
+      }
+];
+
+    function normalizeText(value) {
+      return value.toLowerCase().replace(/\s+/g, '');
+    }
+
+    function createResultCard(item) {
+      const link = document.createElement('a');
+      link.className = 'card search-result-card';
+      link.href = item.href;
+      link.dataset.title = item.keywords;
+      link.innerHTML = '<span class="no">' + item.no + '</span><span><span class="title">' + item.title + '</span><span class="file">' + item.grade + ' / ' + item.file + '</span></span>';
+      return link;
+    }
+
+    function renderGlobalResults(query, resultsGrid, empty, count) {
+      const normalizedQuery = normalizeText(query);
+      resultsGrid.innerHTML = '';
+
+      if (!normalizedQuery) {
+        resultsGrid.parentElement.style.display = 'none';
+        return [];
+      }
+
+      const results = allGrammarItems.filter((item) => normalizeText(item.keywords).includes(normalizedQuery));
+      results.forEach((item) => resultsGrid.appendChild(createResultCard(item)));
+      resultsGrid.parentElement.style.display = 'block';
+      count.textContent = results.length + '件';
+      empty.style.display = results.length === 0 ? 'block' : 'none';
+      return results;
+    }
+
+
+    function showLocalList() {
+      cards.forEach((card) => {
+        card.style.display = '';
+      });
+      sections.forEach((title) => {
+        const grid = title.nextElementSibling;
+        title.style.display = '';
+        grid.style.display = '';
+      });
+      resultsSection.style.display = 'none';
+      empty.style.display = 'none';
+      count.textContent = localTotal + '件';
+    }
+
+    function hideLocalList() {
+      sections.forEach((title) => {
+        const grid = title.nextElementSibling;
+        title.style.display = 'none';
+        grid.style.display = 'none';
+      });
     }
 
     function updateList() {
-      const value = normalize(search.value);
-      let visible = 0;
+      const value = search.value;
+      if (!normalizeText(value)) {
+        showLocalList();
+        return;
+      }
 
-      cards.forEach((card) => {
-        const haystack = normalize(`${card.textContent} ${card.dataset.title || ""}`);
-        const show = haystack.includes(value);
-        card.style.display = show ? "" : "none";
-        if (show) visible += 1;
-      });
-
-      sections.forEach((title) => {
-        const grid = title.nextElementSibling;
-        const hasVisibleCard = Array.from(grid.querySelectorAll(".card")).some((card) => card.style.display !== "none");
-        title.style.display = hasVisibleCard ? "" : "none";
-        grid.style.display = hasVisibleCard ? "" : "none";
-      });
-
-      count.textContent = `${visible}件`;
-      empty.style.display = visible === 0 ? "block" : "none";
+      hideLocalList();
+      renderGlobalResults(value, resultsGrid, empty, count);
     }
 
-    search.addEventListener("input", updateList);
+    search.addEventListener('input', updateList);
     updateList();
   </script>
 </body>
