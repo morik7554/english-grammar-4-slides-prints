@@ -403,9 +403,8 @@
       body,
       .screen {
         width: 281mm;
-        height: 194mm;
         min-height: 0 !important;
-        overflow: hidden;
+        overflow: visible;
       }
 
       .screen {
@@ -419,7 +418,6 @@
       .back-link,
       .no-print,
       .topbar,
-      .answer-sheet,
       .print-page-title,
       .layout-notes {
         display: none !important;
@@ -451,6 +449,8 @@
         background: #fff;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+        break-before: page;
+        page-break-before: always;
         break-inside: avoid;
         page-break-inside: avoid;
       }
