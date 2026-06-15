@@ -30,4 +30,8 @@ Vercelではビルド不要の静的サイトとして公開します。
 - Build Command：空欄
 - Output Directory：`.` または空欄
 
+`index.html` は `all-grades-grammar-index.html` と同じ内容です。Vercelで公開すると、最初に「中学校英語 文法プリント一覧」が表示されます。
+
+生徒共有に不要な教師用ファイルは `.vercelignore` で公開対象から外しています。
+
 GitHub連携でデプロイすると、今後このフォルダの変更をpushするだけでVercelへ反映できます。
