@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中3 仮定法 4分割プリント</title><style>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中3 仮定法 スライドプリント</title><style>
     * {
       box-sizing: border-box;
     }
@@ -102,11 +102,9 @@
 
     .sheet {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 10px;
-      max-width: 1440px;
-      aspect-ratio: 281 / 194;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 1120px;
       margin: 0 auto 18px;
       padding: 10px;
       background: #d4dae0;
@@ -118,7 +116,8 @@
       overflow: hidden;
       border: 1px solid #5d6670;
       background: #fff;
-      padding: 16px;
+      padding: 18px;
+      aspect-ratio: 297 / 210;
     }
 
     .slide-header {
@@ -260,11 +259,9 @@
 
     .answer-sheet {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 10px;
-      max-width: 1440px;
-      aspect-ratio: 281 / 194;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 1120px;
       margin: 0 auto 18px;
       padding: 10px;
       background: #d4dae0;
@@ -275,7 +272,8 @@
       overflow: hidden;
       border: 1px solid #5d6670;
       background: #fff;
-      padding: 16px;
+      padding: 18px;
+      aspect-ratio: 297 / 210;
     }
 
     .answer-list {
@@ -423,61 +421,40 @@
       }
 
       .sheet {
+        display: block;
         width: 281mm;
-        height: 193mm;
+        height: auto;
         max-width: none;
         margin: 0;
         padding: 0;
         gap: 0;
-        border-top: 1px solid #111;
-        border-left: 1px solid #111;
+        border: 0;
         background: #fff;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
       }
 
       .answer-sheet {
+        display: block;
         width: 281mm;
-        height: 193mm;
+        height: auto;
         max-width: none;
         margin: 0;
         padding: 0;
         gap: 0;
-        border-top: 1px solid #111;
-        border-left: 1px solid #111;
+        border: 0;
         background: #fff;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        break-before: page;
-        page-break-before: always;
-        break-inside: avoid;
-        page-break-inside: avoid;
       }
 
       .slide {
-        --fit: 1.06;
+        --fit: 1;
+        width: 281mm;
+        height: 194mm;
         min-height: auto;
-        border: 0;
-        border-right: 1px solid #111;
-        border-bottom: 1px solid #111;
-        padding: 3.2mm;
-        line-height: 1.18;
-      }
-
-      .slide:nth-child(1) {
-        --fit: 1.22 !important;
-      }
-
-      .slide:nth-child(2) {
-        --fit: 1.34 !important;
-      }
-
-      .slide:nth-child(3) {
-        --fit: 1.22 !important;
-      }
-
-      .slide:nth-child(4) {
-        --fit: 0.98 !important;
+        border: 1px solid #111;
+        padding: 6mm;
+        line-height: 1.2;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
       }
 
       .slide-title {
@@ -553,11 +530,19 @@
       }
 
       .answer-slide {
-        border: 0;
-        border-right: 1px solid #111;
-        border-bottom: 1px solid #111;
-        padding: 3.5mm;
+        width: 281mm;
+        height: 194mm;
+        border: 1px solid #111;
+        padding: 6mm;
         line-height: 1.22;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .answer-slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
       }
 
       .answer-slide .slide-title {
@@ -594,7 +579,7 @@
         line-height: 1.16;
       }
     }
-  </style></head><body><main class="screen"><section class="topbar no-print"><div><h1>中3 英語 定期テスト前確認プリント：仮定法</h1><div class="meta">対象学年：中3　文法事項：仮定法</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">印刷画面で「PDFに保存」または「印刷」を選んでください。</span></div></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：仮定法</div><div class="summary-grid"><div class="box"><strong>形</strong><br>If + 主語 + 過去形, 主語 + would + 動詞の原形</div><div class="box"><strong>意味</strong><br>「もし〜なら、…だろう」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>If I were you</li><li>語順を確認する</li><li>動詞の形に注意する</li><li>文全体の意味を考える</li></ul><div class="label">注意点</div><div class="note">If I were you を中心に確認する。<br>× If I am you, I will study harder.<br>○ If I were you, I would study harder.</div><div class="label">例文</div><ul class="examples"><li>If I were you, I would study harder.</li><li>If I had time, I would read books.</li><li>Use the correct word order.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>If I ___ you, I would study harder.<ul class="choices"><li>ア am</li><li>イ were</li><li>ウ be</li><li>エ was be</li></ul></li><li>If I had time, I ___ read books.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ am</li><li>エ do</li></ul></li><li>If she ___ here, we would be happy.<ul class="choices"><li>ア is</li><li>イ were</li><li>ウ be</li><li>エ are</li></ul></li><li>I would buy it if I ___ money.<ul class="choices"><li>ア have</li><li>イ had</li><li>ウ has</li><li>エ having</li></ul></li><li>If it were sunny, we ___ play soccer.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ are</li><li>エ do</li></ul></li><li>If I could fly, I ___ go to the moon.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ am</li><li>エ did</li></ul></li><li>If he knew it, he ___ tell us.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ is</li><li>エ does</li></ul></li><li>If I were free, I ___ help you.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ am</li><li>エ do</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：were / would / had / could / study / go / help / if</div><ol class="questions">
+  </style></head><body><main class="screen"><section class="topbar no-print"><div><h1>中3 英語 定期テスト前確認プリント：仮定法</h1><div class="meta">対象学年：中3　文法事項：仮定法</div></div><div class="top-actions">  <a class="top-link" href="index.html">トップ画面</a>  <button class="print-button" type="button" onclick="window.print()">PDF出力・印刷</button><span class="print-help">PDF保存後や印刷画面で、1枚あたりのページ数を選べます。</span></div></section><section class="sheet" aria-label="問題スライド"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：仮定法</div><div class="summary-grid"><div class="box"><strong>形</strong><br>If + 主語 + 過去形, 主語 + would + 動詞の原形</div><div class="box"><strong>意味</strong><br>「もし〜なら、…だろう」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>If I were you</li><li>語順を確認する</li><li>動詞の形に注意する</li><li>文全体の意味を考える</li></ul><div class="label">注意点</div><div class="note">If I were you を中心に確認する。<br>× If I am you, I will study harder.<br>○ If I were you, I would study harder.</div><div class="label">例文</div><ul class="examples"><li>If I were you, I would study harder.</li><li>If I had time, I would read books.</li><li>Use the correct word order.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>If I ___ you, I would study harder.<ul class="choices"><li>ア am</li><li>イ were</li><li>ウ be</li><li>エ was be</li></ul></li><li>If I had time, I ___ read books.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ am</li><li>エ do</li></ul></li><li>If she ___ here, we would be happy.<ul class="choices"><li>ア is</li><li>イ were</li><li>ウ be</li><li>エ are</li></ul></li><li>I would buy it if I ___ money.<ul class="choices"><li>ア have</li><li>イ had</li><li>ウ has</li><li>エ having</li></ul></li><li>If it were sunny, we ___ play soccer.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ are</li><li>エ do</li></ul></li><li>If I could fly, I ___ go to the moon.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ am</li><li>エ did</li></ul></li><li>If he knew it, he ___ tell us.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ is</li><li>エ does</li></ul></li><li>If I were free, I ___ help you.<ul class="choices"><li>ア will</li><li>イ would</li><li>ウ am</li><li>エ do</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：were / would / had / could / study / go / help / if</div><ol class="questions">
           <li>もし私があなたなら、勉強するでしょう。<br>If I ____ you, I would study.</li>
           <li>もし時間があれば、私は本を読むでしょう。<br>If I had time, I ____ read books.</li>
           <li>もしお金があれば、私はそれを買うでしょう。<br>If I ____ money, I would buy it.</li>
@@ -612,7 +597,7 @@
           <li><strong>if</strong><span class="mini-explain">条件を表す。</span></li>
           <li><strong>study</strong><span class="mini-explain">study hard。</span></li>
           <li><strong>go</strong><span class="mini-explain">go there。</span></li>
-        </ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：英語の決まった語順で並べる。</div><ol class="answer-list"><li><strong>If I were you, I would study harder.</strong><span class="mini-explain">If I were you。</span></li><li><strong>If I had time, I would read books.</strong><span class="mini-explain">would + 原形。</span></li><li><strong>If she were here, we would be happy.</strong><span class="mini-explain">If she were。</span></li><li><strong>I would buy it if I had money.</strong><span class="mini-explain">if 節は後ろでもよい。</span></li><li><strong>If I were a bird, I would fly in the sky.</strong><span class="mini-explain">If I were。</span></li><li><strong>If I had time, I would help you.</strong><span class="mini-explain">had + would。</span></li><li><strong>If I were you, I would not buy it.</strong><span class="mini-explain">would not + 原形。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">仮定法 で覚えておきたい表現。</div><ol class="answer-list"><li><strong>If I were you, I would try it.</strong><span class="mini-explain">もし私があなたなら、それを試します。</span></li><li><strong>If I had time, I would read.</strong><span class="mini-explain">もし時間があれば、読みます。</span></li><li><strong>If I could fly, I would go there.</strong><span class="mini-explain">もし飛べたら、そこへ行きます。</span></li><li><strong>I would help you if I were free.</strong><span class="mini-explain">もし暇なら手伝います。</span></li><li><strong>If it were sunny, we would play soccer.</strong><span class="mini-explain">もし晴れていればサッカーをします。</span></li><li><strong>If I had money, I would buy it.</strong><span class="mini-explain">もしお金があれば買います。</span></li><li><strong>If he knew it, he would tell us.</strong><span class="mini-explain">もし彼が知っていれば教えてくれます。</span></li><li><strong>If she were here, we would be happy.</strong><span class="mini-explain">もし彼女がここにいればうれしいです。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>If I were you を中心に確認問題を入れています。</li></ul></section></main><script>
+        </ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：英語の決まった語順で並べる。</div><ol class="answer-list"><li><strong>If I were you, I would study harder.</strong><span class="mini-explain">If I were you。</span></li><li><strong>If I had time, I would read books.</strong><span class="mini-explain">would + 原形。</span></li><li><strong>If she were here, we would be happy.</strong><span class="mini-explain">If she were。</span></li><li><strong>I would buy it if I had money.</strong><span class="mini-explain">if 節は後ろでもよい。</span></li><li><strong>If I were a bird, I would fly in the sky.</strong><span class="mini-explain">If I were。</span></li><li><strong>If I had time, I would help you.</strong><span class="mini-explain">had + would。</span></li><li><strong>If I were you, I would not buy it.</strong><span class="mini-explain">would not + 原形。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">仮定法 で覚えておきたい表現。</div><ol class="answer-list"><li><strong>If I were you, I would try it.</strong><span class="mini-explain">もし私があなたなら、それを試します。</span></li><li><strong>If I had time, I would read.</strong><span class="mini-explain">もし時間があれば、読みます。</span></li><li><strong>If I could fly, I would go there.</strong><span class="mini-explain">もし飛べたら、そこへ行きます。</span></li><li><strong>I would help you if I were free.</strong><span class="mini-explain">もし暇なら手伝います。</span></li><li><strong>If it were sunny, we would play soccer.</strong><span class="mini-explain">もし晴れていればサッカーをします。</span></li><li><strong>If I had money, I would buy it.</strong><span class="mini-explain">もしお金があれば買います。</span></li><li><strong>If he knew it, he would tell us.</strong><span class="mini-explain">もし彼が知っていれば教えてくれます。</span></li><li><strong>If she were here, we would be happy.</strong><span class="mini-explain">もし彼女がここにいればうれしいです。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>各スライドをA4横1ページとして表示・PDF出力できるようにしています。印刷設定で1枚あたりのページ数を選べます。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>If I were you を中心に確認問題を入れています。</li></ul></section></main><script>
     function slideOverflows(slide) {
       return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
     }
@@ -645,7 +630,7 @@
         fitOneSlide(slide, "--fit", 0.56, isPrintFit ? 2.05 : 1.55);
       });
       document.querySelectorAll(".answer-slide").forEach((slide) => {
-        fitOneSlide(slide, "--answer-fit", 0.46, 1);
+        fitOneSlide(slide, "--answer-fit", 0.46, isPrintFit ? 1.9 : 1.35);
       });
     }
 
