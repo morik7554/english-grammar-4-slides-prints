@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中学校英語 4分割プリント作成AI</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #56616d;
+      --line: #9aa5b1;
+      --paper: #ffffff;
+      --soft: #f5f7f9;
+      --accent: #263238;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #edf0f2;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) 1fr;
+      min-height: 100vh;
+    }
+
+    .panel {
+      border-right: 1px solid #c5ccd3;
+      background: #fff;
+      padding: 24px;
+    }
+
+    .panel h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid #aeb7c0;
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: #fff;
+    }
+
+    .examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 20px;
+    }
+
+    .chip {
+      border: 1px solid #aeb7c0;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .primary,
+    .secondary {
+      min-height: 44px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .primary {
+      border: 1px solid var(--accent);
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .secondary {
+      border: 1px solid #9aa5b1;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .workspace {
+      padding: 24px;
+      overflow: auto;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 0 auto 16px;
+      max-width: 1120px;
+    }
+
+    .toolbar h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1120px;
+      margin: 0 auto 20px;
+      background: #d5dbe1;
+      padding: 10px;
+    }
+
+    .slide {
+      min-height: 390px;
+      border: 1px solid #6d7781;
+      background: var(--paper);
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .slide-number {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      margin: 8px 0 4px;
+      font-size: 13px;
+      font-weight: 800;
+      border-left: 4px solid var(--ink);
+      padding-left: 6px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      padding: 6px;
+      min-height: 34px;
+      background: #fff;
+    }
+
+    .small-list,
+    .questions {
+      margin: 0;
+      padding-left: 1.4em;
+      font-size: 13px;
+    }
+
+    .small-list li {
+      margin: 2px 0;
+    }
+
+    .examples-list {
+      display: grid;
+      gap: 4px;
+      margin: 4px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .note-box {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      padding: 6px;
+      font-size: 12px;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 112px;
+      border-bottom: 1px solid var(--ink);
+      height: 1.2em;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 5px;
+      list-style-position: outside;
+      font-size: 12.5px;
+    }
+
+    .choice-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: 12px;
+    }
+
+    .fill-question {
+      display: grid;
+      gap: 2px;
+    }
+
+    .answer-line {
+      display: block;
+      min-height: 22px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .word-box {
+      border: 1px solid var(--line);
+      padding: 4px 6px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      background: var(--soft);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 7px;
+    }
+
+    .answer-key,
+    .layout-notes {
+      max-width: 1120px;
+      margin: 0 auto 16px;
+      border: 1px solid #b5bec7;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .answer-key h3,
+    .layout-notes h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .answer-columns ol {
+      margin: 4px 0 0;
+      padding-left: 1.5em;
+    }
+
+    .layout-notes ul {
+      margin: 0;
+      padding-left: 1.5em;
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        border-right: 0;
+        border-bottom: 1px solid #c5ccd3;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .panel,
+      .toolbar,
+      .answer-key,
+      .layout-notes {
+        display: none;
+      }
+
+      .app {
+        display: block;
+        min-height: auto;
+      }
+
+      .workspace {
+        padding: 0;
+        overflow: visible;
+      }
+
+      .sheet {
+        width: 194mm;
+        height: 281mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+      }
+
+      .slide {
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 6mm;
+        page-break-inside: avoid;
+      }
+
+      .slide-title {
+        font-size: 13pt;
+      }
+
+      .questions,
+      .summary-grid,
+      .small-list,
+      .examples-list {
+        font-size: 8.8pt;
+      }
+
+      .choice-row,
+      .word-box,
+      .note-box,
+      .write-grid {
+        font-size: 8.2pt;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="panel" aria-label="教材作成設定">
+      <h1>中学校英語<br>4分割プリント作成AI</h1>
+      <p>学年と文法事項だけを入力して、定期テスト前確認用の4スライド教材を作成します。</p>
+
+      <div class="field">
+        <label for="grade">対象学年</label>
+        <select id="grade">
+          <option value="中1">中1</option>
+          <option value="中2">中2</option>
+          <option value="中3" selected>中3</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="grammar">文法事項</label>
+        <input id="grammar" value="現在完了（経験用法）" placeholder="例：be動詞 / 不定詞（want to） / 受け身">
+      </div>
+
+      <div class="examples" aria-label="入力例">
+        <button class="chip" type="button" data-grade="中1" data-grammar="be動詞">中1 be動詞</button>
+        <button class="chip" type="button" data-grade="中1" data-grammar="一般動詞">中1 一般動詞</button>
+        <button class="chip" type="button" data-grade="中2" data-grammar="不定詞（want to）">中2 不定詞</button>
+        <button class="chip" type="button" data-grade="中2" data-grammar="動名詞">中2 動名詞</button>
+        <button class="chip" type="button" data-grade="中3" data-grammar="現在完了（経験用法）">中3 現在完了</button>
+        <button class="chip" type="button" data-grade="中3" data-grammar="受け身">中3 受け身</button>
+        <button class="chip" type="button" data-grade="中3" data-grammar="比較（最上級）">中3 最上級</button>
+      </div>
+
+      <div class="actions">
+        <button id="generate" class="primary" type="button">プリントを作成</button>
+        <button id="print" class="secondary" type="button">4分割で印刷</button>
+      </div>
+    </aside>
+
+    <section class="workspace" aria-live="polite">
+      <div class="toolbar">
+        <div>
+          <h2 id="titleText">教材タイトル</h2>
+          <div class="meta" id="metaText"></div>
+        </div>
+      </div>
+
+      <section id="sheet" class="sheet" aria-label="スライド4枚"></section>
+      <section id="answers" class="answer-key"></section>
+      <section id="layoutNotes" class="layout-notes"></section>
+    </section>
+  </main>
+
+  <script>
+    const choiceLabels = ["ア", "イ", "ウ", "エ"];
+
+    const topics = [
+      {
+        id: "be",
+        match: ["be動詞", "be"],
+        defaultGrade: "中1",
+        name: "be動詞",
+        form: "主語 + am / are / is",
+        meaning: "「〜です」「〜にいます・あります」",
+        phrases: ["I am", "You are", "He is", "She is", "This is"],
+        caution: "主語によって am / are / is を使い分ける。疑問文は be動詞を前に出す。",
+        mistake: ["× He are my friend.", "○ He is my friend."],
+        examples: ["I am Ken.", "She is a teacher.", "Are you from Tokyo?"],
+        fillWords: "am / are / is / not",
+        choices: [
+          q("I ___ a student.", ["am", "are", "is", "be"], "ア"),
+          q("You ___ my friend.", ["am", "are", "is", "be"], "イ"),
+          q("She ___ in the library.", ["am", "are", "is", "be"], "ウ"),
+          q("___ he your brother?", ["Am", "Are", "Is", "Be"], "ウ"),
+          q("They ___ from Canada.", ["am", "are", "is", "be"], "イ"),
+          q("I ___ not busy.", ["am", "are", "is", "be"], "ア"),
+          q("This ___ my bag.", ["am", "are", "is", "be"], "ウ"),
+          q("We ___ classmates.", ["am", "are", "is", "be"], "イ")
+        ],
+        fills: [
+          f("私は中学生です。", "I ____ a junior high school student.", "am"),
+          f("彼女は私の姉です。", "She ____ my sister.", "is"),
+          f("あなたは忙しいですか。", "____ you busy?", "Are"),
+          f("彼らは京都出身です。", "They ____ from Kyoto.", "are"),
+          f("これは私のノートではありません。", "This ____ ____ my notebook.", "is not"),
+          f("私たちは同じクラスです。", "We ____ in the same class.", "are"),
+          f("彼は先生ですか。", "____ he a teacher?", "Is"),
+          f("私は今、家にいます。", "I ____ at home now.", "am")
+        ],
+        reorder: [
+          r(["is", "my", "this", "pen"], "This is my pen."),
+          r(["you", "from", "are", "Osaka"], "Are you from Osaka?"),
+          r(["not", "she", "a", "student", "is"], "She is not a student."),
+          r(["we", "friends", "are", "good"], "We are good friends.")
+        ],
+        translations: [
+          t("彼は私の兄です。", "He is my brother."),
+          t("あなたは英語が得意ですか。", "Are you good at English?"),
+          t("これは私の机ではありません。", "This is not my desk.")
+        ]
+      },
+      {
+        id: "general",
+        match: ["一般動詞", "一般動詞 現在", "一般"],
+        defaultGrade: "中1",
+        name: "一般動詞",
+        form: "主語 + 一般動詞（3単現は s / es）",
+        meaning: "「〜する」など、動作や状態を表す",
+        phrases: ["play", "like", "study", "watch", "have"],
+        caution: "he / she など三人称単数の現在形では動詞に s / es をつける。",
+        mistake: ["× He play soccer.", "○ He plays soccer."],
+        examples: ["I play tennis.", "She likes music.", "Do you study English?"],
+        fillWords: "play / plays / do / does / don't / doesn't",
+        choices: [
+          q("I ___ soccer after school.", ["plays", "play", "playing", "played"], "イ"),
+          q("She ___ music very much.", ["like", "likes", "liking", "liked"], "イ"),
+          q("___ you have a pen?", ["Do", "Does", "Are", "Is"], "ア"),
+          q("He ___ English every day.", ["study", "studies", "studying", "studied"], "イ"),
+          q("My brother ___ TV at night.", ["watch", "watchs", "watches", "watching"], "ウ"),
+          q("They ___ in Osaka.", ["live", "lives", "living", "lived"], "ア"),
+          q("She ___ have a bike.", ["don't", "doesn't", "isn't", "aren't"], "イ"),
+          q("___ your mother cook dinner?", ["Do", "Does", "Is", "Are"], "イ")
+        ],
+        fills: [
+          f("私は毎日英語を勉強します。", "I ____ English every day.", "study"),
+          f("彼は野球が好きです。", "He ____ baseball.", "likes"),
+          f("あなたは犬を飼っていますか。", "____ you have a dog?", "Do"),
+          f("彼女はピアノを弾きません。", "She ____ play the piano.", "doesn't"),
+          f("私たちは学校へ歩いて行きます。", "We ____ to school.", "walk"),
+          f("あなたのお父さんは車を運転しますか。", "____ your father drive a car?", "Does"),
+          f("トムは朝食を食べます。", "Tom ____ breakfast.", "has"),
+          f("私は魚が好きではありません。", "I ____ like fish.", "don't")
+        ],
+        reorder: [
+          r(["play", "I", "tennis", "Sunday", "on"], "I play tennis on Sunday."),
+          r(["likes", "my", "sister", "English"], "My sister likes English."),
+          r(["you", "do", "music", "like"], "Do you like music?"),
+          r(["doesn't", "he", "soccer", "play"], "He doesn't play soccer.")
+        ],
+        translations: [
+          t("私は朝に走ります。", "I run in the morning."),
+          t("彼女は数学を勉強します。", "She studies math."),
+          t("あなたはテニスをしますか。", "Do you play tennis?")
+        ]
+      },
+      {
+        id: "wantTo",
+        match: ["不定詞", "want to", "to不定詞", "want"],
+        defaultGrade: "中2",
+        name: "不定詞（want to）",
+        form: "want to + 動詞の原形",
+        meaning: "「〜したい」",
+        phrases: ["want to play", "want to study", "want to visit", "want to be"],
+        caution: "to の後ろは動詞の原形。三単現は want に s をつける。",
+        mistake: ["× I want to playing tennis.", "○ I want to play tennis."],
+        examples: ["I want to study English.", "She wants to be a doctor.", "Do you want to visit Kyoto?"],
+        fillWords: "want / wants / to / be / visit",
+        choices: [
+          q("I want ___ soccer.", ["play", "plays", "to play", "playing"], "ウ"),
+          q("She ___ to be a nurse.", ["want", "wants", "wanting", "to want"], "イ"),
+          q("Do you want ___ Kyoto?", ["visit", "visits", "to visit", "visiting"], "ウ"),
+          q("He wants to ___ English.", ["study", "studies", "studying", "studied"], "ア"),
+          q("They ___ to watch the movie.", ["want", "wants", "to want", "wanting"], "ア"),
+          q("I don't want ___ late.", ["be", "am", "to be", "being"], "ウ"),
+          q("My sister wants ___ a singer.", ["be", "to be", "being", "is"], "イ"),
+          q("What do you want ___?", ["do", "does", "to do", "doing"], "ウ")
+        ],
+        fills: [
+          f("私は英語を勉強したいです。", "I ____ ____ study English.", "want to"),
+          f("彼女は医者になりたいです。", "She ____ ____ be a doctor.", "wants to"),
+          f("あなたは京都を訪れたいですか。", "Do you ____ ____ visit Kyoto?", "want to"),
+          f("彼はテニスをしたくありません。", "He doesn't ____ ____ play tennis.", "want to"),
+          f("私は新しい自転車を買いたいです。", "I ____ ____ buy a new bike.", "want to"),
+          f("彼らは昼食を食べたいです。", "They ____ ____ eat lunch.", "want to"),
+          f("あなたは何をしたいですか。", "What do you ____ ____ do?", "want to"),
+          f("私の弟は先生になりたいです。", "My brother ____ ____ be a teacher.", "wants to")
+        ],
+        reorder: [
+          r(["want", "I", "to", "English", "study"], "I want to study English."),
+          r(["wants", "she", "to", "a", "doctor", "be"], "She wants to be a doctor."),
+          r(["do", "you", "want", "to", "what", "do"], "What do you want to do?"),
+          r(["to", "visit", "we", "want", "Nara"], "We want to visit Nara.")
+        ],
+        translations: [
+          t("私はサッカーをしたいです。", "I want to play soccer."),
+          t("彼は音楽を聞きたいです。", "He wants to listen to music."),
+          t("あなたは何を食べたいですか。", "What do you want to eat?")
+        ]
+      },
+      {
+        id: "gerund",
+        match: ["動名詞", "ing"],
+        defaultGrade: "中2",
+        name: "動名詞",
+        form: "動詞の ing形",
+        meaning: "「〜すること」",
+        phrases: ["enjoy playing", "like reading", "finish studying", "be good at swimming"],
+        caution: "前置詞の後ろは ing形にすることが多い。",
+        mistake: ["× I enjoyed play tennis.", "○ I enjoyed playing tennis."],
+        examples: ["I like reading books.", "She enjoyed playing tennis.", "Thank you for helping me."],
+        fillWords: "playing / reading / studying / swimming",
+        choices: [
+          q("I enjoy ___ soccer.", ["play", "plays", "playing", "played"], "ウ"),
+          q("She likes ___ books.", ["read", "reads", "reading", "to reading"], "ウ"),
+          q("Thank you for ___ me.", ["help", "helps", "helping", "helped"], "ウ"),
+          q("He finished ___ his homework.", ["do", "does", "doing", "did"], "ウ"),
+          q("My hobby is ___ pictures.", ["take", "takes", "taking", "took"], "ウ"),
+          q("I am good at ___.", ["swim", "swims", "swimming", "swam"], "ウ"),
+          q("___ English is interesting.", ["Study", "Studies", "Studying", "Studied"], "ウ"),
+          q("She stopped ___ TV.", ["watch", "watches", "watching", "watched"], "ウ")
+        ],
+        fills: [
+          f("私は本を読むことが好きです。", "I like ____ books.", "reading"),
+          f("彼はサッカーをすることを楽しみました。", "He enjoyed ____ soccer.", "playing"),
+          f("手伝ってくれてありがとう。", "Thank you for ____ me.", "helping"),
+          f("私の趣味は写真を撮ることです。", "My hobby is ____ pictures.", "taking"),
+          f("彼女は宿題をすることを終えました。", "She finished ____ her homework.", "doing"),
+          f("英語を勉強することは大切です。", "____ English is important.", "Studying"),
+          f("私は泳ぐことが得意です。", "I am good at ____.", "swimming"),
+          f("彼らは歌うことが好きです。", "They like ____.", "singing")
+        ],
+        reorder: [
+          r(["like", "I", "books", "reading"], "I like reading books."),
+          r(["enjoyed", "we", "tennis", "playing"], "We enjoyed playing tennis."),
+          r(["good", "at", "she", "swimming", "is"], "She is good at swimming."),
+          r(["is", "studying", "English", "important"], "Studying English is important.")
+        ],
+        translations: [
+          t("私は音楽を聞くことが好きです。", "I like listening to music."),
+          t("彼は走ることが得意です。", "He is good at running."),
+          t("宿題をしてくれてありがとう。", "Thank you for doing your homework.")
+        ]
+      },
+      {
+        id: "presentPerfect",
+        match: ["現在完了", "経験", "have ever", "has ever"],
+        defaultGrade: "中3",
+        name: "現在完了（経験用法）",
+        form: "have / has + 過去分詞",
+        meaning: "「〜したことがある」",
+        phrases: ["ever", "never", "once", "twice", "many times"],
+        caution: "have / has の後ろは過去形ではなく過去分詞にする。",
+        mistake: ["× I have went to Kyoto.", "○ I have been to Kyoto."],
+        examples: ["I have visited Nara once.", "She has never seen snow.", "Have you ever eaten sushi?"],
+        fillWords: "have / has / ever / never / been / seen / eaten",
+        choices: [
+          q("I have ___ Kyoto twice.", ["go", "went", "been to", "going"], "ウ"),
+          q("She ___ never seen snow.", ["have", "has", "is", "was"], "イ"),
+          q("Have you ___ eaten sushi?", ["ever", "never", "once", "yet"], "ア"),
+          q("Ken has ___ English many times.", ["speak", "spoke", "spoken", "speaks"], "ウ"),
+          q("They have ___ visited Tokyo.", ["never", "went", "go", "be"], "ア"),
+          q("I have played tennis ___.", ["two", "twice", "second", "again"], "イ"),
+          q("___ your sister ever read this book?", ["Have", "Has", "Is", "Did"], "イ"),
+          q("We ___ been to Okinawa.", ["has", "have", "are", "did"], "イ")
+        ],
+        fills: [
+          f("私は京都へ一度行ったことがあります。", "I ____ ____ to Kyoto once.", "have been"),
+          f("彼女は雪を見たことがありません。", "She ____ ____ seen snow.", "has never"),
+          f("あなたは寿司を食べたことがありますか。", "____ you ____ eaten sushi?", "Have ever"),
+          f("ケンは英語を何度も話したことがあります。", "Ken ____ ____ English many times.", "has spoken"),
+          f("私たちは沖縄へ行ったことがあります。", "We ____ ____ to Okinawa.", "have been"),
+          f("彼はこの本を二度読んだことがあります。", "He ____ read this book ____.", "has twice"),
+          f("彼らは富士山を見たことがありません。", "They ____ ____ seen Mt. Fuji.", "have never"),
+          f("あなたのお姉さんはこの映画を見たことがありますか。", "____ your sister ____ seen this movie?", "Has ever")
+        ],
+        reorder: [
+          r(["have", "I", "Kyoto", "been", "to"], "I have been to Kyoto."),
+          r(["has", "never", "she", "snow", "seen"], "She has never seen snow."),
+          r(["you", "ever", "have", "sushi", "eaten"], "Have you ever eaten sushi?"),
+          r(["twice", "this", "read", "book", "he", "has"], "He has read this book twice.")
+        ],
+        translations: [
+          t("私は奈良へ一度行ったことがあります。", "I have been to Nara once."),
+          t("彼女は一度も野球をしたことがありません。", "She has never played baseball."),
+          t("あなたは英語で手紙を書いたことがありますか。", "Have you ever written a letter in English?")
+        ]
+      },
+      {
+        id: "passive",
+        match: ["受け身", "受動態", "passive"],
+        defaultGrade: "中3",
+        name: "受け身",
+        form: "be動詞 + 過去分詞",
+        meaning: "「〜される」「〜された」",
+        phrases: ["by", "is made", "was written", "are used"],
+        caution: "be動詞は主語と時制に合わせる。by は動作をした人を表すときに使う。",
+        mistake: ["× This book written by him.", "○ This book was written by him."],
+        examples: ["This room is cleaned every day.", "The book was written by Soseki.", "English is used in many countries."],
+        fillWords: "is / are / was / were / made / written / used",
+        choices: [
+          q("This cake ___ made by my mother.", ["is", "are", "do", "does"], "ア"),
+          q("These pictures ___ taken by Ken.", ["is", "are", "was", "do"], "イ"),
+          q("The book was ___ by Soseki.", ["write", "wrote", "written", "writing"], "ウ"),
+          q("English ___ used in many countries.", ["is", "are", "does", "did"], "ア"),
+          q("The window ___ broken yesterday.", ["is", "are", "was", "were"], "ウ"),
+          q("The rooms ___ cleaned every day.", ["is", "are", "was", "be"], "イ"),
+          q("This song is loved ___ many people.", ["in", "on", "by", "at"], "ウ"),
+          q("The letters were ___ in English.", ["write", "wrote", "written", "writing"], "ウ")
+        ],
+        fills: [
+          f("このケーキは母によって作られました。", "This cake ____ ____ by my mother.", "was made"),
+          f("英語は多くの国で使われています。", "English ____ ____ in many countries.", "is used"),
+          f("その本は漱石によって書かれました。", "The book ____ ____ by Soseki.", "was written"),
+          f("これらの部屋は毎日掃除されます。", "These rooms ____ ____ every day.", "are cleaned"),
+          f("その窓は昨日壊されました。", "The window ____ ____ yesterday.", "was broken"),
+          f("この歌は多くの人に愛されています。", "This song ____ ____ by many people.", "is loved"),
+          f("その写真はケンによって撮られました。", "The picture ____ ____ by Ken.", "was taken"),
+          f("日本語はここで話されます。", "Japanese ____ ____ here.", "is spoken")
+        ],
+        reorder: [
+          r(["is", "English", "many", "used", "countries", "in"], "English is used in many countries."),
+          r(["was", "this", "by", "made", "cake", "my", "mother"], "This cake was made by my mother."),
+          r(["are", "these", "cleaned", "rooms", "day", "every"], "These rooms are cleaned every day."),
+          r(["written", "was", "the", "book", "by", "Soseki"], "The book was written by Soseki.")
+        ],
+        translations: [
+          t("この机は木で作られています。", "This desk is made of wood."),
+          t("その歌は多くの生徒に歌われます。", "The song is sung by many students."),
+          t("この手紙は英語で書かれました。", "This letter was written in English.")
+        ]
+      },
+      {
+        id: "superlative",
+        match: ["最上級", "比較", "the most", "est"],
+        defaultGrade: "中3",
+        name: "比較（最上級）",
+        form: "the + 形容詞 / 副詞の最上級",
+        meaning: "「いちばん〜」「最も〜」",
+        phrases: ["the tallest", "the best", "the most interesting", "in my class"],
+        caution: "長い形容詞は the most を使う。範囲は in / of で表す。",
+        mistake: ["× This is most interesting book.", "○ This is the most interesting book."],
+        examples: ["Ken is the tallest in his class.", "This book is the most interesting of the three.", "She runs the fastest in our team."],
+        fillWords: "the / tallest / best / most / in / of",
+        choices: [
+          q("Ken is ___ tallest in his class.", ["a", "an", "the", "most"], "ウ"),
+          q("This is the ___ interesting book.", ["more", "most", "very", "best"], "イ"),
+          q("She is the best singer ___ our school.", ["in", "of", "on", "at"], "ア"),
+          q("Mt. Fuji is the ___ mountain in Japan.", ["high", "higher", "highest", "most high"], "ウ"),
+          q("This question is the most difficult ___ all.", ["in", "of", "at", "on"], "イ"),
+          q("He runs the ___ in our team.", ["fast", "faster", "fastest", "most fast"], "ウ"),
+          q("This is the ___ season of the year.", ["hot", "hotter", "hottest", "most hot"], "ウ"),
+          q("English is the most ___ subject for me.", ["interest", "interesting", "interested", "interests"], "イ")
+        ],
+        fills: [
+          f("ケンはクラスでいちばん背が高いです。", "Ken is ____ ____ in his class.", "the tallest"),
+          f("これは3冊の中で最もおもしろい本です。", "This is ____ ____ interesting book of the three.", "the most"),
+          f("彼女は私たちの学校でいちばんよい歌手です。", "She is ____ ____ singer in our school.", "the best"),
+          f("富士山は日本でいちばん高い山です。", "Mt. Fuji is ____ ____ mountain in Japan.", "the highest"),
+          f("この問題は全部の中で最も難しいです。", "This question is ____ ____ difficult of all.", "the most"),
+          f("彼は私たちのチームでいちばん速く走ります。", "He runs ____ ____ in our team.", "the fastest"),
+          f("夏は一年でいちばん暑い季節です。", "Summer is ____ ____ season of the year.", "the hottest"),
+          f("この映画は5つの中で最も人気があります。", "This movie is ____ ____ popular of the five.", "the most")
+        ],
+        reorder: [
+          r(["is", "Ken", "the", "tallest", "class", "in", "his"], "Ken is the tallest in his class."),
+          r(["the", "is", "this", "most", "interesting", "book"], "This is the most interesting book."),
+          r(["runs", "she", "the", "fastest", "team", "in", "our"], "She runs the fastest in our team."),
+          r(["is", "the", "best", "he", "player", "of", "all"], "He is the best player of all.")
+        ],
+        translations: [
+          t("この花はいちばん美しいです。", "This flower is the most beautiful."),
+          t("彼は私のクラスでいちばん速く走ります。", "He runs the fastest in my class."),
+          t("これは全部の中で最もよい考えです。", "This is the best idea of all.")
+        ]
+      }
+    ];
+
+    function q(prompt, choices, answer) {
+      return { prompt, choices, answer };
+    }
+
+    function f(japanese, english, answer) {
+      return { japanese, english, answer };
+    }
+
+    function r(words, answer) {
+      return { words, answer };
+    }
+
+    function t(japanese, answer) {
+      return { japanese, answer };
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function normalize(value) {
+      return value.toLowerCase().replace(/[（）()・\s]/g, "");
+    }
+
+    function findTopic(grammar) {
+      const normalized = normalize(grammar);
+      return topics.find((topic) => topic.match.some((key) => normalized.includes(normalize(key)))) || makeFallbackTopic(grammar);
+    }
+
+    function makeFallbackTopic(grammar) {
+      return {
+        id: "fallback",
+        defaultGrade: "中学",
+        name: grammar || "指定文法",
+        form: "基本の語順・形を確認する",
+        meaning: "文法事項に合わせて意味を理解する",
+        phrases: ["基本形", "否定文", "疑問文", "頻出表現"],
+        caution: "主語・動詞・時制の形をそろえる。",
+        mistake: ["× 形を混ぜて使う", "○ 決まった形で使う"],
+        examples: ["I study English.", "She studies English.", "Do you study English?"],
+        fillWords: "do / does / is / are / have",
+        choices: [
+          q("I ___ English every day.", ["study", "studies", "studying", "studied"], "ア"),
+          q("She ___ a book.", ["read", "reads", "reading", "to read"], "イ"),
+          q("___ you like music?", ["Do", "Does", "Is", "Are"], "ア"),
+          q("He ___ not play tennis.", ["do", "does", "is", "are"], "イ"),
+          q("They ___ in Tokyo.", ["live", "lives", "living", "lived"], "ア"),
+          q("This ___ my pen.", ["am", "are", "is", "be"], "ウ"),
+          q("We ___ English now.", ["study", "studies", "are studying", "studied"], "ウ"),
+          q("She went to school ___.", ["yesterday", "now", "every day", "tomorrow"], "ア")
+        ],
+        fills: [
+          f("私は毎日英語を勉強します。", "I ____ English every day.", "study"),
+          f("彼女は本を読みます。", "She ____ a book.", "reads"),
+          f("あなたは音楽が好きですか。", "____ you like music?", "Do"),
+          f("彼はテニスをしません。", "He ____ not play tennis.", "does"),
+          f("彼らは東京に住んでいます。", "They ____ in Tokyo.", "live"),
+          f("これは私のペンです。", "This ____ my pen.", "is"),
+          f("私たちは今英語を勉強しています。", "We ____ ____ English now.", "are studying"),
+          f("彼女は昨日学校へ行きました。", "She ____ to school yesterday.", "went")
+        ],
+        reorder: [
+          r(["study", "I", "English", "every", "day"], "I study English every day."),
+          r(["likes", "she", "music"], "She likes music."),
+          r(["you", "do", "tennis", "play"], "Do you play tennis?"),
+          r(["went", "he", "school", "to", "yesterday"], "He went to school yesterday.")
+        ],
+        translations: [
+          t("私は英語が好きです。", "I like English."),
+          t("彼女は京都に住んでいます。", "She lives in Kyoto."),
+          t("あなたはサッカーをしますか。", "Do you play soccer?")
+        ]
+      };
+    }
+
+    function renderSlideHeader(number, title) {
+      return `
+        <div class="slide-header">
+          <h3 class="slide-title">${escapeHtml(title)}</h3>
+          <span class="slide-number">Slide ${number}</span>
+        </div>
+      `;
+    }
+
+    function renderSummarySlide(topic, grade) {
+      return `
+        <article class="slide">
+          ${renderSlideHeader(1, "文法まとめ")}
+          <div class="note-box">対象学年：${escapeHtml(grade)}　文法事項：${escapeHtml(topic.name)}</div>
+          <div class="summary-grid">
+            <div class="box"><strong>形</strong><br>${escapeHtml(topic.form)}</div>
+            <div class="box"><strong>意味</strong><br>${escapeHtml(topic.meaning)}</div>
+          </div>
+          <div class="section-title">よく使う語句</div>
+          <ul class="small-list">${topic.phrases.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          <div class="section-title">注意点</div>
+          <div class="note-box">${escapeHtml(topic.caution)}<br>${escapeHtml(topic.mistake[0])}<br>${escapeHtml(topic.mistake[1])}</div>
+          <div class="section-title">例文</div>
+          <ul class="examples-list">${topic.examples.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          <div class="section-title">小さな確認欄</div>
+          <div class="write-grid">
+            <div>形：<span class="line"></span></div>
+            <div>意味：<span class="line"></span></div>
+            <div>注意：<span class="line"></span></div>
+            <div>例文：<span class="line"></span></div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderChoiceSlide(topic) {
+      return `
+        <article class="slide">
+          ${renderSlideHeader(2, "選択問題")}
+          <ol class="questions">
+            ${topic.choices.map((item) => `
+              <li>
+                <div>${escapeHtml(item.prompt)}</div>
+                <ul class="choice-row">
+                  ${item.choices.map((choice, index) => `<li>${choiceLabels[index]} ${escapeHtml(choice)}</li>`).join("")}
+                </ul>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+      `;
+    }
+
+    function renderFillSlide(topic) {
+      return `
+        <article class="slide">
+          ${renderSlideHeader(3, "穴埋め問題")}
+          <div class="word-box">語群：${escapeHtml(topic.fillWords)}</div>
+          <ol class="questions">
+            ${topic.fills.map((item) => `
+              <li class="fill-question">
+                <div>${escapeHtml(item.japanese)}</div>
+                <div>${escapeHtml(item.english)}</div>
+              </li>
+            `).join("")}
+          </ol>
+        </article>
+      `;
+    }
+
+    function renderChallengeSlide(topic) {
+      return `
+        <article class="slide">
+          ${renderSlideHeader(4, "並び替え＋和文英訳")}
+          <div class="split">
+            <div>
+              <div class="section-title">並び替え</div>
+              <ol class="questions">
+                ${topic.reorder.map((item) => `
+                  <li>
+                    <div>【 ${escapeHtml(item.words.join(" / "))} 】</div>
+                    <span class="answer-line"></span>
+                  </li>
+                `).join("")}
+              </ol>
+            </div>
+            <div>
+              <div class="section-title">和文英訳</div>
+              <ol class="questions">
+                ${topic.translations.map((item) => `
+                  <li>
+                    <div>${escapeHtml(item.japanese)}</div>
+                    <span class="answer-line"></span>
+                  </li>
+                `).join("")}
+              </ol>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderAnswers(topic) {
+      return `
+        <h3>教師用解答</h3>
+        <div class="answer-columns">
+          <div>
+            <strong>Slide2 選択</strong>
+            <ol>${topic.choices.map((item) => `<li>${escapeHtml(item.answer)}</li>`).join("")}</ol>
+          </div>
+          <div>
+            <strong>Slide3 穴埋め</strong>
+            <ol>${topic.fills.map((item) => `<li>${escapeHtml(item.answer)}</li>`).join("")}</ol>
+          </div>
+          <div>
+            <strong>Slide4</strong>
+            <ol>
+              ${topic.reorder.map((item) => `<li>${escapeHtml(item.answer)}</li>`).join("")}
+              ${topic.translations.map((item) => `<li>${escapeHtml(item.answer)}</li>`).join("")}
+            </ol>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLayoutNotes() {
+      return `
+        <h3>レイアウト上の工夫</h3>
+        <ul>
+          <li>A4縦1枚を2×2に分け、1スライドを1/4 A4として印刷できる設定にしています。</li>
+          <li>白黒印刷でも区切りが見えるよう、見出し・枠線・下線を中心に整理しています。</li>
+          <li>Slide3とSlide4は直接書き込める余白を優先し、イラストは入れていません。</li>
+          <li>基本60%、標準30%、少し考える10%を目安に、定期テスト頻出の形を中心にしています。</li>
+        </ul>
+      `;
+    }
+
+    function generate() {
+      const grade = document.querySelector("#grade").value;
+      const grammar = document.querySelector("#grammar").value.trim();
+      const topic = findTopic(grammar);
+      const displayGrade = grade || topic.defaultGrade;
+      const title = `${displayGrade} 英語 定期テスト前確認プリント：${topic.name}`;
+
+      document.querySelector("#titleText").textContent = title;
+      document.querySelector("#metaText").textContent = `対象学年：${displayGrade}　文法事項：${topic.name}`;
+      document.querySelector("#sheet").innerHTML = [
+        renderSummarySlide(topic, displayGrade),
+        renderChoiceSlide(topic),
+        renderFillSlide(topic),
+        renderChallengeSlide(topic)
+      ].join("");
+      document.querySelector("#answers").innerHTML = renderAnswers(topic);
+      document.querySelector("#layoutNotes").innerHTML = renderLayoutNotes();
+    }
+
+    document.querySelector("#generate").addEventListener("click", generate);
+    document.querySelector("#print").addEventListener("click", () => window.print());
+    document.querySelectorAll(".chip").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelector("#grade").value = button.dataset.grade;
+        document.querySelector("#grammar").value = button.dataset.grammar;
+        generate();
+      });
+    });
+
+    generate();
+  </script>
+</body>
+</html>

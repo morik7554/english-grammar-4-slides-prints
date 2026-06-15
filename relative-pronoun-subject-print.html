@@ -1,0 +1,615 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中3 関係代名詞：主格 4分割プリント</title><style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.45;
+    }
+
+    .screen {
+      padding: 14px;
+    }
+
+    .topbar,
+    .layout-notes {
+      max-width: 1440px;
+      margin: 0 auto 16px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #fff;
+      background: #263238;
+      padding: 8px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .slide {
+      --fit: 1;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: calc(23px * var(--fit));
+    }
+
+    .slide-no {
+      color: #4b5563;
+      font-size: calc(14px * var(--fit));
+      white-space: nowrap;
+    }
+
+    .label {
+      margin: 8px 0 4px;
+      border-left: 4px solid #111827;
+      padding-left: 6px;
+      font-size: calc(16px * var(--fit));
+      font-weight: 800;
+    }
+
+    .box,
+    .note,
+    .word-bank {
+      border: 1px solid #9aa3ad;
+      padding: 7px 8px;
+      background: #fff;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .note,
+    .word-bank {
+      background: #f6f7f8;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.45em;
+    }
+
+    .compact-list,
+    .examples {
+      font-size: calc(15px * var(--fit));
+    }
+
+    .compact-list li,
+    .examples li {
+      margin: 1px 0;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: calc(14.5px * var(--fit));
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 130px;
+      height: 1.1em;
+      border-bottom: 1px solid #111827;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 7px;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: calc(14px * var(--fit));
+    }
+
+    .answer-line {
+      display: block;
+      min-height: calc(22px * var(--fit));
+      border-bottom: 1px solid #111827;
+    }
+
+    .hint {
+      display: block;
+      color: #4b5563;
+      font-size: calc(13.5px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .jp-translation {
+      display: block;
+      color: #374151;
+      font-size: calc(13px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .long-line {
+      min-height: calc(26px * var(--fit));
+    }
+
+    .answer-key h2,
+    .layout-notes h2 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .layout-notes ul {
+      font-size: 13px;
+    }
+
+    .answer-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .answer-slide {
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 1.35em;
+      font-size: 14px;
+    }
+
+    .answer-list li {
+      padding-bottom: 4px;
+      border-bottom: 1px solid #d4dae0;
+    }
+
+    .answer-list strong {
+      font-weight: 800;
+    }
+
+    .mini-explain {
+      display: block;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 1px;
+    }
+
+    .answer-note {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 5px 6px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .answer-slide .slide-title {
+      font-size: 21px;
+    }
+
+    .answer-slide .slide-no {
+      font-size: 13px;
+    }
+
+    .answer-slide .slide-header {
+      margin-bottom: 7px;
+    }
+
+    .print-page-title {
+      max-width: 1440px;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .explanation-slide {
+      overflow: hidden;
+    }
+
+    .explanation-slide .slide-header {
+      margin-bottom: 8px;
+    }
+
+    .explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 13px;
+    }
+
+    .explanation-box {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 7px 8px;
+    }
+
+    .explanation-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .explanation-box ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .answer-sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .slide,
+      .answer-slide {
+        height: 540px;
+      }
+
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
+      .topbar,
+      .layout-notes {
+        display: none;
+      }
+
+      .sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .answer-sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .slide {
+        --fit: 1.06;
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.2mm;
+        line-height: 1.18;
+      }
+
+      .slide:nth-child(1) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(2) {
+        --fit: 1.34 !important;
+      }
+
+      .slide:nth-child(3) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(4) {
+        --fit: 0.98 !important;
+      }
+
+      .slide-title {
+        font-size: calc(12pt * var(--fit));
+      }
+
+      .slide-header {
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .label {
+        margin: 4px 0 2px;
+        border-left-width: 3px;
+        padding-left: 4px;
+        font-size: calc(8.2pt * var(--fit));
+      }
+
+      .summary-grid {
+        gap: 3px;
+      }
+
+      .box,
+      .note,
+      .word-bank {
+        padding: 3px 4px;
+      }
+
+      .box,
+      .note,
+      .word-bank,
+        .compact-list,
+        .examples,
+        .questions {
+        font-size: calc(7.6pt * var(--fit));
+      }
+
+      .questions {
+        gap: calc(2px * var(--fit));
+      }
+
+      .choices {
+        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
+        margin-top: calc(1px * var(--fit));
+      }
+
+      .choices,
+      .hint,
+      .jp-translation,
+      .write-grid {
+        font-size: calc(7.1pt * var(--fit));
+      }
+
+      .write-grid {
+        gap: calc(3px * var(--fit));
+        margin-top: calc(3px * var(--fit));
+      }
+
+      .line {
+        min-width: 80px;
+      }
+
+      .answer-line {
+        min-height: calc(14px * var(--fit));
+      }
+
+      .long-line {
+        min-height: calc(17px * var(--fit));
+      }
+
+      .print-page-title {
+        display: none;
+      }
+
+      .answer-slide {
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.5mm;
+        line-height: 1.22;
+      }
+
+      .answer-slide .slide-title {
+        font-size: 11.7pt;
+      }
+
+      .answer-slide .slide-no {
+        font-size: 8.4pt;
+      }
+
+      .answer-slide .slide-header {
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+
+      .answer-note {
+        padding: 2px 3px;
+        margin-bottom: 3px;
+        font-size: 7.6pt;
+      }
+
+      .answer-list {
+        gap: 1px;
+        font-size: 8.3pt;
+      }
+
+      .answer-list li {
+        padding-bottom: 2px;
+      }
+
+      .mini-explain {
+        font-size: 7.3pt;
+        line-height: 1.16;
+      }
+    }
+  </style></head><body><main class="screen"><section class="topbar"><div><h1>中3 英語 定期テスト前確認プリント：関係代名詞：主格</h1><div class="meta">対象学年：中3　文法事項：関係代名詞：主格</div></div><button type="button" onclick="window.print()">A4横 4分割で印刷</button></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：関係代名詞：主格</div><div class="summary-grid"><div class="box"><strong>形</strong><br>先行詞 + who / which / that + 動詞</div><div class="box"><strong>意味</strong><br>「〜する人・もの」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>who：人を説明</li><li>which：もの・動物を説明</li><li>that：人にもものにも使える</li><li>関係代名詞の後ろに動詞が続く</li></ul><div class="label">注意点</div><div class="note">主格では関係代名詞の後ろにすぐ動詞が来る。<br>○ a friend who lives in Canada<br>× a friend who he lives in Canada</div><div class="label">例文</div><ul class="examples"><li>I have a friend who lives in Canada.</li><li>This is a book which is popular.</li><li>The boy that plays tennis is Ken.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions">
+<li>I have a friend ___ lives in Canada.
+          <div class="choices"><span>ア who</span><span>イ he</span><span>ウ what</span><span>エ when</span></div></li>
+<li>The girl ___ is Yui.
+          <div class="choices"><span>ア which can play tennis</span><span>イ who can play tennis</span><span>ウ who tennis</span><span>エ who playing tennis</span></div></li>
+<li>The man ___ English is Mr. Brown.
+          <div class="choices"><span>ア which teaches</span><span>イ teaching</span><span>ウ who teaches</span><span>エ who teach</span></div></li>
+<li>The boy ___ me is Tom.
+          <div class="choices"><span>ア which helped</span><span>イ helping</span><span>ウ he helped</span><span>エ who helped</span></div></li>
+<li>I know a woman ___ two cats.
+          <div class="choices"><span>ア who has</span><span>イ which has</span><span>ウ who have</span><span>エ who having</span></div></li>
+<li>The student ___ French is my friend.
+          <div class="choices"><span>ア which speaks</span><span>イ who speaks</span><span>ウ who speaking</span><span>エ who speak</span></div></li>
+<li>正しい表現はどれですか。
+          <div class="choices"><span>ア a friend he lives in Canada</span><span>イ a friend lives who in Canada</span><span>ウ a friend who lives in Canada</span><span>エ a friend who he lives in Canada</span></div></li>
+<li>正しい文はどれですか。
+          <div class="choices"><span>ア I know a boy which lives here.</span><span>イ I know a boy lives who here.</span><span>ウ I know a boy who he lives here.</span><span>エ I know a boy who lives here.</span></div></li>
+        </ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：who / which / that / lives / plays / makes / speaks / goes</div><ol class="questions"><li>私にはカナダに住んでいる友達がいます。<br>I have a friend ____ lives in Canada.</li><li>これは人気がある本です。<br>This is a book ____ is popular.</li><li>テニスをする少年はケンです。<br>The boy ____ plays tennis is Ken.</li><li>私は私を幸せにする歌が好きです。<br>I like songs ____ make me happy.</li><li>あれは速く走る犬です。<br>That is the dog ____ runs fast.</li><li>彼女はフランス語を話す少女を知っています。<br>She knows a girl ____ speaks French.</li><li>これは学校へ行くバスです。<br>This is the bus ____ goes to school.</li><li>彼には音楽が好きな妹がいます。<br>He has a sister ____ likes music.</li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions"><li>【 a friend / I / who lives in Canada / have 】<span class="jp-translation">私にはカナダに住んでいる友達がいます。</span><span class="answer-line"></span></li><li>【 this / a book / is / which is popular 】<span class="jp-translation">これは人気がある本です。</span><span class="answer-line"></span></li><li>【 is / the boy / Ken / who plays tennis 】<span class="jp-translation">テニスをする少年はケンです。</span><span class="answer-line"></span></li><li>【 songs / I like / which make me happy 】<span class="jp-translation">私は私を幸せにする歌が好きです。</span><span class="answer-line"></span></li></ol><div class="label">和文英訳</div><ol class="questions"><li>私は英語を話す友達がいます。<span class="hint">ヒント：friend / who</span><span class="answer-line long-line"></span></li><li>これは速く走る電車です。<span class="hint">ヒント：train / which</span><span class="answer-line long-line"></span></li><li>音楽が好きな少女はユミです。<span class="hint">ヒント：girl / who</span><span class="answer-line long-line"></span></li></ol></article></section><h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚"><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Slide 5</span></div><div class="answer-note">人やものをくわしく説明するときに使える表現。</div><ol class="answer-list"><li><strong>I have a friend who lives near here.</strong><span class="mini-explain">近くに住んでいる友達がいます。</span></li><li><strong>This is a book which helps students.</strong><span class="mini-explain">これは生徒を助ける本です。</span></li><li><strong>The boy who plays soccer is Ken.</strong><span class="mini-explain">サッカーをする少年はケンです。</span></li><li><strong>I like songs which make me happy.</strong><span class="mini-explain">私を幸せにする歌が好きです。</span></li><li><strong>She knows a girl who speaks French.</strong><span class="mini-explain">彼女はフランス語を話す少女を知っています。</span></li><li><strong>This is a train which goes to Tokyo.</strong><span class="mini-explain">これは東京へ行く電車です。</span></li><li><strong>He has a sister who likes music.</strong><span class="mini-explain">彼には音楽が好きな妹がいます。</span></li><li><strong>The dog which runs fast is mine.</strong><span class="mini-explain">速く走る犬は私のです。</span></li></ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Slide 6</span></div><div class="answer-note">ポイント：この単元の範囲内で、形・語順・後続語・否定文・疑問文・意味を確認する。</div><ol class="answer-list">
+<li>ア who<br><span>人を説明し、後ろに動詞が続くので who。</span></li>
+<li>イ who can play tennis<br><span>人 + who + 動詞の形。</span></li>
+<li>ウ who teaches<br><span>人を説明し、who の後ろに動詞 teaches。</span></li>
+<li>エ who helped<br><span>人を説明する主格 who。</span></li>
+<li>ア who has<br><span>先行詞が人で、後ろに動詞 has。</span></li>
+<li>イ who speaks<br><span>人を説明するので who speaks。</span></li>
+<li>ウ a friend who lives in Canada<br><span>who の後ろに主語 he を重ねない。</span></li>
+<li>エ I know a boy who lives here.<br><span>人を説明するときは who。</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Slide 7</span></div><div class="answer-note">ポイント：関係代名詞の後ろには動詞を続ける。</div><ol class="answer-list"><li><strong>who</strong><span class="mini-explain">人を説明。</span></li><li><strong>which</strong><span class="mini-explain">ものを説明。</span></li><li><strong>who</strong><span class="mini-explain">人を説明。</span></li><li><strong>which</strong><span class="mini-explain">songs を説明。</span></li><li><strong>which</strong><span class="mini-explain">dog を説明。</span></li><li><strong>who</strong><span class="mini-explain">girl を説明。</span></li><li><strong>which</strong><span class="mini-explain">bus を説明。</span></li><li><strong>who</strong><span class="mini-explain">sister を説明。</span></li></ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Slide 8</span></div><div class="answer-note">ポイント：説明したい名詞のすぐ後ろに who / which / that を置く。</div><ol class="answer-list"><li><strong>I have a friend who lives in Canada.</strong><span class="mini-explain">friend を who 以下が説明。</span></li><li><strong>This is a book which is popular.</strong><span class="mini-explain">book を which 以下が説明。</span></li><li><strong>The boy who plays tennis is Ken.</strong><span class="mini-explain">boy を who 以下が説明。</span></li><li><strong>I like songs which make me happy.</strong><span class="mini-explain">songs を which 以下が説明。</span></li><li><strong>I have a friend who speaks English.</strong><span class="mini-explain">friend を who 以下が説明。</span></li><li><strong>This is a train which runs fast.</strong><span class="mini-explain">train を which 以下が説明。</span></li><li><strong>The girl who likes music is Yumi.</strong><span class="mini-explain">girl を who 以下が説明。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>主格の関係代名詞 who / which / that を中心にしています。</li></ul></section></main><script>
+    function slideOverflows(slide) {
+      return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        let low = 0.56;
+        let high = isPrintFit ? 2.05 : 1.55;
+        let best = low;
+
+        slide.style.setProperty("--fit", high.toFixed(3));
+        if (!slideOverflows(slide)) {
+          best = high;
+        } else {
+          for (let i = 0; i < 12; i += 1) {
+            const mid = (low + high) / 2;
+            slide.style.setProperty("--fit", mid.toFixed(3));
+            if (slideOverflows(slide)) {
+              high = mid;
+            } else {
+              best = mid;
+              low = mid;
+            }
+          }
+        }
+
+        slide.style.setProperty("--fit", best.toFixed(3));
+      });
+    }
+
+    let fitTimer = 0;
+    function queueFitSlideText() {
+      window.clearTimeout(fitTimer);
+      fitTimer = window.setTimeout(fitSlideText, 60);
+    }
+
+    function fitForPrint() {
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.removeProperty("--fit");
+      });
+    }
+
+    window.addEventListener("load", fitSlideText);
+    window.addEventListener("resize", queueFitSlideText);
+    window.addEventListener("beforeprint", fitForPrint);
+    window.addEventListener("afterprint", queueFitSlideText);
+    window.fitSlideText = fitSlideText;
+  </script></body></html>

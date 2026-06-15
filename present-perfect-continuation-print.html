@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中3 現在完了（継続用法）4分割プリント</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.45;
+    }
+
+    .screen {
+      padding: 14px;
+    }
+
+    .topbar,
+    .layout-notes {
+      max-width: 1440px;
+      margin: 0 auto 16px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #fff;
+      background: #263238;
+      padding: 8px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .slide {
+      --fit: 1;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: calc(23px * var(--fit));
+    }
+
+    .slide-no {
+      color: #4b5563;
+      font-size: calc(14px * var(--fit));
+      white-space: nowrap;
+    }
+
+    .label {
+      margin: 8px 0 4px;
+      border-left: 4px solid #111827;
+      padding-left: 6px;
+      font-size: calc(16px * var(--fit));
+      font-weight: 800;
+    }
+
+    .box,
+    .note,
+    .word-bank {
+      border: 1px solid #9aa3ad;
+      padding: 7px 8px;
+      background: #fff;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .note,
+    .word-bank {
+      background: #f6f7f8;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.45em;
+    }
+
+    .compact-list,
+    .examples {
+      font-size: calc(15px * var(--fit));
+    }
+
+    .compact-list li,
+    .examples li {
+      margin: 1px 0;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: calc(14.5px * var(--fit));
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 130px;
+      height: 1.1em;
+      border-bottom: 1px solid #111827;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 7px;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: calc(14px * var(--fit));
+    }
+
+    .answer-line {
+      display: block;
+      min-height: calc(22px * var(--fit));
+      border-bottom: 1px solid #111827;
+    }
+
+    .hint {
+      display: block;
+      color: #4b5563;
+      font-size: calc(13.5px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .jp-translation {
+      display: block;
+      color: #374151;
+      font-size: calc(13px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .long-line {
+      min-height: calc(26px * var(--fit));
+    }
+
+    .answer-key h2,
+    .layout-notes h2 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .layout-notes ul {
+      font-size: 13px;
+    }
+
+    .answer-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .answer-slide {
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 1.35em;
+      font-size: 14px;
+    }
+
+    .answer-list li {
+      padding-bottom: 4px;
+      border-bottom: 1px solid #d4dae0;
+    }
+
+    .answer-list strong {
+      font-weight: 800;
+    }
+
+    .mini-explain {
+      display: block;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 1px;
+    }
+
+    .answer-note {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 5px 6px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .answer-slide .slide-title {
+      font-size: 21px;
+    }
+
+    .answer-slide .slide-no {
+      font-size: 13px;
+    }
+
+    .answer-slide .slide-header {
+      margin-bottom: 7px;
+    }
+
+    .print-page-title {
+      max-width: 1440px;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .explanation-slide {
+      overflow: hidden;
+    }
+
+    .explanation-slide .slide-header {
+      margin-bottom: 8px;
+    }
+
+    .explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 13px;
+    }
+
+    .explanation-box {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 7px 8px;
+    }
+
+    .explanation-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .explanation-box ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .answer-sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .slide,
+      .answer-slide {
+        height: 540px;
+      }
+
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
+      .topbar,
+      .layout-notes {
+        display: none;
+      }
+
+      .sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .answer-sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .slide {
+        --fit: 1.06;
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.2mm;
+        line-height: 1.18;
+      }
+
+      .slide:nth-child(1) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(2) {
+        --fit: 1.34 !important;
+      }
+
+      .slide:nth-child(3) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(4) {
+        --fit: 0.98 !important;
+      }
+
+      .slide-title {
+        font-size: calc(12pt * var(--fit));
+      }
+
+      .slide-header {
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .label {
+        margin: 4px 0 2px;
+        border-left-width: 3px;
+        padding-left: 4px;
+        font-size: calc(8.2pt * var(--fit));
+      }
+
+      .summary-grid {
+        gap: 3px;
+      }
+
+      .box,
+      .note,
+      .word-bank {
+        padding: 3px 4px;
+      }
+
+      .box,
+      .note,
+      .word-bank,
+        .compact-list,
+        .examples,
+        .questions {
+        font-size: calc(7.6pt * var(--fit));
+      }
+
+      .questions {
+        gap: calc(2px * var(--fit));
+      }
+
+      .choices {
+        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
+        margin-top: calc(1px * var(--fit));
+      }
+
+      .choices,
+      .hint,
+      .jp-translation,
+      .write-grid {
+        font-size: calc(7.1pt * var(--fit));
+      }
+
+      .write-grid {
+        gap: calc(3px * var(--fit));
+        margin-top: calc(3px * var(--fit));
+      }
+
+      .line {
+        min-width: 80px;
+      }
+
+      .answer-line {
+        min-height: calc(14px * var(--fit));
+      }
+
+      .long-line {
+        min-height: calc(17px * var(--fit));
+      }
+
+      .print-page-title {
+        display: none;
+      }
+
+      .answer-slide {
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.5mm;
+        line-height: 1.22;
+      }
+
+      .answer-slide .slide-title {
+        font-size: 11.7pt;
+      }
+
+      .answer-slide .slide-no {
+        font-size: 8.4pt;
+      }
+
+      .answer-slide .slide-header {
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+
+      .answer-note {
+        padding: 2px 3px;
+        margin-bottom: 3px;
+        font-size: 7.6pt;
+      }
+
+      .answer-list {
+        gap: 1px;
+        font-size: 8.3pt;
+      }
+
+      .answer-list li {
+        padding-bottom: 2px;
+      }
+
+      .mini-explain {
+        font-size: 7.3pt;
+        line-height: 1.16;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="screen">
+    <section class="topbar">
+      <div>
+        <h1>中3 英語 定期テスト前確認プリント：現在完了（継続用法）</h1>
+        <div class="meta">対象学年：中3　文法事項：現在完了（継続用法）</div>
+      </div>
+      <button type="button" onclick="window.print()">A4横 4分割で印刷</button>
+    </section>
+
+    <section class="sheet" aria-label="4分割プリント">
+      <article class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">文法まとめ</h2>
+          <span class="slide-no">Slide 1</span>
+        </div>
+        <div class="note">対象学年：中3　文法事項：現在完了（継続用法）</div>
+        <div class="summary-grid">
+          <div class="box"><strong>形</strong><br>have / has + 過去分詞</div>
+          <div class="box"><strong>意味</strong><br>「ずっと〜している」</div>
+        </div>
+
+        <div class="label">よく使う語句</div>
+        <ul class="compact-list">
+          <li>for：〜の間</li>
+          <li>since：〜から、〜以来</li>
+          <li>How long：どのくらいの間</li>
+          <li>a long time：長い間</li>
+        </ul>
+
+        <div class="label">注意点</div>
+        <div class="note">for は期間、since は始まった時点を表す。live / know / have など状態を表す動詞をよく使う。<br>× I live in Yokohama for ten years.<br>○ I have lived in Yokohama for ten years.</div>
+
+        <div class="label">例文</div>
+        <ul class="examples">
+          <li>I have lived in Yokohama for ten years.</li>
+          <li>She has known Ken since 2020.</li>
+          <li>How long have you been here?</li>
+        </ul>
+
+        <div class="label">メモ欄</div>
+        <div class="write-grid">
+          <div>メモ：<span class="line"></span></div>
+          <div>メモ：<span class="line"></span></div>
+        </div>
+      </article>
+
+      <article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions">
+          <li>I have lived here ___ five years.
+            <ul class="choices"><li>ア for</li><li>イ since</li><li>ウ ever</li><li>エ yet</li></ul>
+          </li>
+          <li>She has known Ken ___ 2020.
+            <ul class="choices"><li>ア for</li><li>イ since</li><li>ウ just</li><li>エ already</li></ul>
+          </li>
+          <li>How long ___ you lived here?
+            <ul class="choices"><li>ア are</li><li>イ do</li><li>ウ have</li><li>エ did</li></ul>
+          </li>
+          <li>He ___ been sick since Monday.
+            <ul class="choices"><li>ア have</li><li>イ is</li><li>ウ was</li><li>エ has</li></ul>
+          </li>
+          <li>We have studied English ___ three years.
+            <ul class="choices"><li>ア for</li><li>イ since</li><li>ウ ever</li><li>エ once</li></ul>
+          </li>
+          <li>I have ___ in Yokohama since I was ten.
+            <ul class="choices"><li>ア live</li><li>イ lived</li><li>ウ living</li><li>エ lives</li></ul>
+          </li>
+          <li>日本語「彼女は10年間ここに住んでいます」に合う英文はどれですか。
+            <ul class="choices"><li>ア She lives here for ten years.</li><li>イ She lived here for ten years.</li><li>ウ She has lived here for ten years.</li><li>エ She has live here for ten years.</li></ul>
+          </li>
+          <li>誤りのない文はどれですか。
+            <ul class="choices"><li>ア I have known him for years.</li><li>イ I have knew him for years.</li><li>ウ I know him since years.</li><li>エ I have known him since three years.</li></ul>
+          </li>
+        </ol></article>
+
+      <article class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">穴埋め問題</h2>
+          <span class="slide-no">Slide 3</span>
+        </div>
+        <div class="word-bank">語群：have / has / for / since / lived / known / been / used / studied</div>
+        <ol class="questions">
+          <li>私は横浜に10年間住んでいます。<br>I ____ ____ in Yokohama ____ ten years.</li>
+          <li>彼女は2020年からケンを知っています。<br>She ____ ____ Ken ____ 2020.</li>
+          <li>あなたはどのくらいの間ここにいますか。<br>How long ____ you ____ here?</li>
+          <li>私たちはこの机を長い間使っています。<br>We ____ ____ this desk ____ a long time.</li>
+          <li>私の弟は昨日から病気です。<br>My brother ____ ____ sick ____ yesterday.</li>
+          <li>彼らは3年間英語を勉強しています。<br>They ____ ____ English ____ three years.</li>
+          <li>ケンは先週から忙しいです。<br>Ken ____ ____ busy ____ last week.</li>
+          <li>あなたのお母さんはどのくらいの間先生ですか。<br>How long ____ your mother ____ a teacher?</li>
+        </ol>
+      </article>
+
+      <article class="slide">
+        <div class="slide-header">
+          <h2 class="slide-title">並び替え＋和文英訳</h2>
+          <span class="slide-no">Slide 4</span>
+        </div>
+
+        <div class="label">並び替え</div>
+        <ol class="questions">
+          <li>【 lived / I / here / have / for / three years 】<span class="jp-translation">私はここに3年間住んでいます。</span><span class="answer-line"></span></li>
+          <li>【 has / she / Ken / known / since / 2020 】<span class="jp-translation">彼女は2020年からケンを知っています。</span><span class="answer-line"></span></li>
+          <li>【 long / you / have / how / been / here 】<span class="jp-translation">あなたはどのくらいの間ここにいますか。</span><span class="answer-line"></span></li>
+          <li>【 for / used / they / this bike / have / two years 】<span class="jp-translation">彼らはこの自転車を2年間使っています。</span><span class="answer-line"></span></li>
+        </ol>
+
+        <div class="label">和文英訳</div>
+        <ol class="questions">
+          <li>私は5年間大阪に住んでいます。<span class="hint">ヒント：lived / for</span><span class="answer-line long-line"></span></li>
+          <li>彼は昨日から忙しいです。<span class="hint">ヒント：busy / since</span><span class="answer-line long-line"></span></li>
+          <li>あなたはどのくらいの間このカバンを使っていますか。<span class="hint">ヒント：How long / used（7語）</span><span class="answer-line long-line"></span></li>
+        </ol>
+      </article>
+    </section>
+
+    <h2 class="print-page-title">生徒配布用 解答スライド</h2>
+    <section class="answer-sheet" aria-label="解答スライド4枚">
+      <article class="answer-slide">
+        <div class="slide-header">
+          <h2 class="slide-title">覚えておきたい表現</h2>
+          <span class="slide-no">Slide 5</span>
+        </div>
+        <div class="answer-note">日常会話でよく使う現在完了の継続用法。for / since とセットで覚える。</div>
+        <ol class="answer-list">
+          <li><strong>How long have you lived here?</strong><span class="mini-explain">ここにどのくらい住んでいますか。転校生との会話で使える。</span></li>
+          <li><strong>I've lived here for three years.</strong><span class="mini-explain">ここに3年間住んでいます。期間は for。</span></li>
+          <li><strong>I've known him since elementary school.</strong><span class="mini-explain">小学校から彼を知っています。始まりは since。</span></li>
+          <li><strong>She has been busy since morning.</strong><span class="mini-explain">彼女は朝から忙しいです。</span></li>
+          <li><strong>We've been friends for a long time.</strong><span class="mini-explain">私たちは長い間友達です。</span></li>
+          <li><strong>How long have you had this bag?</strong><span class="mini-explain">このカバンをどのくらい持っていますか。</span></li>
+          <li><strong>I've wanted this book for months.</strong><span class="mini-explain">何かをずっと欲しいときにも使える。</span></li>
+          <li><strong>He has been in Japan since April.</strong><span class="mini-explain">彼は4月から日本にいます。</span></li>
+        </ol>
+      </article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Slide 6</span></div><div class="answer-note">ポイント：この単元の範囲内で、形・語順・後続語・否定文・疑問文・意味を確認する。</div><ol class="answer-list">
+          <li><strong>ア for</strong><span class="mini-explain">期間は for。</span></li>
+          <li><strong>イ since</strong><span class="mini-explain">始まりは since。</span></li>
+          <li><strong>ウ have</strong><span class="mini-explain">How long have you ...?</span></li>
+          <li><strong>エ has</strong><span class="mini-explain">He has been。</span></li>
+          <li><strong>ア for</strong><span class="mini-explain">期間は for。</span></li>
+          <li><strong>イ lived</strong><span class="mini-explain">have + 過去分詞。</span></li>
+          <li><strong>ウ She has lived here for ten years.</strong><span class="mini-explain">継続は has lived for。</span></li>
+          <li><strong>ア I have known him for years.</strong><span class="mini-explain">期間は for years。</span></li>
+        </ol></article>
+<article class="answer-slide">
+        <div class="slide-header">
+          <h2 class="slide-title">解答 Slide3：穴埋め問題</h2>
+          <span class="slide-no">Slide 7</span>
+        </div>
+        <div class="answer-note">ポイント：主語に合わせて have / has を選び、for と since を意味で使い分ける。</div>
+        <ol class="answer-list">
+          <li><strong>have lived / for</strong><span class="mini-explain">I は have。ten years は期間なので for。</span></li>
+          <li><strong>has known / since</strong><span class="mini-explain">She は has。2020 は始まった時点なので since。</span></li>
+          <li><strong>have / been</strong><span class="mini-explain">How long have you been ... ? で「どのくらいいますか」。</span></li>
+          <li><strong>have used / for</strong><span class="mini-explain">We は have。a long time は期間なので for。</span></li>
+          <li><strong>has been / since</strong><span class="mini-explain">My brother は has。yesterday は始まった時点。</span></li>
+          <li><strong>have studied / for</strong><span class="mini-explain">They は have。three years は期間。</span></li>
+          <li><strong>has been / since</strong><span class="mini-explain">Ken は has。last week は始まった時点。</span></li>
+          <li><strong>has / been</strong><span class="mini-explain">your mother は三人称単数なので has。</span></li>
+        </ol>
+      </article>
+<article class="answer-slide">
+        <div class="slide-header">
+          <h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2>
+          <span class="slide-no">Slide 8</span>
+        </div>
+        <div class="answer-note">ポイント：語順は「主語 + have / has + 過去分詞」。How long は文の最初に置く。</div>
+        <ol class="answer-list">
+          <li><strong>I have lived here for three years.</strong><span class="mini-explain">three years は期間なので for を置く。</span></li>
+          <li><strong>She has known Ken since 2020.</strong><span class="mini-explain">2020 は始まった時点なので since を使う。</span></li>
+          <li><strong>How long have you been here?</strong><span class="mini-explain">「どのくらいの間」は How long。疑問文なので have you。</span></li>
+          <li><strong>They have used this bike for two years.</strong><span class="mini-explain">two years は期間なので for。</span></li>
+          <li><strong>I have lived in Osaka for five years.</strong><span class="mini-explain">「5年間」は for five years。</span></li>
+          <li><strong>He has been busy since yesterday.</strong><span class="mini-explain">「昨日から」は since yesterday。</span></li>
+          <li><strong>How long have you used this bag?</strong><span class="mini-explain">How long + have you + 過去分詞。7語の文。</span></li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="layout-notes">
+      <h2>レイアウト上の工夫</h2>
+      <ul>
+        <li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li>
+        <li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li>
+        <li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li>
+        <li>基本問題を中心に、for / since・How long・have / has been など定期テスト頻出の形を入れています。</li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    function slideOverflows(slide) {
+      return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        let low = 0.56;
+        let high = isPrintFit ? 2.05 : 1.55;
+        let best = low;
+
+        slide.style.setProperty("--fit", high.toFixed(3));
+        if (!slideOverflows(slide)) {
+          best = high;
+        } else {
+          for (let i = 0; i < 12; i += 1) {
+            const mid = (low + high) / 2;
+            slide.style.setProperty("--fit", mid.toFixed(3));
+            if (slideOverflows(slide)) {
+              high = mid;
+            } else {
+              best = mid;
+              low = mid;
+            }
+          }
+        }
+
+        slide.style.setProperty("--fit", best.toFixed(3));
+      });
+    }
+
+    let fitTimer = 0;
+    function queueFitSlideText() {
+      window.clearTimeout(fitTimer);
+      fitTimer = window.setTimeout(fitSlideText, 60);
+    }
+
+    function fitForPrint() {
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.removeProperty("--fit");
+      });
+    }
+
+    window.addEventListener("load", fitSlideText);
+    window.addEventListener("resize", queueFitSlideText);
+    window.addEventListener("beforeprint", fitForPrint);
+    window.addEventListener("afterprint", queueFitSlideText);
+    window.fitSlideText = fitSlideText;
+  </script>
+</body>
+</html>

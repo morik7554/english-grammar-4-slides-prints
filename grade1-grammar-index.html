@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中1英語 文法プリント一覧</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      border-bottom: 1px solid #c5ccd3;
+      background: #fff;
+      padding: 22px 24px;
+    }
+
+    .header-inner,
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .lead {
+      margin: 0;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    main {
+      padding: 22px 24px 40px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #aeb7c0;
+      border-radius: 8px;
+      background: #fff;
+      padding: 9px 12px;
+      font: inherit;
+    }
+
+    .count {
+      color: #4b5563;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      margin: 22px 0 10px;
+      border-left: 5px solid #111827;
+      padding-left: 9px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      min-height: 84px;
+      border: 1px solid #b8c0c8;
+      border-radius: 8px;
+      color: inherit;
+      background: #fff;
+      padding: 12px;
+      text-decoration: none;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: #111827;
+      outline: 2px solid #111827;
+      outline-offset: 1px;
+    }
+
+    .no {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #111827;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 13px;
+      background: #f6f7f8;
+    }
+
+    .title {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .file {
+      display: block;
+      color: #4b5563;
+      font-size: 12px;
+      word-break: break-all;
+    }
+
+    .empty {
+      display: none;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 16px;
+      color: #4b5563;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 28px;
+      color: #4b5563;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      header,
+      main,
+      footer {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .count {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>中1英語 文法プリント一覧</h1>
+      <p class="lead">文法名をクリックすると、印刷用プリントを開けます。A4横・4分割・問題4枚＋解答4枚の形式です。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="文法名で検索 例：be動詞、疑問詞、can、過去形">
+      <div id="count" class="count">28件</div>
+    </div>
+
+    <h2 class="section-title">be動詞</h2>
+    <section class="grid">
+      <a class="card" href="g1-i-am-print.html" data-title="I am 私はです be動詞"><span class="no">1-01</span><span><span class="title">I am ～</span><span class="file">g1-i-am-print.html</span></span></a>
+      <a class="card" href="g1-you-are-print.html" data-title="You are あなたはです be動詞"><span class="no">1-02</span><span><span class="title">You are ～</span><span class="file">g1-you-are-print.html</span></span></a>
+      <a class="card" href="g1-he-she-is-print.html" data-title="He She is 彼 彼女 be動詞"><span class="no">1-03</span><span><span class="title">He / She is ～</span><span class="file">g1-he-she-is-print.html</span></span></a>
+      <a class="card" href="g1-this-that-is-print.html" data-title="This is That is これ あれ be動詞"><span class="no">1-04</span><span><span class="title">This is ～ / That is ～</span><span class="file">g1-this-that-is-print.html</span></span></a>
+      <a class="card" href="g1-be-verb-choice-print.html" data-title="be動詞 使い分け am are is"><span class="no">1-05</span><span><span class="title">be動詞の使い分け</span><span class="file">g1-be-verb-choice-print.html</span></span></a>
+      <a class="card" href="g1-be-verb-negative-print.html" data-title="be動詞 否定文 not"><span class="no">1-06</span><span><span class="title">be動詞の否定文</span><span class="file">g1-be-verb-negative-print.html</span></span></a>
+      <a class="card" href="g1-be-verb-question-print.html" data-title="be動詞 疑問文"><span class="no">1-07</span><span><span class="title">be動詞の疑問文</span><span class="file">g1-be-verb-question-print.html</span></span></a>
+      <a class="card" href="g1-be-verb-review-print.html" data-title="be動詞 まとめ 肯定 否定 疑問"><span class="no">1-08</span><span><span class="title">be動詞のまとめ</span><span class="file">g1-be-verb-review-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">一般動詞・疑問詞</h2>
+    <section class="grid">
+      <a class="card" href="g1-action-verbs-affirmative-print.html" data-title="一般動詞 肯定文 play like have study"><span class="no">1-09</span><span><span class="title">一般動詞とは？ 肯定文</span><span class="file">g1-action-verbs-affirmative-print.html</span></span></a>
+      <a class="card" href="g1-action-verbs-negative-print.html" data-title="一般動詞 否定文 do not don't"><span class="no">1-10</span><span><span class="title">一般動詞の否定文</span><span class="file">g1-action-verbs-negative-print.html</span></span></a>
+      <a class="card" href="g1-action-verbs-question-print.html" data-title="一般動詞 疑問文 Do"><span class="no">1-11</span><span><span class="title">一般動詞の疑問文</span><span class="file">g1-action-verbs-question-print.html</span></span></a>
+      <a class="card" href="g1-action-verbs-review-print.html" data-title="一般動詞 まとめ 肯定 否定 疑問"><span class="no">1-12</span><span><span class="title">一般動詞のまとめ</span><span class="file">g1-action-verbs-review-print.html</span></span></a>
+      <a class="card" href="g1-question-word-what-print.html" data-title="疑問詞 what 何"><span class="no">1-13</span><span><span class="title">疑問詞 what の文</span><span class="file">g1-question-word-what-print.html</span></span></a>
+      <a class="card" href="g1-question-word-who-print.html" data-title="疑問詞 who だれ"><span class="no">1-14</span><span><span class="title">疑問詞 who の文</span><span class="file">g1-question-word-who-print.html</span></span></a>
+      <a class="card" href="g1-question-word-when-print.html" data-title="疑問詞 when いつ"><span class="no">1-15</span><span><span class="title">疑問詞 when の文</span><span class="file">g1-question-word-when-print.html</span></span></a>
+      <a class="card" href="g1-question-word-where-print.html" data-title="疑問詞 where どこ"><span class="no">1-16</span><span><span class="title">疑問詞 where の文</span><span class="file">g1-question-word-where-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">名詞・命令文・代名詞・進行形</h2>
+    <section class="grid">
+      <a class="card" href="g1-plural-nouns-print.html" data-title="名詞 複数形 s es"><span class="no">1-17</span><span><span class="title">名詞の複数形 s / es</span><span class="file">g1-plural-nouns-print.html</span></span></a>
+      <a class="card" href="g1-imperative-print.html" data-title="命令文 作り方 Open Don't Please"><span class="no">1-18</span><span><span class="title">命令文の作り方</span><span class="file">g1-imperative-print.html</span></span></a>
+      <a class="card" href="g1-pronouns-i-my-me-mine-print.html" data-title="代名詞 I my me mine"><span class="no">1-19</span><span><span class="title">代名詞の変化表</span><span class="file">g1-pronouns-i-my-me-mine-print.html</span></span></a>
+      <a class="card" href="g1-present-progressive-print.html" data-title="現在進行形 be ing"><span class="no">1-20</span><span><span class="title">現在進行形 be + ing</span><span class="file">g1-present-progressive-print.html</span></span></a>
+      <a class="card" href="g1-ing-form-rules-print.html" data-title="動詞 ing形 作り方"><span class="no">1-21</span><span><span class="title">動詞のing形の作り方</span><span class="file">g1-ing-form-rules-print.html</span></span></a>
+    </section>
+
+    <h2 class="section-title">can・過去形・三単現</h2>
+    <section class="grid">
+      <a class="card" href="g1-can-affirmative-print.html" data-title="助動詞 can 肯定文"><span class="no">1-22</span><span><span class="title">助動詞 can 肯定文</span><span class="file">g1-can-affirmative-print.html</span></span></a>
+      <a class="card" href="g1-can-negative-question-print.html" data-title="can 否定文 疑問文 can't Can"><span class="no">1-23</span><span><span class="title">can の否定文・疑問文</span><span class="file">g1-can-negative-question-print.html</span></span></a>
+      <a class="card" href="g1-past-tense-sentences-print.html" data-title="一般動詞 過去形 文の作り方"><span class="no">1-24</span><span><span class="title">一般動詞の過去形</span><span class="file">g1-past-tense-sentences-print.html</span></span></a>
+      <a class="card" href="g1-past-verb-rules-print.html" data-title="過去形 動詞 ed 不規則"><span class="no">1-25</span><span><span class="title">過去形の動詞</span><span class="file">g1-past-verb-rules-print.html</span></span></a>
+      <a class="card" href="g1-third-person-s-affirmative-print.html" data-title="三単現 s 肯定文"><span class="no">1-26</span><span><span class="title">三単現のS 肯定文</span><span class="file">g1-third-person-s-affirmative-print.html</span></span></a>
+      <a class="card" href="g1-third-person-s-negative-question-print.html" data-title="三単現 否定文 疑問文 does"><span class="no">1-27</span><span><span class="title">三単現の否定文・疑問文</span><span class="file">g1-third-person-s-negative-question-print.html</span></span></a>
+      <a class="card" href="g1-third-person-singular-print.html" data-title="三人称単数 見分け方 he she it"><span class="no">1-28</span><span><span class="title">三人称単数の見分け方</span><span class="file">g1-third-person-singular-print.html</span></span></a>
+    </section>
+
+    <p id="empty" class="empty">該当するプリントがありません。</p>
+  </main>
+
+  <footer>
+    プリントを開いた後、ブラウザの印刷からA4横で印刷できます。
+  </footer>
+
+  <script>
+    const search = document.querySelector("#search");
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const sections = Array.from(document.querySelectorAll(".section-title"));
+    const count = document.querySelector("#count");
+    const empty = document.querySelector("#empty");
+
+    function normalize(text) {
+      return text.toLowerCase().replace(/\s+/g, "");
+    }
+
+    function updateList() {
+      const value = normalize(search.value);
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const haystack = normalize(`${card.textContent} ${card.dataset.title || ""}`);
+        const show = haystack.includes(value);
+        card.style.display = show ? "" : "none";
+        if (show) visible += 1;
+      });
+
+      sections.forEach((title) => {
+        const grid = title.nextElementSibling;
+        const hasVisibleCard = Array.from(grid.querySelectorAll(".card")).some((card) => card.style.display !== "none");
+        title.style.display = hasVisibleCard ? "" : "none";
+        grid.style.display = hasVisibleCard ? "" : "none";
+      });
+
+      count.textContent = `${visible}件`;
+      empty.style.display = visible === 0 ? "block" : "none";
+    }
+
+    search.addEventListener("input", updateList);
+    updateList();
+  </script>
+</body>
+</html>

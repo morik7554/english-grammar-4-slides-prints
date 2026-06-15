@@ -1,0 +1,586 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中3 関係代名詞：目的格 4分割プリント</title><style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.45;
+    }
+
+    .screen {
+      padding: 14px;
+    }
+
+    .topbar,
+    .layout-notes {
+      max-width: 1440px;
+      margin: 0 auto 16px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #fff;
+      background: #263238;
+      padding: 8px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .slide {
+      --fit: 1;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: calc(23px * var(--fit));
+    }
+
+    .slide-no {
+      color: #4b5563;
+      font-size: calc(14px * var(--fit));
+      white-space: nowrap;
+    }
+
+    .label {
+      margin: 8px 0 4px;
+      border-left: 4px solid #111827;
+      padding-left: 6px;
+      font-size: calc(16px * var(--fit));
+      font-weight: 800;
+    }
+
+    .box,
+    .note,
+    .word-bank {
+      border: 1px solid #9aa3ad;
+      padding: 7px 8px;
+      background: #fff;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .note,
+    .word-bank {
+      background: #f6f7f8;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.45em;
+    }
+
+    .compact-list,
+    .examples {
+      font-size: calc(15px * var(--fit));
+    }
+
+    .compact-list li,
+    .examples li {
+      margin: 1px 0;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: calc(14.5px * var(--fit));
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 130px;
+      height: 1.1em;
+      border-bottom: 1px solid #111827;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 7px;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: calc(14px * var(--fit));
+    }
+
+    .answer-line {
+      display: block;
+      min-height: calc(22px * var(--fit));
+      border-bottom: 1px solid #111827;
+    }
+
+    .hint {
+      display: block;
+      color: #4b5563;
+      font-size: calc(13.5px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .jp-translation {
+      display: block;
+      color: #374151;
+      font-size: calc(13px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .long-line {
+      min-height: calc(26px * var(--fit));
+    }
+
+    .answer-key h2,
+    .layout-notes h2 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .layout-notes ul {
+      font-size: 13px;
+    }
+
+    .answer-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .answer-slide {
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 1.35em;
+      font-size: 13px;
+    }
+
+    .answer-list li {
+      padding-bottom: 4px;
+      border-bottom: 1px solid #d4dae0;
+    }
+
+    .answer-list strong {
+      font-weight: 800;
+    }
+
+    .mini-explain {
+      display: block;
+      color: #4b5563;
+      font-size: 12px;
+      line-height: 1.35;
+      margin-top: 1px;
+    }
+
+    .answer-note {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 5px 6px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .answer-slide .slide-title {
+      font-size: 21px;
+    }
+
+    .answer-slide .slide-no {
+      font-size: 13px;
+    }
+
+    .answer-slide .slide-header {
+      margin-bottom: 7px;
+    }
+
+    .print-page-title {
+      max-width: 1440px;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .explanation-slide {
+      overflow: hidden;
+    }
+
+    .explanation-slide .slide-header {
+      margin-bottom: 8px;
+    }
+
+    .explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 13px;
+    }
+
+    .explanation-box {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 7px 8px;
+    }
+
+    .explanation-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .explanation-box ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .answer-sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .slide,
+      .answer-slide {
+        height: 540px;
+      }
+
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
+      .topbar,
+      .layout-notes {
+        display: none;
+      }
+
+      .sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .answer-sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .slide {
+        --fit: 1.06;
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.2mm;
+        line-height: 1.18;
+      }
+
+      .slide:nth-child(1) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(2) {
+        --fit: 1.34 !important;
+      }
+
+      .slide:nth-child(3) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(4) {
+        --fit: 0.98 !important;
+      }
+
+      .slide-title {
+        font-size: calc(12pt * var(--fit));
+      }
+
+      .slide-header {
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .label {
+        margin: 4px 0 2px;
+        border-left-width: 3px;
+        padding-left: 4px;
+        font-size: calc(8.2pt * var(--fit));
+      }
+
+      .summary-grid {
+        gap: 3px;
+      }
+
+      .box,
+      .note,
+      .word-bank {
+        padding: 3px 4px;
+      }
+
+      .box,
+      .note,
+      .word-bank,
+        .compact-list,
+        .examples,
+        .questions {
+        font-size: calc(7.6pt * var(--fit));
+      }
+
+      .questions {
+        gap: calc(2px * var(--fit));
+      }
+
+      .choices {
+        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
+        margin-top: calc(1px * var(--fit));
+      }
+
+      .choices,
+      .hint,
+      .jp-translation,
+      .write-grid {
+        font-size: calc(7.1pt * var(--fit));
+      }
+
+      .write-grid {
+        gap: calc(3px * var(--fit));
+        margin-top: calc(3px * var(--fit));
+      }
+
+      .line {
+        min-width: 80px;
+      }
+
+      .answer-line {
+        min-height: calc(14px * var(--fit));
+      }
+
+      .long-line {
+        min-height: calc(17px * var(--fit));
+      }
+
+      .print-page-title {
+        display: none;
+      }
+
+      .answer-slide {
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.5mm;
+        line-height: 1.22;
+      }
+
+      .answer-slide .slide-title {
+        font-size: 11.7pt;
+      }
+
+      .answer-slide .slide-no {
+        font-size: 8.4pt;
+      }
+
+      .answer-slide .slide-header {
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+
+      .answer-note {
+        padding: 2px 3px;
+        margin-bottom: 3px;
+        font-size: 7.6pt;
+      }
+
+      .answer-list {
+        gap: 1px;
+        font-size: 7.8pt;
+      }
+
+      .answer-list li {
+        padding-bottom: 2px;
+      }
+
+      .mini-explain {
+        font-size: 6.9pt;
+        line-height: 1.16;
+      }
+    }
+  </style></head><body><main class="screen"><section class="topbar"><div><h1>中3 英語 定期テスト前確認プリント：関係代名詞：目的格</h1><div class="meta">対象学年：中3　文法事項：関係代名詞：目的格</div></div><button type="button" onclick="window.print()">A4横 4分割で印刷</button></section><section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中3　文法事項：関係代名詞：目的格</div><div class="summary-grid"><div class="box"><strong>形</strong><br>先行詞 + which / that + 主語 + 動詞</div><div class="box"><strong>意味</strong><br>「主語が〜するもの」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>that I bought：私が買った</li><li>which we watched：私たちが見た</li><li>目的格の that は省略されることもある</li><li>関係代名詞の後ろは主語 + 動詞</li></ul><div class="label">注意点</div><div class="note">目的格では関係代名詞の後ろに「主語 + 動詞」が来る。<br>○ the book that I bought<br>× the book that bought I</div><div class="label">例文</div><ul class="examples"><li>This is the book that I bought yesterday.</li><li>The movie which we watched was fun.</li><li>I like the song that she sings.</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article><article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions"><li>This is the book ___ I bought yesterday.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>The movie ___ we watched was fun.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>I like the song ___ she sings.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>The bag ___ he uses is new.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>This is the picture ___ I took.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>The cake ___ we ate was good.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>The book ___ Ken likes is long.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li><li>This is the pen ___ I found.<ul class="choices"><li>ア who</li><li>イ that</li><li>ウ where</li><li>エ when</li></ul></li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：that / which / I / we / he / bought / watched / uses</div><ol class="questions"><li>これは私が昨日買った本です。<br>This is the book ____ I bought yesterday.</li><li>私たちが見た映画は楽しかった。<br>The movie ____ we watched was fun.</li><li>私は彼女が歌う歌が好きです。<br>I like the song ____ she sings.</li><li>彼が使っているカバンは新しいです。<br>The bag ____ he uses is new.</li><li>これは私が撮った写真です。<br>This is the picture ____ I took.</li><li>私たちが食べたケーキはおいしかった。<br>The cake ____ we ate was good.</li><li>ケンが好きな本は長いです。<br>The book ____ Ken likes is long.</li><li>これは私が見つけたペンです。<br>This is the pen ____ I found.</li></ol></article><article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions"><li>【 this / the book / is / that I bought yesterday 】<span class="jp-translation">これは私が昨日買った本です。</span><span class="answer-line"></span></li><li>【 the movie / that we watched / was / fun 】<span class="jp-translation">私たちが見た映画は楽しかった。</span><span class="answer-line"></span></li><li>【 I like / the song / that she sings 】<span class="jp-translation">私は彼女が歌う歌が好きです。</span><span class="answer-line"></span></li><li>【 the bag / that he uses / is / new 】<span class="jp-translation">彼が使っているカバンは新しいです。</span><span class="answer-line"></span></li></ol><div class="label">和文英訳</div><ol class="questions"><li>これは私が昨日読んだ本です。<span class="hint">ヒント：book / read</span><span class="answer-line long-line"></span></li><li>私が使っているペンは新しいです。<span class="hint">ヒント：pen / use</span><span class="answer-line long-line"></span></li><li>私たちが食べた昼食はおいしかった。<span class="hint">ヒント：lunch / ate</span><span class="answer-line long-line"></span></li></ol></article></section><h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚"><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Answer 1</span></div><div class="answer-note">ポイント：目的格では which / that の後ろに主語 + 動詞が続く。</div><ol class="answer-list"><li><strong>イ that</strong><span class="mini-explain">目的格の that。</span></li><li><strong>イ that</strong><span class="mini-explain">movie を後ろが説明。</span></li><li><strong>イ that</strong><span class="mini-explain">song が目的語。</span></li><li><strong>イ that</strong><span class="mini-explain">bag が目的語。</span></li><li><strong>イ that</strong><span class="mini-explain">picture が目的語。</span></li><li><strong>イ that</strong><span class="mini-explain">cake が目的語。</span></li><li><strong>イ that</strong><span class="mini-explain">book が目的語。</span></li><li><strong>イ that</strong><span class="mini-explain">pen が目的語。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Answer 2</span></div><div class="answer-note">ポイント：説明される名詞が、後ろの文の目的語になっている。</div><ol class="answer-list"><li><strong>that</strong><span class="mini-explain">book を説明。</span></li><li><strong>that</strong><span class="mini-explain">movie を説明。</span></li><li><strong>that</strong><span class="mini-explain">song を説明。</span></li><li><strong>that</strong><span class="mini-explain">bag を説明。</span></li><li><strong>that</strong><span class="mini-explain">picture を説明。</span></li><li><strong>that</strong><span class="mini-explain">cake を説明。</span></li><li><strong>that</strong><span class="mini-explain">book を説明。</span></li><li><strong>that</strong><span class="mini-explain">pen を説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Answer 3</span></div><div class="answer-note">ポイント：先行詞 + that / which + 主語 + 動詞の語順を作る。</div><ol class="answer-list"><li><strong>This is the book that I bought yesterday.</strong><span class="mini-explain">book を that 以下が説明。</span></li><li><strong>The movie that we watched was fun.</strong><span class="mini-explain">movie を that 以下が説明。</span></li><li><strong>I like the song that she sings.</strong><span class="mini-explain">song を that 以下が説明。</span></li><li><strong>The bag that he uses is new.</strong><span class="mini-explain">bag を that 以下が説明。</span></li><li><strong>This is the book that I read yesterday.</strong><span class="mini-explain">book を that 以下が説明。</span></li><li><strong>The pen that I use is new.</strong><span class="mini-explain">pen を that 以下が説明。</span></li><li><strong>The lunch that we ate was good.</strong><span class="mini-explain">lunch を that 以下が説明。</span></li></ol></article><article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Plus</span></div><div class="answer-note">ものを「私が〜した」と説明するときに使える表現。</div><ol class="answer-list"><li><strong>This is the book that I bought.</strong><span class="mini-explain">これは私が買った本です。</span></li><li><strong>The movie that we watched was fun.</strong><span class="mini-explain">私たちが見た映画は楽しかった。</span></li><li><strong>I like the song that she sings.</strong><span class="mini-explain">彼女が歌う歌が好きです。</span></li><li><strong>The bag that he uses is new.</strong><span class="mini-explain">彼が使うカバンは新しいです。</span></li><li><strong>This is the picture that I took.</strong><span class="mini-explain">これは私が撮った写真です。</span></li><li><strong>The cake that we ate was good.</strong><span class="mini-explain">私たちが食べたケーキはおいしかった。</span></li><li><strong>The book that Ken likes is long.</strong><span class="mini-explain">ケンが好きな本は長いです。</span></li><li><strong>This is the pen that I found.</strong><span class="mini-explain">これは私が見つけたペンです。</span></li></ol></article></section><section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>目的格の関係代名詞 which / that を中心にしています。</li></ul></section></main><script>
+    function slideOverflows(slide) {
+      return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        let low = 0.56;
+        let high = isPrintFit ? 2.05 : 1.55;
+        let best = low;
+
+        slide.style.setProperty("--fit", high.toFixed(3));
+        if (!slideOverflows(slide)) {
+          best = high;
+        } else {
+          for (let i = 0; i < 12; i += 1) {
+            const mid = (low + high) / 2;
+            slide.style.setProperty("--fit", mid.toFixed(3));
+            if (slideOverflows(slide)) {
+              high = mid;
+            } else {
+              best = mid;
+              low = mid;
+            }
+          }
+        }
+
+        slide.style.setProperty("--fit", best.toFixed(3));
+      });
+    }
+
+    let fitTimer = 0;
+    function queueFitSlideText() {
+      window.clearTimeout(fitTimer);
+      fitTimer = window.setTimeout(fitSlideText, 60);
+    }
+
+    function fitForPrint() {
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.removeProperty("--fit");
+      });
+    }
+
+    window.addEventListener("load", fitSlideText);
+    window.addEventListener("resize", queueFitSlideText);
+    window.addEventListener("beforeprint", fitForPrint);
+    window.addEventListener("afterprint", queueFitSlideText);
+    window.fitSlideText = fitSlideText;
+  </script></body></html>

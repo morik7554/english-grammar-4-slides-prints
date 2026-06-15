@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>中1 疑問詞 where の文 4分割プリント</title><style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.45;
+    }
+
+    .screen {
+      padding: 14px;
+    }
+
+    .topbar,
+    .layout-notes {
+      max-width: 1440px;
+      margin: 0 auto 16px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 14px 16px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid #263238;
+      border-radius: 6px;
+      color: #fff;
+      background: #263238;
+      padding: 8px 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .slide {
+      --fit: 1;
+      min-height: 0;
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: calc(23px * var(--fit));
+    }
+
+    .slide-no {
+      color: #4b5563;
+      font-size: calc(14px * var(--fit));
+      white-space: nowrap;
+    }
+
+    .label {
+      margin: 8px 0 4px;
+      border-left: 4px solid #111827;
+      padding-left: 6px;
+      font-size: calc(16px * var(--fit));
+      font-weight: 800;
+    }
+
+    .box,
+    .note,
+    .word-bank {
+      border: 1px solid #9aa3ad;
+      padding: 7px 8px;
+      background: #fff;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .note,
+    .word-bank {
+      background: #f6f7f8;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.45em;
+    }
+
+    .compact-list,
+    .examples {
+      font-size: calc(15px * var(--fit));
+    }
+
+    .compact-list li,
+    .examples li {
+      margin: 1px 0;
+    }
+
+    .write-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: calc(14.5px * var(--fit));
+    }
+
+    .line {
+      display: inline-block;
+      min-width: 130px;
+      height: 1.1em;
+      border-bottom: 1px solid #111827;
+      vertical-align: -0.1em;
+    }
+
+    .questions {
+      display: grid;
+      gap: 7px;
+      font-size: calc(15px * var(--fit));
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px 6px;
+      margin-top: 2px;
+      padding-left: 0;
+      list-style: none;
+      font-size: calc(14px * var(--fit));
+    }
+
+    .answer-line {
+      display: block;
+      min-height: calc(22px * var(--fit));
+      border-bottom: 1px solid #111827;
+    }
+
+    .hint {
+      display: block;
+      color: #4b5563;
+      font-size: calc(13.5px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .jp-translation {
+      display: block;
+      color: #374151;
+      font-size: calc(13px * var(--fit));
+      margin-top: 1px;
+    }
+
+    .long-line {
+      min-height: calc(26px * var(--fit));
+    }
+
+    .answer-key h2,
+    .layout-notes h2 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .answer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .layout-notes ul {
+      font-size: 13px;
+    }
+
+    .answer-sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1440px;
+      aspect-ratio: 281 / 194;
+      margin: 0 auto 18px;
+      padding: 10px;
+      background: #d4dae0;
+    }
+
+    .answer-slide {
+      overflow: hidden;
+      border: 1px solid #5d6670;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 1.35em;
+      font-size: 14px;
+    }
+
+    .answer-list li {
+      padding-bottom: 4px;
+      border-bottom: 1px solid #d4dae0;
+    }
+
+    .answer-list strong {
+      font-weight: 800;
+    }
+
+    .mini-explain {
+      display: block;
+      color: #4b5563;
+      font-size: 13px;
+      line-height: 1.35;
+      margin-top: 1px;
+    }
+
+    .answer-note {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 5px 6px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .answer-slide .slide-title {
+      font-size: 21px;
+    }
+
+    .answer-slide .slide-no {
+      font-size: 13px;
+    }
+
+    .answer-slide .slide-header {
+      margin-bottom: 7px;
+    }
+
+    .print-page-title {
+      max-width: 1440px;
+      margin: 0 auto 8px;
+      font-size: 18px;
+    }
+
+    .explanation-slide {
+      overflow: hidden;
+    }
+
+    .explanation-slide .slide-header {
+      margin-bottom: 8px;
+    }
+
+    .explanation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 13px;
+    }
+
+    .explanation-box {
+      border: 1px solid #9aa3ad;
+      background: #f6f7f8;
+      padding: 7px 8px;
+    }
+
+    .explanation-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .explanation-box ul {
+      padding-left: 1.2em;
+    }
+
+    @media (max-width: 900px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .answer-sheet {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        aspect-ratio: auto;
+      }
+
+      .slide,
+      .answer-slide {
+        height: 540px;
+      }
+
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .screen {
+        padding: 0;
+      }
+
+      .topbar,
+      .layout-notes {
+        display: none;
+      }
+
+      .sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+
+      .answer-sheet {
+        width: 281mm;
+        height: 193mm;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        border-top: 1px solid #111;
+        border-left: 1px solid #111;
+        background: #fff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .slide {
+        --fit: 1.06;
+        min-height: auto;
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.2mm;
+        line-height: 1.18;
+      }
+
+      .slide:nth-child(1) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(2) {
+        --fit: 1.34 !important;
+      }
+
+      .slide:nth-child(3) {
+        --fit: 1.22 !important;
+      }
+
+      .slide:nth-child(4) {
+        --fit: 0.98 !important;
+      }
+
+      .slide-title {
+        font-size: calc(12pt * var(--fit));
+      }
+
+      .slide-header {
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .label {
+        margin: 4px 0 2px;
+        border-left-width: 3px;
+        padding-left: 4px;
+        font-size: calc(8.2pt * var(--fit));
+      }
+
+      .summary-grid {
+        gap: 3px;
+      }
+
+      .box,
+      .note,
+      .word-bank {
+        padding: 3px 4px;
+      }
+
+      .box,
+      .note,
+      .word-bank,
+        .compact-list,
+        .examples,
+        .questions {
+        font-size: calc(7.6pt * var(--fit));
+      }
+
+      .questions {
+        gap: calc(2px * var(--fit));
+      }
+
+      .choices {
+        gap: calc(1px * var(--fit)) calc(4px * var(--fit));
+        margin-top: calc(1px * var(--fit));
+      }
+
+      .choices,
+      .hint,
+      .jp-translation,
+      .write-grid {
+        font-size: calc(7.1pt * var(--fit));
+      }
+
+      .write-grid {
+        gap: calc(3px * var(--fit));
+        margin-top: calc(3px * var(--fit));
+      }
+
+      .line {
+        min-width: 80px;
+      }
+
+      .answer-line {
+        min-height: calc(14px * var(--fit));
+      }
+
+      .long-line {
+        min-height: calc(17px * var(--fit));
+      }
+
+      .print-page-title {
+        display: none;
+      }
+
+      .answer-slide {
+        border: 0;
+        border-right: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 3.5mm;
+        line-height: 1.22;
+      }
+
+      .answer-slide .slide-title {
+        font-size: 11.7pt;
+      }
+
+      .answer-slide .slide-no {
+        font-size: 8.4pt;
+      }
+
+      .answer-slide .slide-header {
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+
+      .answer-note {
+        padding: 2px 3px;
+        margin-bottom: 3px;
+        font-size: 7.6pt;
+      }
+
+      .answer-list {
+        gap: 1px;
+        font-size: 8.3pt;
+      }
+
+      .answer-list li {
+        padding-bottom: 2px;
+      }
+
+      .mini-explain {
+        font-size: 7.3pt;
+        line-height: 1.16;
+      }
+    }
+  </style></head>
+<body><main class="screen"><section class="topbar"><div><h1>中1 英語 定期テスト前確認プリント：疑問詞 where の文</h1><div class="meta">対象学年：中1　文法事項：疑問詞 where の文</div></div><button type="button" onclick="window.print()">A4横 4分割で印刷</button></section>
+<section class="sheet" aria-label="4分割プリント"><article class="slide"><div class="slide-header"><h2 class="slide-title">文法まとめ</h2><span class="slide-no">Slide 1</span></div><div class="note">対象学年：中1　文法事項：疑問詞 where の文</div><div class="summary-grid"><div class="box"><strong>形</strong><br>Where + do / are / is ... ?</div><div class="box"><strong>意味</strong><br>「どこ」</div></div><div class="label">よく使う語句</div><ul class="compact-list"><li>Where：どこ</li><li>Where are you from?：どこ出身ですか</li><li>Where is ... ?：〜はどこですか</li><li>in the park：公園で</li></ul><div class="label">注意点</div><div class="note">Where は場所をたずねる疑問詞。文の最初に置く。<br>○ Where are you from?</div><div class="label">例文</div><ul class="examples"><li>Where are you from?</li><li>Where do you play soccer?</li><li>Where is my bag?</li></ul><div class="label">メモ欄</div><div class="write-grid"><div>メモ：<span class="line"></span></div><div>メモ：<span class="line"></span></div></div></article>
+<article class="slide"><div class="slide-header"><h2 class="slide-title">選択問題</h2><span class="slide-no">Slide 2</span></div><ol class="questions">
+          <li>___ is your bag? — It is on the desk.
+            <ul class="choices"><li>ア Where</li><li>イ What</li><li>ウ Who</li><li>エ When</li></ul>
+          </li>
+          <li>Where ___ you live?
+            <ul class="choices"><li>ア does</li><li>イ do</li><li>ウ are</li><li>エ is</li></ul>
+          </li>
+          <li>___ do you study? — In my room.
+            <ul class="choices"><li>ア What</li><li>イ Who</li><li>ウ Where</li><li>エ When</li></ul>
+          </li>
+          <li>Where is Ken? — ___ is in the library.
+            <ul class="choices"><li>ア She</li><li>イ They</li><li>ウ It</li><li>エ He</li></ul>
+          </li>
+          <li>Where do you ___ soccer?
+            <ul class="choices"><li>ア play</li><li>イ plays</li><li>ウ playing</li><li>エ played</li></ul>
+          </li>
+          <li>Where ___ she from?
+            <ul class="choices"><li>ア am</li><li>イ is</li><li>ウ are</li><li>エ do</li></ul>
+          </li>
+          <li>日本語「あなたはどこで昼食を食べますか」に合う英文はどれですか。
+            <ul class="choices"><li>ア What do you eat lunch?</li><li>イ Who do you eat lunch?</li><li>ウ Where do you eat lunch?</li><li>エ When do you eat lunch?</li></ul>
+          </li>
+          <li>誤りのない文はどれですか。
+            <ul class="choices"><li>ア Where is your school?</li><li>イ Where your school is?</li><li>ウ Where do your school?</li><li>エ Where are your school?</li></ul>
+          </li>
+        </ol></article>
+<article class="slide"><div class="slide-header"><h2 class="slide-title">穴埋め問題</h2><span class="slide-no">Slide 3</span></div><div class="word-bank">語群：Where / are / is / do / you / from / play / bag</div><ol class="questions">
+          <li>あなたはどこ出身ですか。<br>____ are you from?</li>
+          <li>私のカバンはどこですか。<br>____ is my bag?</li>
+          <li>あなたはどこでサッカーをしますか。<br>____ do you play soccer?</li>
+          <li>私は日本出身です。<br>I am ____ Japan.</li>
+          <li>私は公園でサッカーをします。<br>I play soccer ____ the park.</li>
+          <li>あなたはどこで英語を勉強しますか。<br>Where do you ____ English?</li>
+          <li>私のカバンは机の上です。<br>My bag is ____ the desk.</li>
+          <li>それは机の上です。<br>It ____ on the desk.</li>
+        </ol></article>
+<article class="slide"><div class="slide-header"><h2 class="slide-title">並び替え＋和文英訳</h2><span class="slide-no">Slide 4</span></div><div class="label">並び替え</div><ol class="questions">
+          <li>【 you / Where / from / are 】<span class="jp-translation">あなたはどこ出身ですか。</span><span class="answer-line"></span></li>
+          <li>【 is / my bag / Where 】<span class="jp-translation">私のカバンはどこですか。</span><span class="answer-line"></span></li>
+          <li>【 you / Where / play soccer / do 】<span class="jp-translation">あなたはどこでサッカーをしますか。</span><span class="answer-line"></span></li>
+          <li>【 play soccer / in the park / I 】<span class="jp-translation">私は公園でサッカーをします。</span><span class="answer-line"></span></li>
+        </ol><div class="label">和文英訳</div><ol class="questions">
+          <li>あなたはどこで英語を勉強しますか。<span class="hint">ヒント：Where / study</span><span class="answer-line long-line"></span></li>
+          <li>私は日本出身です。<span class="hint">ヒント：from / Japan</span><span class="answer-line long-line"></span></li>
+          <li>私のペンは机の上です。<span class="hint">ヒント：pen / desk</span><span class="answer-line long-line"></span></li>
+        </ol></article></section>
+<h2 class="print-page-title">生徒配布用 解答スライド</h2><section class="answer-sheet" aria-label="解答スライド4枚">
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">覚えておきたい表現</h2><span class="slide-no">Slide 5</span></div><div class="answer-note">Where を使うよくある質問表現。</div><ol class="answer-list">
+          <li><strong>Where are you from?</strong><span class="mini-explain">あなたはどこ出身ですか。</span></li>
+          <li><strong>I am from Japan.</strong><span class="mini-explain">私は日本出身です。</span></li>
+          <li><strong>Where is my bag?</strong><span class="mini-explain">私のカバンはどこですか。</span></li>
+          <li><strong>It is on the desk.</strong><span class="mini-explain">それは机の上です。</span></li>
+          <li><strong>Where do you play soccer?</strong><span class="mini-explain">どこでサッカーをしますか。</span></li>
+          <li><strong>I play soccer in the park.</strong><span class="mini-explain">公園でサッカーをします。</span></li>
+          <li><strong>Where do you study English?</strong><span class="mini-explain">どこで英語を勉強しますか。</span></li>
+          <li><strong>I study at home.</strong><span class="mini-explain">家で勉強します。</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide2：選択問題</h2><span class="slide-no">Slide 6</span></div><div class="answer-note">ポイント：この単元の範囲内で、形・語順・後続語・否定文・疑問文・意味を確認する。</div><ol class="answer-list">
+          <li><strong>ア Where</strong><span class="mini-explain">場所は Where。</span></li>
+          <li><strong>イ do</strong><span class="mini-explain">Where do you live?</span></li>
+          <li><strong>ウ Where</strong><span class="mini-explain">場所をたずねる。</span></li>
+          <li><strong>エ He</strong><span class="mini-explain">Ken は He。</span></li>
+          <li><strong>ア play</strong><span class="mini-explain">do の後ろは原形。</span></li>
+          <li><strong>イ is</strong><span class="mini-explain">She is from ...?</span></li>
+          <li><strong>ウ Where do you eat lunch?</strong><span class="mini-explain">どこで は Where。</span></li>
+          <li><strong>ア Where is your school?</strong><span class="mini-explain">Where is ...?</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide3：穴埋め問題</h2><span class="slide-no">Slide 7</span></div><div class="answer-note">ポイント：Where を文頭に置いて質問文を作る。</div><ol class="answer-list">
+          <li><strong>Where</strong><span class="mini-explain">Where are you from?</span></li>
+          <li><strong>Where</strong><span class="mini-explain">Where is。</span></li>
+          <li><strong>Where</strong><span class="mini-explain">Where do。</span></li>
+          <li><strong>from</strong><span class="mini-explain">from Japan。</span></li>
+          <li><strong>in</strong><span class="mini-explain">in the park。</span></li>
+          <li><strong>study</strong><span class="mini-explain">study English。</span></li>
+          <li><strong>on</strong><span class="mini-explain">on the desk。</span></li>
+          <li><strong>is</strong><span class="mini-explain">It is。</span></li>
+        </ol></article>
+<article class="answer-slide"><div class="slide-header"><h2 class="slide-title">解答 Slide4：並び替え＋和文英訳</h2><span class="slide-no">Slide 8</span></div><div class="answer-note">ポイント：Where + do / are / is の語順を作る。</div><ol class="answer-list">
+          <li><strong>Where are you from?</strong><span class="mini-explain">Where を文頭へ。</span></li>
+          <li><strong>Where is my bag?</strong><span class="mini-explain">Where is。</span></li>
+          <li><strong>Where do you play soccer?</strong><span class="mini-explain">Where do you。</span></li>
+          <li><strong>I play soccer in the park.</strong><span class="mini-explain">in the park。</span></li>
+          <li><strong>Where do you study English?</strong><span class="mini-explain">Where do you。</span></li>
+          <li><strong>I am from Japan.</strong><span class="mini-explain">from Japan。</span></li>
+          <li><strong>My pen is on the desk.</strong><span class="mini-explain">on the desk。</span></li>
+        </ol></article></section>
+<section class="layout-notes"><h2>レイアウト上の工夫</h2><ul><li>A4横1枚を2×2に分け、1スライドを約140.5mm×97mmとして印刷できるようにしています。</li><li>白黒印刷でも見やすいよう、装飾を抑えて枠線・下線・見出しで整理しています。</li><li>Slide3とSlide4は書き込み欄を優先し、イラストは入れていません。</li><li>疑問詞 Where の基本文にしぼっています。</li></ul></section></main><script>
+    function slideOverflows(slide) {
+      return slide.scrollHeight > slide.clientHeight + 1 || slide.scrollWidth > slide.clientWidth + 1;
+    }
+
+    function fitSlideText(options = {}) {
+      const isPrintFit = options.print || window.matchMedia("print").matches;
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((slide) => {
+        let low = 0.56;
+        let high = isPrintFit ? 2.05 : 1.55;
+        let best = low;
+
+        slide.style.setProperty("--fit", high.toFixed(3));
+        if (!slideOverflows(slide)) {
+          best = high;
+        } else {
+          for (let i = 0; i < 12; i += 1) {
+            const mid = (low + high) / 2;
+            slide.style.setProperty("--fit", mid.toFixed(3));
+            if (slideOverflows(slide)) {
+              high = mid;
+            } else {
+              best = mid;
+              low = mid;
+            }
+          }
+        }
+
+        slide.style.setProperty("--fit", best.toFixed(3));
+      });
+    }
+
+    let fitTimer = 0;
+    function queueFitSlideText() {
+      window.clearTimeout(fitTimer);
+      fitTimer = window.setTimeout(fitSlideText, 60);
+    }
+
+    function fitForPrint() {
+      document.querySelectorAll(".slide").forEach((slide) => {
+        slide.style.removeProperty("--fit");
+      });
+    }
+
+    window.addEventListener("load", fitSlideText);
+    window.addEventListener("resize", queueFitSlideText);
+    window.addEventListener("beforeprint", fitForPrint);
+    window.addEventListener("afterprint", queueFitSlideText);
+    window.fitSlideText = fitSlideText;
+  </script></body></html>

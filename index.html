@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中学校英語 文法プリント一覧</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111827;
+      background: #eef1f4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.55;
+    }
+
+    header {
+      border-bottom: 1px solid #c5ccd3;
+      background: #fff;
+      padding: 28px 24px;
+    }
+
+    .header-inner,
+    main,
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    .lead {
+      margin: 0;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    main {
+      padding: 28px 24px 44px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      border-left: 5px solid #111827;
+      padding-left: 9px;
+      font-size: 18px;
+    }
+
+    .grade-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grade-card {
+      display: grid;
+      gap: 10px;
+      min-height: 210px;
+      border: 1px solid #b8c0c8;
+      border-radius: 8px;
+      color: inherit;
+      background: #fff;
+      padding: 18px;
+      text-decoration: none;
+    }
+
+    .grade-card:hover,
+    .grade-card:focus-visible {
+      border-color: #111827;
+      outline: 2px solid #111827;
+      outline-offset: 1px;
+    }
+
+    .grade-label {
+      display: inline-grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border: 2px solid #111827;
+      border-radius: 8px;
+      background: #f6f7f8;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .grade-title {
+      margin: 2px 0 0;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .grade-desc {
+      margin: 0;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .count {
+      margin-top: auto;
+      border-top: 1px solid #d1d7de;
+      padding-top: 10px;
+      color: #374151;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .usage {
+      margin-top: 22px;
+      border: 1px solid #b8c0c8;
+      background: #fff;
+      padding: 16px 18px;
+    }
+
+    .usage h2 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .usage ol {
+      margin: 0;
+      padding-left: 22px;
+      color: #374151;
+    }
+
+    footer {
+      padding: 0 24px 28px;
+      color: #4b5563;
+      font-size: 13px;
+    }
+
+    @media (max-width: 840px) {
+      .grade-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header,
+      main,
+      footer {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>中学校英語 文法プリント一覧</h1>
+      <p class="lead">学年を選ぶと、その学年の文法プリント一覧ページを開けます。</p>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">学年を選択</h2>
+    <section class="grade-grid" aria-label="学年選択">
+      <a class="grade-card" href="grade1-grammar-index.html">
+        <span class="grade-label">中1</span>
+        <span>
+          <strong class="grade-title">中1英語 文法プリント</strong>
+          <p class="grade-desc">be動詞、一般動詞、疑問詞、現在進行形、can、過去形、三単現など。</p>
+        </span>
+        <span class="count">28文法</span>
+      </a>
+
+      <a class="grade-card" href="grade2-grammar-index.html">
+        <span class="grade-label">中2</span>
+        <span>
+          <strong class="grade-title">中2英語 文法プリント</strong>
+          <p class="grade-desc">過去進行形、不定詞、動名詞、助動詞、接続詞、比較、受動態など。</p>
+        </span>
+        <span class="count">37文法</span>
+      </a>
+
+      <a class="grade-card" href="grade3-grammar-index.html">
+        <span class="grade-label">中3</span>
+        <span>
+          <strong class="grade-title">中3英語 文法プリント</strong>
+          <p class="grade-desc">現在完了、受け身、間接疑問文、後置修飾、関係代名詞、前置詞まとめなど。</p>
+        </span>
+        <span class="count">17文法</span>
+      </a>
+    </section>
+
+    <section class="usage">
+      <h2>使い方</h2>
+      <ol>
+        <li>学年を選択します。</li>
+        <li>各学年ページで文法名をクリックします。</li>
+        <li>開いたプリントをブラウザからA4横で印刷します。</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    各プリントはA4横・4分割・問題4枚＋解答4枚の形式です。
+  </footer>
+</body>
+</html>
